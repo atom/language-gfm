@@ -1,3 +1,18 @@
 {
-  "description": "Syntax highlighting and snippets for GitHub Flavored Markdown (GFM)."
+  "name": "gfm",
+  "version": "0.0.0",
+  "description": "Syntax highlighting and snippets for GitHub Flavored Markdown (GFM).",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atom/gfm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/atom/gfm/issues"
+  },
+  "engines": {
+    "atom": "*"
+  },
+  "publishConfig": {
+    "registry": "https://atom.iriscouch.com/registry/_design/app/_rewrite"
+  }
 }
