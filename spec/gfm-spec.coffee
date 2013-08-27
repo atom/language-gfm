@@ -96,6 +96,9 @@ describe "GitHub Flavored Markdown grammar", ->
     {tokens} = grammar.tokenizeLine("this is :no good:")
     expect(tokens[0]).toEqual value: "this is :no good:", scopes: ["source.gfm"]
 
+    {tokens} = grammar.tokenizeLine("http://localhost:8080")
+    expect(tokens[0]).toEqual value: "http://localhost:8080", scopes: ["source.gfm"]
+
   it "tokenizes a ``` code block```", ->
     {tokens, ruleStack} = grammar.tokenizeLine("```mylanguage")
     expect(tokens[0]).toEqual value: "```mylanguage", scopes: ["source.gfm", "markup.raw.gfm", "support.gfm"]

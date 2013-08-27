@@ -39,7 +39,7 @@
     ]
   }
   {
-    'match': '(\\:)([^\\:\\s]+)(\\:)'
+    'match': '(\\:)([^\/\\:\\s]+)(\\:)'
     'name': 'string.emoji.gfm'
     'captures':
       '1': 'name': 'string.emoji.start.gfm'
