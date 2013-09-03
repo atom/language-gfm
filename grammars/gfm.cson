@@ -75,6 +75,16 @@
     'patterns': ['include': 'source.js']
   }
   {
+    'begin': '^`{3,}\\s*json$'
+    'beginCaptures':
+      '0': 'name': 'support.gfm'
+    'end': '^`{3,}$'
+    'endCaptures':
+      '0': 'name': 'support.gfm'
+    'name': 'markup.code.json.gfm'
+    'patterns': ['include': 'source.json']
+  }
+  {
     'begin': '^`{3,}\\s*css$'
     'beginCaptures':
       '0': 'name': 'support.gfm'
