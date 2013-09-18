@@ -1,5 +1,3 @@
-TextMatePackage = require 'text-mate-package'
-
 describe "GitHub Flavored Markdown grammar", ->
   grammar = null
 
