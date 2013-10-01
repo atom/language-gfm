@@ -1,6 +1,6 @@
 {
   "name": "gfm",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Syntax highlighting and snippets for GitHub Flavored Markdown (GFM).",
   "repository": {
     "type": "git",
