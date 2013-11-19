@@ -2,10 +2,10 @@ describe "GitHub Flavored Markdown grammar", ->
   grammar = null
 
   beforeEach ->
-    spyOn(syntax, "addGrammar").andCallThrough()
-    atom.activatePackage("language-gfm", sync: true)
-    expect(syntax.addGrammar).toHaveBeenCalled()
-    grammar = syntax.addGrammar.argsForCall[0][0]
+    spyOn(atom.syntax, "addGrammar").andCallThrough()
+    atom.packages.activatePackage("language-gfm", sync: true)
+    expect(atom.syntax.addGrammar).toHaveBeenCalled()
+    grammar = atom.syntax.addGrammar.argsForCall[0][0]
 
   it "parses the grammar", ->
     expect(grammar).toBeDefined()
