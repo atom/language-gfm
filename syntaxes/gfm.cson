@@ -47,6 +47,20 @@
       '3': 'name': 'string.emoji.end.gfm'
   }
   {
+    'match': '(&)[a-zA-Z]+(;)'
+    'name': 'constant.character.entity.gfm'
+    'captures':
+      '1': 'name': 'punctuation.definition.entity.gfm'
+      '2': 'name': 'punctuation.definition.entity.gfm'
+  }
+  {
+    'match': '(&)#[0-9]+(;)'
+    'name': 'constant.character.entity.gfm'
+    'captures':
+      '1': 'name': 'punctuation.definition.entity.gfm'
+      '2': 'name': 'punctuation.definition.entity.gfm'
+  }
+  {
     'match': '^\\s*[\\*]{3,}\\s*$'
     'name': 'comment.hr.gfm'
   }
