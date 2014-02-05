@@ -109,6 +109,16 @@
     'patterns': ['include': 'source.css']
   }
   {
+    'begin': '^`{3,}\\s*less\\s*$'
+    'beginCaptures':
+      '0': 'name': 'support.gfm'
+    'end': '^`{3,}$'
+    'endCaptures':
+      '0': 'name': 'support.gfm'
+    'name': 'markup.code.less.gfm'
+    'patterns': ['include': 'source.css.less']
+  }
+  {
     'begin': '^`{3,}\\s*xml\\s*$'
     'beginCaptures':
       '0': 'name': 'support.gfm'
