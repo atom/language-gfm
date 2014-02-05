@@ -1,16 +1,16 @@
 '.source.gfm':
   'bold text':
-    prefix: 'b'
-    body: '**$1**$0'
+    'prefix': 'b'
+    'body': '**$1**$0'
   'embedded image':
-    prefix: 'img'
-    body: '![$1]($2)$0'
+    'prefix': 'img'
+    'body': '![$1]($2)$0'
   'italic text':
-    prefix: 'i'
-    body: '*$1*$0'
+    'prefix': 'i'
+    'body': '*$1*$0'
   'link':
-    prefix: 'l'
-    body: '[$1]($2)$0'
+    'prefix': 'l'
+    'body': '[$1]($2)$0'
   'code':
-    prefix: 'code'
-    body: '```$1\n$2\n```$0'
+    'prefix': 'code'
+    'body': '```$1\n$2\n```$0'
