@@ -196,6 +196,20 @@
       '2': 'name': 'markup.underline.link.gfm'
   }
   {
+    'match': '^\\s*\\[([^\\]]+)\\]\\s*:\\s*<([^>]+)>'
+    'name': 'link'
+    'captures':
+      '1': 'name': 'entity.gfm'
+      '2': 'name': 'markup.underline.link.gfm'
+  }
+  {
+    'match': '^\\s*\\[([^\\]]+)\\]\\s*:\\s*(\\S+)'
+    'name': 'link'
+    'captures':
+      '1': 'name': 'entity.gfm'
+      '2': 'name': 'markup.underline.link.gfm'
+  }
+  {
     'match': '^\\s*([\\*\\+-])[ \\t]+'
     'captures':
       '1': 'name': 'variable.list.gfm'
