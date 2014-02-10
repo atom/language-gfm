@@ -2,8 +2,11 @@ describe "GitHub Flavored Markdown grammar", ->
   grammar = null
 
   beforeEach ->
-    atom.packages.activatePackage("language-gfm", sync: true)
-    grammar = atom.syntax.grammarForScopeName("source.gfm")
+    waitsForPromise ->
+      atom.packages.activatePackage("language-gfm")
+
+    runs ->
+      grammar = atom.syntax.grammarForScopeName("source.gfm")
 
   it "parses the grammar", ->
     expect(grammar).toBeDefined()
