@@ -169,6 +169,16 @@
     'patterns': ['include': 'source.shell']
   }
   {
+    'begin': '^`{3,}\\s*(objc|objective-c)\\s*$'
+    'beginCaptures':
+      '0': 'name': 'support.gfm'
+    'end': '^`{3,}$'
+    'endCaptures':
+      '0': 'name': 'support.gfm'
+    'name': 'markup.code.objc.gfm'
+    'patterns': ['include': 'source.objc']
+  }
+  {
     'begin': '^`{3,}.*$'
     'beginCaptures':
       '0': 'name': 'support.gfm'
