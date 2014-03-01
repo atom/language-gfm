@@ -69,6 +69,10 @@
     'name': 'comment.hr.gfm'
   }
   {
+    'match': '^\\s{4}.+$'
+    'name': 'markup.code.raw.gfm'
+  }
+  {
     'begin': '^`{3,}\\s*coffee-?(script)?\\s*$'
     'beginCaptures':
       '0': 'name': 'support.gfm'
