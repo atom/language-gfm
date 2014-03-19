@@ -28,7 +28,7 @@ describe "GitHub Flavored Markdown grammar", ->
     {tokens} = grammar.tokenizeLine("not**bold**")
     expect(tokens[0]).toEqual value: "not**bold**", scopes: ["source.gfm"]
 
-  it "tokenizes **bold** text", ->
+  it "tokenizes spaces", ->
     {tokens} = grammar.tokenizeLine(" ")
     expect(tokens[0]).toEqual value: " ", scopes: ["source.gfm"]
 
