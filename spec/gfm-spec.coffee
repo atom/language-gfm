@@ -168,27 +168,43 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(tokens[3]).toEqual value: "http://website", scopes: ["source.gfm", "link", "markup.underline.link.gfm"]
     expect(tokens[4]).toEqual value: ">", scopes: ["source.gfm", "link"]
 
-  it "tokenizes lists", ->
+  it "tokenizes unordered lists", ->
     {tokens} = grammar.tokenizeLine("*Item 1")
     expect(tokens[0]).toEqual value: "*Item 1", scopes: ["source.gfm"]
 
     {tokens} = grammar.tokenizeLine("  * Item 1")
     expect(tokens[0]).toEqual value: "  ", scopes: ["source.gfm"]
-    expect(tokens[1]).toEqual value: "*", scopes: ["source.gfm", "variable.list.gfm"]
+    expect(tokens[1]).toEqual value: "*", scopes: ["source.gfm", "variable.unordered.list.gfm"]
     expect(tokens[2]).toEqual value: " ", scopes: ["source.gfm"]
     expect(tokens[3]).toEqual value: "Item 1", scopes: ["source.gfm"]
 
     {tokens} = grammar.tokenizeLine("  + Item 2")
     expect(tokens[0]).toEqual value: "  ", scopes: ["source.gfm"]
-    expect(tokens[1]).toEqual value: "+", scopes: ["source.gfm", "variable.list.gfm"]
+    expect(tokens[1]).toEqual value: "+", scopes: ["source.gfm", "variable.unordered.list.gfm"]
     expect(tokens[2]).toEqual value: " ", scopes: ["source.gfm"]
     expect(tokens[3]).toEqual value: "Item 2", scopes: ["source.gfm"]
 
     {tokens} = grammar.tokenizeLine("  - Item 3")
     expect(tokens[0]).toEqual value: "  ", scopes: ["source.gfm"]
-    expect(tokens[1]).toEqual value: "-", scopes: ["source.gfm", "variable.list.gfm"]
+    expect(tokens[1]).toEqual value: "-", scopes: ["source.gfm", "variable.unordered.list.gfm"]
     expect(tokens[2]).toEqual value: " ", scopes: ["source.gfm"]
     expect(tokens[3]).toEqual value: "Item 3", scopes: ["source.gfm"]
+
+  it "tokenizes ordered lists", ->
+    {tokens} = grammar.tokenizeLine("1.First Item")
+    expect(tokens[0]).toEqual value: "1.First Item", scopes: ["source.gfm"]
+
+    {tokens} = grammar.tokenizeLine("1. First Item")
+    expect(tokens[0]).toEqual value: "1. ", scopes: ["source.gfm", "variable.ordered.list.gfm"]
+    expect(tokens[1]).toEqual value: "First Item", scopes: ["source.gfm"]
+
+    {tokens} = grammar.tokenizeLine("10. Tenth Item")
+    expect(tokens[0]).toEqual value: "10. ", scopes: ["source.gfm", "variable.ordered.list.gfm"]
+    expect(tokens[1]).toEqual value: "Tenth Item", scopes: ["source.gfm"]
+
+    {tokens} = grammar.tokenizeLine("111. Hundred and eleventh item")
+    expect(tokens[0]).toEqual value: "111. ", scopes: ["source.gfm", "variable.ordered.list.gfm"]
+    expect(tokens[1]).toEqual value: "Hundred and eleventh item", scopes: ["source.gfm"]
 
   it "tokenizes > quoted text", ->
     {tokens} = grammar.tokenizeLine("> Quotation")
