@@ -265,7 +265,7 @@
       '1': 'name': 'variable.unordered.list.gfm'
   }
   {
-    'match': '^\\s*\\d*\\. '
+    'match': '^\\s*\\d*\\.[ \\t]+'
     'name': 'variable.ordered.list.gfm'
   }
   {
