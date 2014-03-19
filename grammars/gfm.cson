@@ -11,27 +11,19 @@
 'patterns': [
   {
     'match': '(?<=^|\\s)(\\*{2}[^\\*]+\\*{2})'
-    'captures':
-      '0':
-        'name': 'markup.bold.gfm'
+    'name': 'markup.bold.gfm'
   }
   {
     'match': '(?<=^|\\s)(_{2}[^_]+_{2})'
-    'captures':
-      '0':
-        'name': 'markup.bold.gfm'
+    'name': 'markup.bold.gfm'
   }
   {
     'match': '(?<=^|\\s)(\\*[^\\*]+\\*)'
-    'captures':
-      '0':
-        'name': 'markup.italic.gfm'
+    'name': 'markup.italic.gfm'
   }
   {
     'match': '(?<=^|\\s)(_[^_]+_)'
-    'captures':
-      '0':
-        'name': 'markup.italic.gfm'
+    'name': 'markup.italic.gfm'
   }
   {
     'begin': '^#{1}\\s+'
