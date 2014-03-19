@@ -360,7 +360,8 @@
   {
     'match': '^\\s*([\\*\\+-])[ \\t]+'
     'captures':
-      '1': 'name': 'variable.unordered.list.gfm'
+      '1':
+        'name': 'variable.unordered.list.gfm'
   }
   {
     'match': '^\\s*\\d*\\.[ \\t]+'
