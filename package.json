@@ -5,5 +5,10 @@
   "repository": "https://github.com/atom/language-gfm",
   "engines": {
     "atom": "*"
+  },
+  "devDependencies": {
+    "request": "^2.34.0",
+    "underscore-plus": "^1.0.6",
+    "season": "^1.0.2"
   }
 }
