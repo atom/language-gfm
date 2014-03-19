@@ -10,13 +10,13 @@
 ]
 'patterns': [
   {
-    'match': '(?<=^|\\s)(\\*\\*[^\\*]+\\*\\*)'
+    'match': '(?<=^|\\s)(\\*{2}[^\\*]+\\*{2})'
     'captures':
       '0':
         'name': 'markup.bold.gfm'
   }
   {
-    'match': '(?<=^|\\s)(__[^_]+__)'
+    'match': '(?<=^|\\s)(_{2}[^_]+_{2})'
     'captures':
       '0':
         'name': 'markup.bold.gfm'
