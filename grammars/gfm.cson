@@ -361,7 +361,13 @@
     'match': '^\\s*([\\*\\+-])[ \\t]+'
     'captures':
       '1':
-        'name': 'variable.list.gfm'
+        'name': 'variable.unordered.list.gfm'
+  }
+  {
+    'match': '^\\s*(\\d*\\.)[ \\t]+'
+    'captures':
+      '1':
+        'name': 'variable.ordered.list.gfm'
   }
   {
     'match': '^\\s*(>)(.*)'
