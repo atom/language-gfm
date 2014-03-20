@@ -364,8 +364,10 @@
         'name': 'variable.unordered.list.gfm'
   }
   {
-    'match': '^\\s*\\d*\\.[ \\t]+'
-    'name': 'variable.ordered.list.gfm'
+    'match': '^\\s*(\\d*\\.)[ \\t]+'
+    'captures':
+      '1':
+        'name': 'variable.ordered.list.gfm'
   }
   {
     'match': '^\\s*(>)(.*)'
