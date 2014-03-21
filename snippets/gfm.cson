@@ -14,3 +14,6 @@
   'code':
     'prefix': 'code'
     'body': '```$1\n$2\n```$0'
+  'todo':
+    'prefix': 't'
+    'body': '- [ ] $1'
