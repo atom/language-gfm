@@ -307,6 +307,22 @@
     ]
   }
   {
+    'begin': '^`{3,}\\s*html\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^`{3,}$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.html.gfm'
+    'patterns': [
+      {
+        'include': 'text.html.basic'
+      }
+    ]
+  }
+  {
     'begin': '^`{3,}.*$'
     'beginCaptures':
       '0':
