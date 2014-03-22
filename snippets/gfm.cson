@@ -17,3 +17,6 @@
   'todo':
     'prefix': 't'
     'body': '- [ ] $1'
+  'table':
+    'prefix': 'table'
+    'body': '| ${1:Header One    } | ${2:Header Two    } |\n| :------------- | :------------- |\n| ${3:Item One      } | ${4:Item Two      } |$0'
