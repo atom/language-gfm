@@ -393,4 +393,12 @@
       '2':
         'name': 'comment.quote.gfm'
   }
+  {
+    'match': '(?:^|\\s+)(@)(\\w+)'
+    'captures':
+      '1':
+        'name': 'variable.mention.gfm'
+      '2':
+        'name': 'string.gfm'
+  }
 ]

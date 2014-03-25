@@ -180,6 +180,37 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(tokens[3]).toEqual value: "http://website", scopes: ["source.gfm", "link", "markup.underline.link.gfm"]
     expect(tokens[4]).toEqual value: ">", scopes: ["source.gfm", "link"]
 
+  it "tokenizes mentions", ->
+    {tokens} = grammar.tokenizeLine("sentence with no space before@name ")
+    expect(tokens[0]).toEqual value: "sentence with no space before@name ", scopes: ["source.gfm"]
+
+    {tokens} = grammar.tokenizeLine("sentence with a space before @name that continues")
+    expect(tokens[0]).toEqual value: "sentence with a space before", scopes: ["source.gfm"]
+    expect(tokens[1]).toEqual value: " ", scopes: ["source.gfm"]
+    expect(tokens[2]).toEqual value: "@", scopes: ["source.gfm", "variable.mention.gfm"]
+    expect(tokens[3]).toEqual value: "name", scopes: ["source.gfm", "string.gfm"]
+    expect(tokens[4]).toEqual value: " that continues", scopes: ["source.gfm"]
+
+    {tokens} = grammar.tokenizeLine("a username @1337_bro with numbers, letters and underscores")
+    expect(tokens[0]).toEqual value: "a username", scopes: ["source.gfm"]
+    expect(tokens[1]).toEqual value: " ", scopes: ["source.gfm"]
+    expect(tokens[2]).toEqual value: "@", scopes: ["source.gfm", "variable.mention.gfm"]
+    expect(tokens[3]).toEqual value: "1337_bro", scopes: ["source.gfm", "string.gfm"]
+    expect(tokens[4]).toEqual value: " with numbers, letters and underscores", scopes: ["source.gfm"]
+
+    {tokens} = grammar.tokenizeLine("@name at the start of a line")
+    expect(tokens[0]).toEqual value: "@", scopes: ["source.gfm", "variable.mention.gfm"]
+    expect(tokens[1]).toEqual value: "name", scopes: ["source.gfm", "string.gfm"]
+    expect(tokens[2]).toEqual value: " at the start of a line", scopes: ["source.gfm"]
+
+    {tokens} = grammar.tokenizeLine("any email like you@domain.com shouldn't mistakenly be matched as a mention")
+    expect(tokens[0]).toEqual value: "any email like you@domain.com shouldn't mistakenly be matched as a mention", scopes: ["source.gfm"]
+
+    {tokens} = grammar.tokenizeLine("@person's")
+    expect(tokens[0]).toEqual value: "@", scopes: ["source.gfm", "variable.mention.gfm"]
+    expect(tokens[1]).toEqual value: "person", scopes: ["source.gfm", "string.gfm"]
+    expect(tokens[2]).toEqual value: "'s", scopes: ["source.gfm"]
+
   it "tokenizes unordered lists", ->
     {tokens} = grammar.tokenizeLine("*Item 1")
     expect(tokens[0]).toEqual value: "*Item 1", scopes: ["source.gfm"]
