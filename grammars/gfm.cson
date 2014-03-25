@@ -399,6 +399,6 @@
       '1':
         'name': 'variable.mention.gfm'
       '2':
-        'name': 'string.gfm'
+        'name': 'string.username.gfm'
   }
 ]
