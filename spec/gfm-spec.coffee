@@ -185,18 +185,23 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(tokens[0]).toEqual value: "sentence with no space before@name ", scopes: ["source.gfm"]
 
     {tokens} = grammar.tokenizeLine("sentence with a space before @name that continues")
-    expect(tokens[0]).toEqual value: "sentence with a space before", scopes: ["source.gfm"]
+    expect(tokens[0]).toEqual value: "sentence with a space before ", scopes: ["source.gfm"]
+    expect(tokens[1]).toEqual value: "@", scopes: ["source.gfm", "variable.mention.gfm"]
+    expect(tokens[2]).toEqual value: "name", scopes: ["source.gfm", "string.username.gfm"]
+    expect(tokens[3]).toEqual value: " that continues", scopes: ["source.gfm"]
+
+    {tokens} = grammar.tokenizeLine("* @name at the start of an unordered list")
+    expect(tokens[0]).toEqual value: "*", scopes: ["source.gfm", "variable.unordered.list.gfm"]
     expect(tokens[1]).toEqual value: " ", scopes: ["source.gfm"]
     expect(tokens[2]).toEqual value: "@", scopes: ["source.gfm", "variable.mention.gfm"]
     expect(tokens[3]).toEqual value: "name", scopes: ["source.gfm", "string.username.gfm"]
-    expect(tokens[4]).toEqual value: " that continues", scopes: ["source.gfm"]
+    expect(tokens[4]).toEqual value: " at the start of an unordered list", scopes: ["source.gfm"]
 
     {tokens} = grammar.tokenizeLine("a username @1337_bro with numbers, letters and underscores")
-    expect(tokens[0]).toEqual value: "a username", scopes: ["source.gfm"]
-    expect(tokens[1]).toEqual value: " ", scopes: ["source.gfm"]
-    expect(tokens[2]).toEqual value: "@", scopes: ["source.gfm", "variable.mention.gfm"]
-    expect(tokens[3]).toEqual value: "1337_bro", scopes: ["source.gfm", "string.username.gfm"]
-    expect(tokens[4]).toEqual value: " with numbers, letters and underscores", scopes: ["source.gfm"]
+    expect(tokens[0]).toEqual value: "a username ", scopes: ["source.gfm"]
+    expect(tokens[1]).toEqual value: "@", scopes: ["source.gfm", "variable.mention.gfm"]
+    expect(tokens[2]).toEqual value: "1337_bro", scopes: ["source.gfm", "string.username.gfm"]
+    expect(tokens[3]).toEqual value: " with numbers, letters and underscores", scopes: ["source.gfm"]
 
     {tokens} = grammar.tokenizeLine("@name at the start of a line")
     expect(tokens[0]).toEqual value: "@", scopes: ["source.gfm", "variable.mention.gfm"]
