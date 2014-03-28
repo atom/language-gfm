@@ -394,11 +394,19 @@
         'name': 'comment.quote.gfm'
   }
   {
-    'match': '(?<=^|\\s)(@)(\\w+)'
+    'match': '(?<=^|\\s)(@)(\\w+)(\\s|\')'
     'captures':
       '1':
         'name': 'variable.mention.gfm'
       '2':
         'name': 'string.username.gfm'
+  }
+  {
+    'match': '(?<=^|\\s)(#)([0-9]+)(\\s|\')'
+    'captures':
+      '1':
+        'name': 'variable.issuetag.gfm'
+      '2':
+        'name': 'string.issuenumber.gfm'
   }
 ]
