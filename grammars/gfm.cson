@@ -394,7 +394,7 @@
         'name': 'comment.quote.gfm'
   }
   {
-    'match': '(?<=^|\\s)(@)(\\w+)(\\s|\')'
+    'match': '(?<=^|\\s|"|\'|\\(|\\[)(@)(\\w+)(?=\\s|"|\'|\\.|,|\\)|\\])'
     'captures':
       '1':
         'name': 'variable.mention.gfm'
@@ -402,11 +402,11 @@
         'name': 'string.username.gfm'
   }
   {
-    'match': '(?<=^|\\s)(#)([0-9]+)(\\s|\')'
+    'match': '(?<=^|\\s|"|\'|\\(|\\[)(#)(\\d+)(?=\\s|"|\'|\\.|,|\\)|\\])'
     'captures':
       '1':
-        'name': 'variable.issuetag.gfm'
+        'name': 'variable.issue.tag.gfm'
       '2':
-        'name': 'string.issuenumber.gfm'
+        'name': 'string.issue.number.gfm'
   }
 ]
