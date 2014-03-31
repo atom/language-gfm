@@ -213,8 +213,8 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(tokens[2]).toEqual value: "name", scopes: ["source.gfm", "string.username.gfm"]
     expect(tokens[3]).toEqual value: '"', scopes: ["source.gfm"]
 
-    # {tokens} = grammar.tokenizeLine("sentence with a space before @name/ and an invalid symbol after")
-    # expect(tokens[0]).toEqual value: "sentence with a space before @name/ and an invalid symbol after", scopes: ["source.gfm"]
+    {tokens} = grammar.tokenizeLine("sentence with a space before @name/ and an invalid symbol after")
+    expect(tokens[0]).toEqual value: "sentence with a space before @name/ and an invalid symbol after", scopes: ["source.gfm"]
 
     {tokens} = grammar.tokenizeLine("sentence with a space before @name that continues")
     expect(tokens[0]).toEqual value: "sentence with a space before ", scopes: ["source.gfm"]
@@ -281,8 +281,8 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(tokens[2]).toEqual value: "101", scopes: ["source.gfm", "string.issue.number.gfm"]
     expect(tokens[3]).toEqual value: '"', scopes: ["source.gfm"]
 
-    # {tokens} = grammar.tokenizeLine("sentence with a space before #123i and a character after")
-    # expect(tokens[0]).toEqual value: "sentence with a space before #123i and a character after", scopes: ["source.gfm"]
+    {tokens} = grammar.tokenizeLine("sentence with a space before #123i and a character after")
+    expect(tokens[0]).toEqual value: "sentence with a space before #123i and a character after", scopes: ["source.gfm"]
 
     {tokens} = grammar.tokenizeLine("sentence with a space before #123 that continues")
     expect(tokens[0]).toEqual value: "sentence with a space before ", scopes: ["source.gfm"]
