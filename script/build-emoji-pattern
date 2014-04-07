@@ -30,12 +30,16 @@ request options, (error, response, body={}) ->
 
     if names.length > 0
       grammarPath = path.resolve(__dirname, '..', 'grammars', 'gfm.cson')
+      scopedPropertiesPath = path.resolve(__dirname, '..', 'scoped-properties', 'gfm.cson')
       grammar = CSON.readFileSync(grammarPath)
+      scopedProperties = CSON.readFileSync(scopedPropertiesPath)
       for pattern in grammar.patterns
         if pattern.name is 'string.emoji.gfm'
           pattern.match = "(\\:)(#{names.join('|')})(\\:)"
-
+      scopedProperties['.source.gfm:not(.markup.code)'].editor.completions = names.map (name) ->
+        return ":#{name}:"
       CSON.writeFileSync(grammarPath, grammar)
+      CSON.writeFileSync(scopedPropertiesPath, scopedProperties)
       console.log "Wrote emoji pattern with #{names.length} emojis"
     else
       console.error "Failed to read emoji names"
