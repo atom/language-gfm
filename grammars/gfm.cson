@@ -140,6 +140,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.coffee.gfm'
+    'contentName': 'source.coffee'
     'patterns': [
       {
         'include': 'source.coffee'
@@ -156,6 +157,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.js.gfm'
+    'contentName': 'source.js'
     'patterns': [
       {
         'include': 'source.js'
@@ -172,6 +174,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.json.gfm'
+    'contentName': 'source.json'
     'patterns': [
       {
         'include': 'source.json'
@@ -188,6 +191,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.css.gfm'
+    'contentName': 'source.css'
     'patterns': [
       {
         'include': 'source.css'
@@ -204,6 +208,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.less.gfm'
+    'contentName': 'source.css.less'
     'patterns': [
       {
         'include': 'source.css.less'
@@ -220,6 +225,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.xml.gfm'
+    'contentName': 'text.xml'
     'patterns': [
       {
         'include': 'text.xml'
@@ -236,6 +242,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.ruby.gfm'
+    'contentName': 'source.ruby'
     'patterns': [
       {
         'include': 'source.ruby'
@@ -252,6 +259,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.java.gfm'
+    'contentName': 'source.java'
     'patterns': [
       {
         'include': 'source.java'
@@ -268,6 +276,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.shell.gfm'
+    'contentName': 'source.shell'
     'patterns': [
       {
         'include': 'source.shell'
@@ -283,10 +292,11 @@
     'endCaptures':
       '0':
         'name': 'support.gfm'
-    'name': 'markup.code.shell.gfm'
+    'name': 'markup.code.python.gfm'
+    'contentName': 'source.python'
     'patterns': [
       {
-        'include': 'source.shell'
+        'include': 'source.python'
       }
     ]
   }
@@ -300,6 +310,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.objc.gfm'
+    'contentName': 'source.objc'
     'patterns': [
       {
         'include': 'source.objc'
@@ -316,6 +327,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.html.gfm'
+    'contentName': 'source.html.basic'
     'patterns': [
       {
         'include': 'text.html.basic'
@@ -332,6 +344,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.yaml.gfm'
+    'contentName': 'source.yaml'
     'patterns': [
       {
         'include': 'source.yaml'
