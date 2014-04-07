@@ -1,8 +1,8 @@
 '.source.gfm:not(.markup.code)':
   'editor':
     'completions': [
-      ':\\+1:'
-      ':\\-1:'
+      ':+1:'
+      ':-1:'
       ':100:'
       ':1234:'
       ':8ball:'
@@ -251,7 +251,7 @@
       ':dromedary_camel:'
       ':droplet:'
       ':dvd:'
-      ':e\\-mail:'
+      ':e-mail:'
       ':ear:'
       ':ear_of_rice:'
       ':earth_africa:'
@@ -522,7 +522,7 @@
       ':no_mouth:'
       ':no_pedestrians:'
       ':no_smoking:'
-      ':non\\-potable_water:'
+      ':non-potable_water:'
       ':nose:'
       ':notebook:'
       ':notebook_with_decorative_cover:'

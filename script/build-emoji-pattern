@@ -2,7 +2,7 @@
 
 # This script loads the "definitive" list of emoji names from the
 # arvida/emoji-cheat-sheet.com repository and builds an oniguruma pattern
-# out of the list of names.
+# out of the list of names and also a list of completions.
 
 path = require 'path'
 _ = require 'underscore-plus'
@@ -23,9 +23,11 @@ request options, (error, response, body={}) ->
   else
     {tree} = body
     names = []
+    completions = []
     for entry in tree
       if entry.path.indexOf('public/graphics/emojis/') is 0
         if name = path.basename(entry.path, path.extname(entry.path))
+          completions.push(":#{name}:")
           names.push(_.escapeRegExp(name))
 
     if names.length > 0
@@ -36,8 +38,7 @@ request options, (error, response, body={}) ->
       for pattern in grammar.patterns
         if pattern.name is 'string.emoji.gfm'
           pattern.match = "(\\:)(#{names.join('|')})(\\:)"
-      scopedProperties['.source.gfm:not(.markup.code)'].editor.completions = names.map (name) ->
-        return ":#{name}:"
+      scopedProperties['.source.gfm:not(.markup.code)'].editor.completions = completions
       CSON.writeFileSync(grammarPath, grammar)
       CSON.writeFileSync(scopedPropertiesPath, scopedProperties)
       console.log "Wrote emoji pattern with #{names.length} emojis"
