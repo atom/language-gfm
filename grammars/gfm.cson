@@ -26,7 +26,11 @@
     'name': 'markup.bold.gfm'
   }
   {
-    'match': '(?<=^|\\s)(\\*[^\\*]+\\*)'
+    'match': '(?<=^)(\\*[^\\s\\*][^\\*]*\\*)'
+    'name': 'markup.italic.gfm'
+  }
+  {
+    'match': '(?<=\\s)(\\*[^\\*]+\\*)'
     'name': 'markup.italic.gfm'
   }
   {
