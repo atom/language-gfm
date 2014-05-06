@@ -68,6 +68,11 @@ describe "GitHub Flavored Markdown grammar", ->
     {tokens} = grammar.tokenizeLine("not*italic*")
     expect(tokens[0]).toEqual value: "not*italic*", scopes: ["source.gfm"]
 
+    {tokens} = grammar.tokenizeLine("* not *italic")
+    expect(tokens[0]).toEqual value: "*", scopes: ["source.gfm", "variable.unordered.list.gfm"]
+    expect(tokens[1]).toEqual value: " ", scopes: ["source.gfm"]
+    expect(tokens[2]).toEqual value: "not *italic", scopes: ["source.gfm"]
+
   it "tokenizes _italic_ text", ->
     {tokens} = grammar.tokenizeLine("__")
     expect(tokens[0]).toEqual value: "__", scopes: ["source.gfm"]
