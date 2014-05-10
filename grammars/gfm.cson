@@ -271,6 +271,23 @@
     ]
   }
   {
+    'begin': '^\\s*`{3,}\\s*erlang\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*`{3,}$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.erlang.gfm'
+    'contentName': 'source.erlang'
+    'patterns': [
+      {
+        'include': 'source.erlang'
+      }
+    ]
+  }
+  {
     'begin': '^\\s*`{3,}\\s*(sh|bash)\\s*$'
     'beginCaptures':
       '0':
