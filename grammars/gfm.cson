@@ -305,6 +305,23 @@
     ]
   }
   {
+    'begin': '^\\s*`{3,}\\s*php\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*`{3,}$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.php.gfm'
+    'contentName': 'source.php'
+    'patterns': [
+      {
+        'include': 'source.php'
+      }
+    ]
+  }
+  {
     'begin': '^\\s*`{3,}\\s*(sh|bash)\\s*$'
     'beginCaptures':
       '0':
