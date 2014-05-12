@@ -1,5 +1,7 @@
 '.source.gfm:not(.markup.code)':
   'editor':
+    'commentStart': '<!-- '
+    'commentEnd': ' -->'
     'completions': [
       ':+1:'
       ':-1:'
