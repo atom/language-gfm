@@ -127,6 +127,15 @@
         'name': 'punctuation.definition.entity.gfm'
   }
   {
+    'match': '(&)#x[0-9a-fA-F]+(;)'
+    'name': 'constant.character.entity.gfm'
+    'captures':
+      '1':
+        'name': 'punctuation.definition.entity.gfm'
+      '2':
+        'name': 'punctuation.definition.entity.gfm'
+  }
+  {
     'match': '^\\s*[\\*]{3,}\\s*$'
     'name': 'comment.hr.gfm'
   }
