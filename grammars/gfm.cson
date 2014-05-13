@@ -109,7 +109,7 @@
         'name': 'string.emoji.end.gfm'
   }
   {
-    'match': '(&)[a-zA-Z]+(;)'
+    'match': '(&)[a-zA-Z0-9]+(;)'
     'name': 'constant.character.entity.gfm'
     'captures':
       '1':
