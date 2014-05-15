@@ -350,7 +350,7 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(tokens[1]).toEqual value: " Quotation", scopes: ["source.gfm", "comment.quote.gfm"]
 
   it "tokenizes HTML entities", ->
-    {tokens} = grammar.tokenizeLine("&trade; &#8482;")
+    {tokens} = grammar.tokenizeLine("&trade; &#8482; &a1; &#xb3;")
     expect(tokens[0]).toEqual value: "&", scopes: ["source.gfm", "constant.character.entity.gfm", "punctuation.definition.entity.gfm"]
     expect(tokens[1]).toEqual value: "trade", scopes: ["source.gfm", "constant.character.entity.gfm"]
     expect(tokens[2]).toEqual value: ";", scopes: ["source.gfm", "constant.character.entity.gfm", "punctuation.definition.entity.gfm"]
@@ -360,3 +360,15 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(tokens[4]).toEqual value: "&", scopes: ["source.gfm", "constant.character.entity.gfm", "punctuation.definition.entity.gfm"]
     expect(tokens[5]).toEqual value: "#8482", scopes: ["source.gfm", "constant.character.entity.gfm"]
     expect(tokens[6]).toEqual value: ";", scopes: ["source.gfm", "constant.character.entity.gfm", "punctuation.definition.entity.gfm"]
+
+    expect(tokens[7]).toEqual value: " ", scopes: ["source.gfm"]
+
+    expect(tokens[8]).toEqual value: "&", scopes: ["source.gfm", "constant.character.entity.gfm", "punctuation.definition.entity.gfm"]
+    expect(tokens[9]).toEqual value: "a1", scopes: ["source.gfm", "constant.character.entity.gfm"]
+    expect(tokens[10]).toEqual value: ";", scopes: ["source.gfm", "constant.character.entity.gfm", "punctuation.definition.entity.gfm"]
+
+    expect(tokens[11]).toEqual value: " ", scopes: ["source.gfm"]
+
+    expect(tokens[12]).toEqual value: "&", scopes: ["source.gfm", "constant.character.entity.gfm", "punctuation.definition.entity.gfm"]
+    expect(tokens[13]).toEqual value: "#xb3", scopes: ["source.gfm", "constant.character.entity.gfm"]
+    expect(tokens[14]).toEqual value: ";", scopes: ["source.gfm", "constant.character.entity.gfm", "punctuation.definition.entity.gfm"]
