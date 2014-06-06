@@ -365,6 +365,40 @@
     ]
   }
   {
+    'begin': '^\\s*`{3,}\\s*c\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*`{3,}$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.c.gfm'
+    'contentName': 'source.c'
+    'patterns': [
+      {
+        'include': 'source.c'
+      }
+    ]
+  }
+  {
+    'begin': '^\\s*`{3,}\\s*c(pp|\\+\\+)\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*`{3,}$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.c++.gfm'
+    'contentName': 'source.c++'
+    'patterns': [
+      {
+        'include': 'source.c++'
+      }
+    ]
+  }
+  {
     'begin': '^\\s*`{3,}\\s*(objc|objective-c)\\s*$'
     'beginCaptures':
       '0':
