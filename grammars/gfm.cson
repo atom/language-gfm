@@ -30,15 +30,13 @@
     'name': 'markup.bold.gfm'
   }
   {
-    'match': '(?<=^)(\\*[^\\s\\*][^*]*\\*)'
+    'begin': '(?<=^|\\s)\\*(?!$|\\*|\\s)'
+    'end': '\\*'
     'name': 'markup.italic.gfm'
   }
   {
-    'match': '(?<=\\s)(\\*[^*]+\\*)'
-    'name': 'markup.italic.gfm'
-  }
-  {
-    'match': '(?<=^|\\s)(_[^_]+_)'
+    'begin': '(?<=^|\\s)_(?!$|_|\\s)'
+    'end': '_'
     'name': 'markup.italic.gfm'
   }
   {

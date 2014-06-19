@@ -98,16 +98,26 @@ describe "GitHub Flavored Markdown grammar", ->
 
     {tokens} = grammar.tokenizeLine("this is *italic* text")
     expect(tokens[0]).toEqual value: "this is ", scopes: ["source.gfm"]
-    expect(tokens[1]).toEqual value: "*italic*", scopes: ["source.gfm", "markup.italic.gfm"]
-    expect(tokens[2]).toEqual value: " text", scopes: ["source.gfm"]
+    expect(tokens[1]).toEqual value: "*", scopes: ["source.gfm", "markup.italic.gfm"]
+    expect(tokens[2]).toEqual value: "italic", scopes: ["source.gfm", "markup.italic.gfm"]
+    expect(tokens[3]).toEqual value: "*", scopes: ["source.gfm", "markup.italic.gfm"]
+    expect(tokens[4]).toEqual value: " text", scopes: ["source.gfm"]
 
     {tokens} = grammar.tokenizeLine("not*italic*")
     expect(tokens[0]).toEqual value: "not*italic*", scopes: ["source.gfm"]
 
-    {tokens} = grammar.tokenizeLine("* not *italic")
+    {tokens} = grammar.tokenizeLine("* not italic")
     expect(tokens[0]).toEqual value: "*", scopes: ["source.gfm", "variable.unordered.list.gfm"]
     expect(tokens[1]).toEqual value: " ", scopes: ["source.gfm"]
-    expect(tokens[2]).toEqual value: "not *italic", scopes: ["source.gfm"]
+    expect(tokens[2]).toEqual value: "not italic", scopes: ["source.gfm"]
+
+    [firstLineTokens, secondLineTokens] = grammar.tokenizeLines("this is *ita\nlic*!")
+    expect(firstLineTokens[0]).toEqual value: "this is ", scopes: ["source.gfm"]
+    expect(firstLineTokens[1]).toEqual value: "*", scopes: ["source.gfm", "markup.italic.gfm"]
+    expect(firstLineTokens[2]).toEqual value: "ita", scopes: ["source.gfm", "markup.italic.gfm"]
+    expect(secondLineTokens[0]).toEqual value: "lic", scopes: ["source.gfm", "markup.italic.gfm"]
+    expect(secondLineTokens[1]).toEqual value: "*", scopes: ["source.gfm", "markup.italic.gfm"]
+    expect(secondLineTokens[2]).toEqual value: "!", scopes: ["source.gfm"]
 
   it "tokenizes _italic_ text", ->
     {tokens} = grammar.tokenizeLine("__")
@@ -115,11 +125,21 @@ describe "GitHub Flavored Markdown grammar", ->
 
     {tokens} = grammar.tokenizeLine("this is _italic_ text")
     expect(tokens[0]).toEqual value: "this is ", scopes: ["source.gfm"]
-    expect(tokens[1]).toEqual value: "_italic_", scopes: ["source.gfm", "markup.italic.gfm"]
-    expect(tokens[2]).toEqual value: " text", scopes: ["source.gfm"]
+    expect(tokens[1]).toEqual value: "_", scopes: ["source.gfm", "markup.italic.gfm"]
+    expect(tokens[2]).toEqual value: "italic", scopes: ["source.gfm", "markup.italic.gfm"]
+    expect(tokens[3]).toEqual value: "_", scopes: ["source.gfm", "markup.italic.gfm"]
+    expect(tokens[4]).toEqual value: " text", scopes: ["source.gfm"]
 
     {tokens} = grammar.tokenizeLine("not_italic_")
     expect(tokens[0]).toEqual value: "not_italic_", scopes: ["source.gfm"]
+
+    [firstLineTokens, secondLineTokens] = grammar.tokenizeLines("this is _ita\nlic_!")
+    expect(firstLineTokens[0]).toEqual value: "this is ", scopes: ["source.gfm"]
+    expect(firstLineTokens[1]).toEqual value: "_", scopes: ["source.gfm", "markup.italic.gfm"]
+    expect(firstLineTokens[2]).toEqual value: "ita", scopes: ["source.gfm", "markup.italic.gfm"]
+    expect(secondLineTokens[0]).toEqual value: "lic", scopes: ["source.gfm", "markup.italic.gfm"]
+    expect(secondLineTokens[1]).toEqual value: "_", scopes: ["source.gfm", "markup.italic.gfm"]
+    expect(secondLineTokens[2]).toEqual value: "!", scopes: ["source.gfm"]
 
   it "tokenizes headings", ->
     {tokens} = grammar.tokenizeLine("# Heading 1")
@@ -338,7 +358,7 @@ describe "GitHub Flavored Markdown grammar", ->
 
   it "tokenizes unordered lists", ->
     {tokens} = grammar.tokenizeLine("*Item 1")
-    expect(tokens[0]).toEqual value: "*Item 1", scopes: ["source.gfm"]
+    expect(tokens[0]).not.toEqual value: "*Item 1", scopes: ["source.gfm", "variable.unordered.list.gfm"]
 
     {tokens} = grammar.tokenizeLine("  * Item 1")
     expect(tokens[0]).toEqual value: "  ", scopes: ["source.gfm"]
