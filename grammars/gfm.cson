@@ -18,11 +18,13 @@
     'name': 'markup.bold.italic.gfm'
   }
   {
-    'match': '(?<=^|\\s)(\\*{2}[^*]+\\*{2})'
+    'begin': '(?<=^|\\s)\\*\\*(?!$|\\*)'
+    'end': '\\*\\*'
     'name': 'markup.bold.gfm'
   }
   {
-    'match': '(?<=^|\\s)(_{2}[^_]+_{2})'
+    'begin': '(?<=^|\\s)__(?!$|_)'
+    'end': '__'
     'name': 'markup.bold.gfm'
   }
   {

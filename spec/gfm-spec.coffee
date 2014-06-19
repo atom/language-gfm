@@ -32,10 +32,18 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(tokens[2]).toEqual value: " text", scopes: ["source.gfm"]
 
   it "tokenizes **bold** text", ->
-    {tokens} = grammar.tokenizeLine("this is **bold** text")
-    expect(tokens[0]).toEqual value: "this is ", scopes: ["source.gfm"]
-    expect(tokens[1]).toEqual value: "**bold**", scopes: ["source.gfm", "markup.bold.gfm"]
-    expect(tokens[2]).toEqual value: " text", scopes: ["source.gfm"]
+    {tokens} = grammar.tokenizeLine("**bold**")
+    expect(tokens[0]).toEqual value: "**", scopes: ["source.gfm", "markup.bold.gfm"]
+    expect(tokens[1]).toEqual value: "bold", scopes: ["source.gfm", "markup.bold.gfm"]
+    expect(tokens[2]).toEqual value: "**", scopes: ["source.gfm", "markup.bold.gfm"]
+
+    [firstLineTokens, secondLineTokens] = grammar.tokenizeLines("this is **bo\nld**!")
+    expect(firstLineTokens[0]).toEqual value: "this is ", scopes: ["source.gfm"]
+    expect(firstLineTokens[1]).toEqual value: "**", scopes: ["source.gfm", "markup.bold.gfm"]
+    expect(firstLineTokens[2]).toEqual value: "bo", scopes: ["source.gfm", "markup.bold.gfm"]
+    expect(secondLineTokens[0]).toEqual value: "ld", scopes: ["source.gfm", "markup.bold.gfm"]
+    expect(secondLineTokens[1]).toEqual value: "**", scopes: ["source.gfm", "markup.bold.gfm"]
+    expect(secondLineTokens[2]).toEqual value: "!", scopes: ["source.gfm"]
 
     {tokens} = grammar.tokenizeLine("not**bold**")
     expect(tokens[0]).toEqual value: "not**bold**", scopes: ["source.gfm"]
@@ -45,13 +53,18 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(tokens[0]).toEqual value: " ", scopes: ["source.gfm"]
 
   it "tokenizes __bold__ text", ->
-    {tokens} = grammar.tokenizeLine("____")
-    expect(tokens[0]).toEqual value: "____", scopes: ["source.gfm"]
+    {tokens} = grammar.tokenizeLine("__bold__")
+    expect(tokens[0]).toEqual value: "__", scopes: ["source.gfm", "markup.bold.gfm"]
+    expect(tokens[1]).toEqual value: "bold", scopes: ["source.gfm", "markup.bold.gfm"]
+    expect(tokens[2]).toEqual value: "__", scopes: ["source.gfm", "markup.bold.gfm"]
 
-    {tokens} = grammar.tokenizeLine("this is __bold__ text")
-    expect(tokens[0]).toEqual value: "this is ", scopes: ["source.gfm"]
-    expect(tokens[1]).toEqual value: "__bold__", scopes: ["source.gfm", "markup.bold.gfm"]
-    expect(tokens[2]).toEqual value: " text", scopes: ["source.gfm"]
+    [firstLineTokens, secondLineTokens] = grammar.tokenizeLines("this is __bo\nld__!")
+    expect(firstLineTokens[0]).toEqual value: "this is ", scopes: ["source.gfm"]
+    expect(firstLineTokens[1]).toEqual value: "__", scopes: ["source.gfm", "markup.bold.gfm"]
+    expect(firstLineTokens[2]).toEqual value: "bo", scopes: ["source.gfm", "markup.bold.gfm"]
+    expect(secondLineTokens[0]).toEqual value: "ld", scopes: ["source.gfm", "markup.bold.gfm"]
+    expect(secondLineTokens[1]).toEqual value: "__", scopes: ["source.gfm", "markup.bold.gfm"]
+    expect(secondLineTokens[2]).toEqual value: "!", scopes: ["source.gfm"]
 
     {tokens} = grammar.tokenizeLine("not__bold__")
     expect(tokens[0]).toEqual value: "not__bold__", scopes: ["source.gfm"]
