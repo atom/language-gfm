@@ -10,31 +10,33 @@
 ]
 'patterns': [
   {
-    'match': '(?<=^|\\s)(\\*{3}[^*]+\\*{3})'
+    'begin': '(?<=^|\\s)\\*\\*\\*(?!$|_)'
+    'end': '\\*\\*\\*'
     'name': 'markup.bold.italic.gfm'
   }
   {
-    'match': '(?<=^|\\s)(_{3}[^_]+_{3})'
+    'begin': '(?<=^|\\s)___(?!$|_)'
+    'end': '___'
     'name': 'markup.bold.italic.gfm'
   }
   {
-    'match': '(?<=^|\\s)(\\*{2}[^*]+\\*{2})'
+    'begin': '(?<=^|\\s)\\*\\*(?!$|\\*)'
+    'end': '\\*\\*'
     'name': 'markup.bold.gfm'
   }
   {
-    'match': '(?<=^|\\s)(_{2}[^_]+_{2})'
+    'begin': '(?<=^|\\s)__(?!$|_)'
+    'end': '__'
     'name': 'markup.bold.gfm'
   }
   {
-    'match': '(?<=^)(\\*[^\\s\\*][^*]*\\*)'
+    'begin': '(?<=^|\\s)\\*(?!$|\\*|\\s)'
+    'end': '\\*'
     'name': 'markup.italic.gfm'
   }
   {
-    'match': '(?<=\\s)(\\*[^*]+\\*)'
-    'name': 'markup.italic.gfm'
-  }
-  {
-    'match': '(?<=^|\\s)(_[^_]+_)'
+    'begin': '(?<=^|\\s)_(?!$|_|\\s)'
+    'end': '_'
     'name': 'markup.italic.gfm'
   }
   {
