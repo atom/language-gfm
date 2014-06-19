@@ -12,6 +12,10 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(grammar).toBeDefined()
     expect(grammar.scopeName).toBe "source.gfm"
 
+  it "tokenizes spaces", ->
+    {tokens} = grammar.tokenizeLine(" ")
+    expect(tokens[0]).toEqual value: " ", scopes: ["source.gfm"]
+
   it "tokenizes horizontal rules", ->
     {tokens} = grammar.tokenizeLine("***")
     expect(tokens[0]).toEqual value: "***", scopes: ["source.gfm", "comment.hr.gfm"]
@@ -47,10 +51,6 @@ describe "GitHub Flavored Markdown grammar", ->
 
     {tokens} = grammar.tokenizeLine("not**bold**")
     expect(tokens[0]).toEqual value: "not**bold**", scopes: ["source.gfm"]
-
-  it "tokenizes spaces", ->
-    {tokens} = grammar.tokenizeLine(" ")
-    expect(tokens[0]).toEqual value: " ", scopes: ["source.gfm"]
 
   it "tokenizes __bold__ text", ->
     {tokens} = grammar.tokenizeLine("__bold__")
