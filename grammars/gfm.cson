@@ -146,11 +146,11 @@
     'name': 'comment.hr.gfm'
   }
   {
-    'begin': '^\\s*(`|~){3,}\\s*coffee-?(script)?\\s*$'
+    'begin': '^\\s*[`~]{3,}\\s*coffee-?(script)?\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(`|~){3,}$'
+    'end': '^\\s*[`~]{3,}$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -163,11 +163,11 @@
     ]
   }
   {
-    'begin': '^\\s*(`|~){3,}\\s*(javascript|js)\\s*$'
+    'begin': '^\\s*[`~]{3,}\\s*(javascript|js)\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(`|~){3,}$'
+    'end': '^\\s*[`~]{3,}$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -180,11 +180,11 @@
     ]
   }
   {
-    'begin': '^\\s*(`|~){3,}\\s*json\\s*$'
+    'begin': '^\\s*[`~]{3,}\\s*json\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(`|~){3,}$'
+    'end': '^\\s*[`~]{3,}$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -197,11 +197,11 @@
     ]
   }
   {
-    'begin': '^\\s*(`|~){3,}\\s*css\\s*$'
+    'begin': '^\\s*[`~]{3,}\\s*css\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(`|~){3,}$'
+    'end': '^\\s*[`~]{3,}$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -214,11 +214,11 @@
     ]
   }
   {
-    'begin': '^\\s*(`|~){3,}\\s*less\\s*$'
+    'begin': '^\\s*[`~]{3,}\\s*less\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(`|~){3,}$'
+    'end': '^\\s*[`~]{3,}$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -231,11 +231,11 @@
     ]
   }
   {
-    'begin': '^\\s*(`|~){3,}\\s*xml\\s*$'
+    'begin': '^\\s*[`~]{3,}\\s*xml\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(`|~){3,}$'
+    'end': '^\\s*[`~]{3,}$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -248,11 +248,11 @@
     ]
   }
   {
-    'begin': '^\\s*(`|~){3,}\\s*(ruby|rb)\\s*$'
+    'begin': '^\\s*[`~]{3,}\\s*(ruby|rb)\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(`|~){3,}$'
+    'end': '^\\s*[`~]{3,}$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -265,11 +265,11 @@
     ]
   }
   {
-    'begin': '^\\s*(`|~){3,}\\s*java\\s*$'
+    'begin': '^\\s*[`~]{3,}\\s*java\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(`|~){3,}$'
+    'end': '^\\s*[`~]{3,}$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -282,11 +282,11 @@
     ]
   }
   {
-    'begin': '^\\s*(`|~){3,}\\s*erlang\\s*$'
+    'begin': '^\\s*[`~]{3,}\\s*erlang\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(`|~){3,}$'
+    'end': '^\\s*[`~]{3,}$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -299,11 +299,11 @@
     ]
   }
   {
-    'begin': '^\\s*(`|~){3,}\\s*cs(harp)?\\s*$'
+    'begin': '^\\s*[`~]{3,}\\s*cs(harp)?\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(`|~){3,}$'
+    'end': '^\\s*[`~]{3,}$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -316,11 +316,11 @@
     ]
   }
   {
-    'begin': '^\\s*(`|~){3,}\\s*php\\s*$'
+    'begin': '^\\s*[`~]{3,}\\s*php\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(`|~){3,}$'
+    'end': '^\\s*[`~]{3,}$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -333,11 +333,11 @@
     ]
   }
   {
-    'begin': '^\\s*(`|~){3,}\\s*(sh|bash)\\s*$'
+    'begin': '^\\s*[`~]{3,}\\s*(sh|bash)\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(`|~){3,}$'
+    'end': '^\\s*[`~]{3,}$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -350,11 +350,11 @@
     ]
   }
   {
-    'begin': '^\\s*(`|~){3,}\\s*py(thon)?\\s*$'
+    'begin': '^\\s*[`~]{3,}\\s*py(thon)?\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(`|~){3,}$'
+    'end': '^\\s*[`~]{3,}$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -367,11 +367,11 @@
     ]
   }
   {
-    'begin': '^\\s*(`|~){3,}\\s*c\\s*$'
+    'begin': '^\\s*[`~]{3,}\\s*c\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(`|~){3,}$'
+    'end': '^\\s*[`~]{3,}$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -384,11 +384,11 @@
     ]
   }
   {
-    'begin': '^\\s*(`|~){3,}\\s*c(pp|\\+\\+)\\s*$'
+    'begin': '^\\s*[`~]{3,}\\s*c(pp|\\+\\+)\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(`|~){3,}$'
+    'end': '^\\s*[`~]{3,}$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -401,11 +401,11 @@
     ]
   }
   {
-    'begin': '^\\s*(`|~){3,}\\s*(objc|objective-c)\\s*$'
+    'begin': '^\\s*[`~]{3,}\\s*(objc|objective-c)\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(`|~){3,}$'
+    'end': '^\\s*[`~]{3,}$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -418,11 +418,11 @@
     ]
   }
   {
-    'begin': '^\\s*(`|~){3,}\\s*html\\s*$'
+    'begin': '^\\s*[`~]{3,}\\s*html\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(`|~){3,}$'
+    'end': '^\\s*[`~]{3,}$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -435,11 +435,11 @@
     ]
   }
   {
-    'begin': '^\\s*(`|~){3,}\\s*ya?ml\\s*$'
+    'begin': '^\\s*[`~]{3,}\\s*ya?ml\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(`|~){3,}$'
+    'end': '^\\s*[`~]{3,}$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -452,11 +452,11 @@
     ]
   }
   {
-    'begin': '^\\s*(`|~){3,}.*$'
+    'begin': '^\\s*[`~]{3,}.*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(`|~){3,}$'
+    'end': '^\\s*[`~]{3,}$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
