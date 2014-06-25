@@ -538,4 +538,12 @@
       '2':
         'name': 'string.issue.number.gfm'
   }
+  {
+    'begin': '<!--'
+    'captures':
+      '0':
+        'name': 'punctuation.definition.comment.gfm'
+    'end': '--\\s*>'
+    'name': 'comment.block.gfm'
+  }
 ]

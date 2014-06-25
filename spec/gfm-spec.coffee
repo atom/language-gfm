@@ -443,3 +443,9 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(tokens[12]).toEqual value: "&", scopes: ["source.gfm", "constant.character.entity.gfm", "punctuation.definition.entity.gfm"]
     expect(tokens[13]).toEqual value: "#xb3", scopes: ["source.gfm", "constant.character.entity.gfm"]
     expect(tokens[14]).toEqual value: ";", scopes: ["source.gfm", "constant.character.entity.gfm", "punctuation.definition.entity.gfm"]
+
+  it "tokenizes HTML comments", ->
+    {tokens} = grammar.tokenizeLine("<!-- a comment -->")
+    expect(tokens[0]).toEqual value: "<!--", scopes: ["source.gfm", "comment.block.gfm", "punctuation.definition.comment.gfm"]
+    expect(tokens[1]).toEqual value: " a comment ", scopes: ["source.gfm", "comment.block.gfm"]
+    expect(tokens[2]).toEqual value: "-->", scopes: ["source.gfm", "comment.block.gfm", "punctuation.definition.comment.gfm"]
