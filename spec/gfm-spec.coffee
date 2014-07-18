@@ -219,9 +219,22 @@ describe "GitHub Flavored Markdown grammar", ->
 
   it "tokenizes inline `code` blocks", ->
     {tokens} = grammar.tokenizeLine("`this` is `code`")
-    expect(tokens[0]).toEqual value: "`this`", scopes: ["source.gfm", "markup.raw.gfm"]
-    expect(tokens[1]).toEqual value: " is ", scopes: ["source.gfm"]
-    expect(tokens[2]).toEqual value: "`code`", scopes: ["source.gfm", "markup.raw.gfm"]
+    expect(tokens[0]).toEqual value: "`", scopes: ["source.gfm", "markup.raw.gfm"]
+    expect(tokens[1]).toEqual value: "this", scopes: ["source.gfm", "markup.raw.gfm"]
+    expect(tokens[2]).toEqual value: "`", scopes: ["source.gfm", "markup.raw.gfm"]
+    expect(tokens[3]).toEqual value: " is ", scopes: ["source.gfm"]
+    expect(tokens[4]).toEqual value: "`", scopes: ["source.gfm", "markup.raw.gfm"]
+    expect(tokens[5]).toEqual value: "code", scopes: ["source.gfm", "markup.raw.gfm"]
+    expect(tokens[6]).toEqual value: "`", scopes: ["source.gfm", "markup.raw.gfm"]
+
+    {tokens} = grammar.tokenizeLine("``")
+    expect(tokens[0]).toEqual value: "`", scopes: ["source.gfm", "markup.raw.gfm"]
+    expect(tokens[1]).toEqual value: "`", scopes: ["source.gfm", "markup.raw.gfm"]
+
+    {tokens} = grammar.tokenizeLine("``a\\`b``")
+    expect(tokens[0]).toEqual value: "``", scopes: ["source.gfm", "markup.raw.gfm"]
+    expect(tokens[1]).toEqual value: "a\\`b", scopes: ["source.gfm", "markup.raw.gfm"]
+    expect(tokens[2]).toEqual value: "``", scopes: ["source.gfm", "markup.raw.gfm"]
 
   it "tokenizes [links](links)", ->
     {tokens} = grammar.tokenizeLine("please click [this link](website)")

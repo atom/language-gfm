@@ -463,7 +463,8 @@
     'name': 'markup.raw.gfm'
   }
   {
-    'match': '`[^`]+`'
+    'begin': '(`+)(?!$)'
+    'end': '\\1'
     'name': 'markup.raw.gfm'
   }
   {
