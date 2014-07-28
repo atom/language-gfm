@@ -6,6 +6,7 @@
   'mdown'
   'mkd'
   'mkdown'
+  'rmd'
   'ron'
 ]
 'patterns': [
