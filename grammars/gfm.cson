@@ -11,33 +11,33 @@
 ]
 'patterns': [
   {
-    'begin': '(?<=^|\\s)\\*\\*\\*(?!$|_)'
-    'end': '\\*\\*\\*'
+    'begin': '(?<=^|[^\\w|\\d])\\*\\*\\*(?!$|\\s)'
+    'end': '(?<!^|\\s)\\*\\*\\*(?=$|[^\\w|\\d])'
     'name': 'markup.bold.italic.gfm'
   }
   {
-    'begin': '(?<=^|\\s)___(?!$|_)'
-    'end': '___'
+    'begin': '(?<=^|[^\\w|\\d])___(?!$|\\s)'
+    'end': '(?<!^|\\s)___(?=$|[^\\w|\\d])'
     'name': 'markup.bold.italic.gfm'
   }
   {
-    'begin': '(?<=^|\\s)\\*\\*(?!$|\\*)'
-    'end': '\\*\\*'
+    'begin': '(?<=^|[^\\w|\\d])\\*\\*(?!$|\\s)'
+    'end': '(?<!^|\\s)\\*\\*(?=$|[^\\w|\\d])'
     'name': 'markup.bold.gfm'
   }
   {
-    'begin': '(?<=^|\\s)__(?!$|_)'
-    'end': '__'
+    'begin': '(?<=^|[^\\w|\\d])__(?!$|\\s)'
+    'end': '(?<!^|\\s)__(?=$|[^\\w|\\d])'
     'name': 'markup.bold.gfm'
   }
   {
-    'begin': '(?<=^|\\s)\\*(?!$|\\*|\\s)'
-    'end': '\\*'
+    'begin': '(?<=^|[^\\w|\\d])\\*(?!$|\\s)'
+    'end': '(?<!^|\\s)\\*(?=$|[^\\w|\\d])'
     'name': 'markup.italic.gfm'
   }
   {
-    'begin': '(?<=^|\\s)_(?!$|_|\\s)'
-    'end': '_'
+    'begin': '(?<=^|[^\\w|\\d])_(?!$|\\s)'
+    'end': '(?<!^|\\s)_(?=$|[^\\w|\\d])'
     'name': 'markup.italic.gfm'
   }
   {
@@ -547,10 +547,5 @@
         'name': 'punctuation.definition.comment.gfm'
     'end': '--\\s*>'
     'name': 'comment.block.gfm'
-  }
-  {
-    'begin': '(?<=^|\\s)\\~\\~(?!$|\\s)'
-    'end': '\\~\\~'
-    'name': 'markup.strike.gfm'
   }
 ]
