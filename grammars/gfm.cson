@@ -548,4 +548,9 @@
     'end': '--\\s*>'
     'name': 'comment.block.gfm'
   }
+  {
+    'begin': '(?<=^|\\s)\\~\\~(?!$|\\s)'
+    'end': '\\~\\~'
+    'name': 'markup.strike.gfm'
+  }
 ]
