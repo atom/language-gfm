@@ -41,6 +41,11 @@
     'name': 'markup.italic.gfm'
   }
   {
+    'begin': '(?<=^|[^\\w|\\d])\\~\\~(?!$|\\s)'
+    'end': '(?<!^|\\s)\\~\\~(?=$|[^\\w|\\d])'
+    'name': 'markup.strike.gfm'
+  }
+  {
     'begin': '^#{1}\\s+'
     'end': '$'
     'name': 'markup.heading.heading-1.gfm'
