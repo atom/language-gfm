@@ -39,7 +39,7 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(secondLineTokens[1]).toEqual value: "***", scopes: ["source.gfm", "markup.bold.italic.gfm"]
     expect(secondLineTokens[2]).toEqual value: "!", scopes: ["source.gfm"]
 
-  it "tokenizes ___bold italic__ text", ->
+  it "tokenizes ___bold italic___ text", ->
     {tokens} = grammar.tokenizeLine("this is ___bold italic___ text")
     expect(tokens[0]).toEqual value: "this is ", scopes: ["source.gfm"]
     expect(tokens[1]).toEqual value: "___", scopes: ["source.gfm", "markup.bold.italic.gfm"]
@@ -140,6 +140,23 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(secondLineTokens[0]).toEqual value: "lic", scopes: ["source.gfm", "markup.italic.gfm"]
     expect(secondLineTokens[1]).toEqual value: "_", scopes: ["source.gfm", "markup.italic.gfm"]
     expect(secondLineTokens[2]).toEqual value: "!", scopes: ["source.gfm"]
+
+  it "tokenizes ~~strike~~ text", ->
+    {tokens} = grammar.tokenizeLine("~~strike~~")
+    expect(tokens[0]).toEqual value: "~~", scopes: ["source.gfm", "markup.strike.gfm"]
+    expect(tokens[1]).toEqual value: "strike", scopes: ["source.gfm", "markup.strike.gfm"]
+    expect(tokens[2]).toEqual value: "~~", scopes: ["source.gfm", "markup.strike.gfm"]
+
+    [firstLineTokens, secondLineTokens] = grammar.tokenizeLines("this is ~~str\nike~~!")
+    expect(firstLineTokens[0]).toEqual value: "this is ", scopes: ["source.gfm"]
+    expect(firstLineTokens[1]).toEqual value: "~~", scopes: ["source.gfm", "markup.strike.gfm"]
+    expect(firstLineTokens[2]).toEqual value: "str", scopes: ["source.gfm", "markup.strike.gfm"]
+    expect(secondLineTokens[0]).toEqual value: "ike", scopes: ["source.gfm", "markup.strike.gfm"]
+    expect(secondLineTokens[1]).toEqual value: "~~", scopes: ["source.gfm", "markup.strike.gfm"]
+    expect(secondLineTokens[2]).toEqual value: "!", scopes: ["source.gfm"]
+
+    {tokens} = grammar.tokenizeLine("not~~strike~~")
+    expect(tokens[0]).toEqual value: "not~~strike~~", scopes: ["source.gfm"]
 
   it "tokenizes headings", ->
     {tokens} = grammar.tokenizeLine("# Heading 1")
