@@ -458,6 +458,24 @@
     ]
   }
   {
+    'begin': '^\\s*[`~]{3,}\\s*elixir\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*[`~]{3,}$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.elixir.gfm'
+    'contentName': 'source.elixir'
+    'patterns': [
+      {
+        'include': 'source.elixir'
+      }
+    ]
+  }
+
+  {
     'begin': '^\\s*[`~]{3,}.*$'
     'beginCaptures':
       '0':
