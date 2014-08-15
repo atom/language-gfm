@@ -491,6 +491,32 @@
     'name': 'markup.raw.gfm'
   }
   {
+    'match': '\\[!\\[([^\\]]*)\\]\\(([^\\)]+)\\)\\](\\(([^\\)]+)\\)|\\[([^\\]]+)\\])'
+    'name': 'link'
+    'captures':
+      '1':
+        'name': 'entity.gfm'
+      '2':
+        'name': 'markup.underline.link.gfm'
+      '4':
+        'name': 'markup.underline.link.gfm'
+      '5':
+        'name': 'markup.underline.link.gfm'
+  }
+  {
+    'match': '\\[!\\[([^\\]]*)\\]\\[([^\\]]+)\\]\\](\\(([^\\)]+)\\)|\\[([^\\]]+)\\])'
+    'name': 'link'
+    'captures':
+      '1':
+        'name': 'entity.gfm'
+      '2':
+        'name': 'markup.underline.link.gfm'
+      '4':
+        'name': 'markup.underline.link.gfm'
+      '5':
+        'name': 'markup.underline.link.gfm'
+  }
+  {
     'match': '!?\\[([^\\]]*)\\]\\(([^\\)]+)\\)'
     'name': 'link'
     'captures':

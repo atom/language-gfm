@@ -286,6 +286,47 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(tokens[3]).toEqual value: "http://website", scopes: ["source.gfm", "link", "markup.underline.link.gfm"]
     expect(tokens[4]).toEqual value: ">", scopes: ["source.gfm", "link"]
 
+  it "tokenizes [![links](links)](links)", ->
+    {tokens} = grammar.tokenizeLine("[![title](image)](link)")
+    expect(tokens[0]).toEqual value: "[![", scopes: ["source.gfm", "link"]
+    expect(tokens[1]).toEqual value: "title", scopes: ["source.gfm", "link", "entity.gfm"]
+    expect(tokens[2]).toEqual value: "](", scopes: ["source.gfm", "link"]
+    expect(tokens[3]).toEqual value: "image", scopes: ["source.gfm", "link", "markup.underline.link.gfm"]
+    expect(tokens[4]).toEqual value: ")](", scopes: ["source.gfm", "link"]
+    expect(tokens[5]).toEqual value: "link", scopes: ["source.gfm", "link", "markup.underline.link.gfm"]
+    expect(tokens[6]).toEqual value: ")", scopes: ["source.gfm", "link"]
+
+  it "tokenizes [![links](links)][links]", ->
+    {tokens} = grammar.tokenizeLine("[![title](image)][link]")
+    expect(tokens[0]).toEqual value: "[![", scopes: ["source.gfm", "link"]
+    expect(tokens[1]).toEqual value: "title", scopes: ["source.gfm", "link", "entity.gfm"]
+    expect(tokens[2]).toEqual value: "](", scopes: ["source.gfm", "link"]
+    expect(tokens[3]).toEqual value: "image", scopes: ["source.gfm", "link", "markup.underline.link.gfm"]
+    expect(tokens[4]).toEqual value: ")][", scopes: ["source.gfm", "link"]
+    expect(tokens[5]).toEqual value: "link", scopes: ["source.gfm", "link", "markup.underline.link.gfm"]
+    expect(tokens[6]).toEqual value: "]", scopes: ["source.gfm", "link"]
+
+  it "tokenizes [![links][links]](links)", ->
+    {tokens} = grammar.tokenizeLine("[![title][image]](link)")
+    expect(tokens[0]).toEqual value: "[![", scopes: ["source.gfm", "link"]
+    expect(tokens[1]).toEqual value: "title", scopes: ["source.gfm", "link", "entity.gfm"]
+    expect(tokens[2]).toEqual value: "][", scopes: ["source.gfm", "link"]
+    expect(tokens[3]).toEqual value: "image", scopes: ["source.gfm", "link", "markup.underline.link.gfm"]
+    expect(tokens[4]).toEqual value: "]](", scopes: ["source.gfm", "link"]
+    expect(tokens[5]).toEqual value: "link", scopes: ["source.gfm", "link", "markup.underline.link.gfm"]
+    expect(tokens[6]).toEqual value: ")", scopes: ["source.gfm", "link"]
+
+  it "tokenizes [![links][links]][links]", ->
+    {tokens} = grammar.tokenizeLine("[![title][image]][link]")
+    expect(tokens[0]).toEqual value: "[![", scopes: ["source.gfm", "link"]
+    expect(tokens[1]).toEqual value: "title", scopes: ["source.gfm", "link", "entity.gfm"]
+    expect(tokens[2]).toEqual value: "][", scopes: ["source.gfm", "link"]
+    expect(tokens[3]).toEqual value: "image", scopes: ["source.gfm", "link", "markup.underline.link.gfm"]
+    expect(tokens[4]).toEqual value: "]][", scopes: ["source.gfm", "link"]
+    expect(tokens[5]).toEqual value: "link", scopes: ["source.gfm", "link", "markup.underline.link.gfm"]
+    expect(tokens[6]).toEqual value: "]", scopes: ["source.gfm", "link"]
+
+
   it "tokenizes mentions", ->
     {tokens} = grammar.tokenizeLine("sentence with no space before@name ")
     expect(tokens[0]).toEqual value: "sentence with no space before@name ", scopes: ["source.gfm"]
