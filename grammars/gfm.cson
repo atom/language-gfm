@@ -36,7 +36,7 @@
     'name': 'markup.italic.gfm'
   }
   {
-    'begin': '(?<=^|[^\\w|\\d|_])_(?!$|_|\\s)'
+    'begin': '(?<=^|[^\\w|\\d|_\\{\\}])_(?!$|_|\\s)'
     'end': '(?<!^|\\s)_*_(?=$|[^\\w|\\d])'
     'name': 'markup.italic.gfm'
   }
