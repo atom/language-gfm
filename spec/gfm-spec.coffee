@@ -404,6 +404,11 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(tokens[1]).toEqual value: "person", scopes: ["source.gfm", "string.username.gfm"]
     expect(tokens[2]).toEqual value: "'s", scopes: ["source.gfm"]
 
+    {tokens} = grammar.tokenizeLine("@person;")
+    expect(tokens[0]).toEqual value: "@", scopes: ["source.gfm", "variable.mention.gfm"]
+    expect(tokens[1]).toEqual value: "person", scopes: ["source.gfm", "string.username.gfm"]
+    expect(tokens[2]).toEqual value: ";", scopes: ["source.gfm"]
+
   it "tokenizes issue numbers", ->
     {tokens} = grammar.tokenizeLine("sentence with no space before#12 ")
     expect(tokens[0]).toEqual value: "sentence with no space before#12 ", scopes: ["source.gfm"]
