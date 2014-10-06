@@ -7,8 +7,9 @@
     "atom": "*"
   },
   "devDependencies": {
+    "coffee-script": "1.7.0",
     "request": "^2.34.0",
-    "underscore-plus": "^1.0.6",
-    "season": "^1.0.2"
+    "season": "^1.0.2",
+    "underscore-plus": "^1.0.6"
   }
 }
