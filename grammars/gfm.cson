@@ -186,6 +186,22 @@
     ]
   }
   {
+    'begin': '^\\s*([`~]{3,})\\s*(markdown|mdown|md)\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.gfm'
+    'patterns': [
+      {
+        'include': '$self'
+      }
+    ]
+  }
+  {
     'begin': '^\\s*([`~]{3,})\\s*json\\s*$'
     'beginCaptures':
       '0':
