@@ -542,7 +542,7 @@
         'name': 'markup.underline.link.gfm'
   }
   {
-    'match': '!?\\[([^\\]]*)\\]\\[([^\\]]+)\\]'
+    'match': '!?\\[([^\\]]*)\\]\\[([^\\]]*)\\]'
     'name': 'link'
     'captures':
       '1':
