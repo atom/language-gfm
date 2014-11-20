@@ -541,3 +541,14 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(tokens[0]).toEqual value: "<!--", scopes: ["source.gfm", "comment.block.gfm", "punctuation.definition.comment.gfm"]
     expect(tokens[1]).toEqual value: " a comment ", scopes: ["source.gfm", "comment.block.gfm"]
     expect(tokens[2]).toEqual value: "-->", scopes: ["source.gfm", "comment.block.gfm", "punctuation.definition.comment.gfm"]
+
+  it "tokenizes YAML front matter", ->
+    [firstLineTokens, secondLineTokens, thirdLineTokens] = grammar.tokenizeLines """
+      ---
+      front: matter
+      ---
+    """
+
+    expect(firstLineTokens[0]).toEqual value: "---", scopes: ["source.gfm", "front-matter.yaml.gfm", "comment.hr.gfm"]
+    expect(secondLineTokens[0]).toEqual value: "front: matter", scopes: ["source.gfm", "front-matter.yaml.gfm"]
+    expect(thirdLineTokens[0]).toEqual value: "---", scopes: ["source.gfm", "front-matter.yaml.gfm", "comment.hr.gfm"]

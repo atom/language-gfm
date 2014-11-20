@@ -144,6 +144,19 @@
         'name': 'punctuation.definition.entity.gfm'
   }
   {
+    'begin': '\\A---$'
+    'end': '^---$'
+    'captures':
+      '0':
+        'name': 'comment.hr.gfm'
+    'name': 'front-matter.yaml.gfm'
+    'patterns': [
+      {
+        'include': 'source.yaml'
+      }
+    ]
+  }
+  {
     'match': '^\\s*[*]{3,}\\s*$'
     'name': 'comment.hr.gfm'
   }
