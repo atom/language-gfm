@@ -427,9 +427,15 @@
     'endCaptures':
       '0':
         'name': 'support.gfm'
-    'name': 'markup.code.c++.gfm'
-    'contentName': 'source.c++'
+    'name': 'markup.code.cpp.gfm'
+    'contentName': 'source.cpp'
     'patterns': [
+      {
+        'include': 'source.cpp'
+      }
+
+      # TODO: remove once new language-c package is released with 'source.cpp'
+      # scope name
       {
         'include': 'source.c++'
       }
