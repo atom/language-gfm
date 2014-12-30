@@ -629,6 +629,12 @@
         'name': 'string.issue.number.gfm'
   }
   {
+    'match': '(  )$'
+    'captures':
+      '1':
+        'name': 'linebreak.gfm'
+  }
+  {
     'begin': '<!--'
     'captures':
       '0':
