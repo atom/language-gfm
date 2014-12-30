@@ -526,65 +526,131 @@
     'name': 'markup.raw.gfm'
   }
   {
-    'match': '\\[!\\[([^\\]]*)\\]\\(([^\\)]+)\\)\\](\\(([^\\)]+)\\)|\\[([^\\]]+)\\])'
+    'match': '(\\[!)(\\[)([^\\]]*)(\\])(\\()([^\\)]+)(\\))(\\])((\\()([^\\)]+)(\\))|(\\[)([^\\]]+)(\\]))'
     'name': 'link'
     'captures':
       '1':
-        'name': 'entity.gfm'
+        'name': 'punctuation.definition.begin.gfm'
       '2':
-        'name': 'markup.underline.link.gfm'
+        'name': 'punctuation.definition.begin.gfm'
+      '3':
+        'name': 'entity.gfm'
       '4':
+        'name': 'punctuation.definition.end.gfm'
+      '5':
+        'name': 'punctuation.definition.begin.gfm'
+      '6':
         'name': 'markup.underline.link.gfm'
+      '7':
+        'name': 'punctuation.definition.end.gfm'
+      '8':
+        'name': 'punctuation.definition.begin.gfm'
+      '10':
+        'name': 'punctuation.definition.begin.gfm'
+      '11':
+        'name': 'markup.underline.link.gfm'
+      '12':
+        'name': 'punctuation.definition.end.gfm'
+      '13':
+        'name': 'punctuation.definition.begin.gfm'
+      '14':
+        'name': 'markup.underline.link.gfm'
+      '15':
+        'name': 'punctuation.definition.end.gfm'
+  }
+  {
+    'match': '(\\[!)(\\[)([^\\]]*)(\\])(\\[)([^\\)]+)(\\])(\\])((\\()([^\\)]+)(\\))|(\\[)([^\\]]+)(\\]))'
+    'name': 'link'
+    'captures':
+      '1':
+        'name': 'punctuation.definition.begin.gfm'
+      '2':
+        'name': 'punctuation.definition.begin.gfm'
+      '3':
+        'name': 'entity.gfm'
+      '4':
+        'name': 'punctuation.definition.end.gfm'
+      '5':
+        'name': 'punctuation.definition.begin.gfm'
+      '6':
+        'name': 'markup.underline.link.gfm'
+      '7':
+        'name': 'punctuation.definition.end.gfm'
+      '8':
+        'name': 'punctuation.definition.begin.gfm'
+      '10':
+        'name': 'punctuation.definition.begin.gfm'
+      '11':
+        'name': 'markup.underline.link.gfm'
+      '12':
+        'name': 'punctuation.definition.end.gfm'
+      '13':
+        'name': 'punctuation.definition.begin.gfm'
+      '14':
+        'name': 'markup.underline.link.gfm'
+      '15':
+        'name': 'punctuation.definition.end.gfm'
+  }
+  {
+    'match': '!?(\\[)([^\\]]*)(\\])(\\()([^\\)]+)(\\))'
+    'name': 'link'
+    'captures':
+      '1':
+        'name': 'punctuation.definition.begin.gfm'
+      '2':
+        'name': 'entity.gfm'
+      '3':
+        'name': 'punctuation.definition.end.gfm'
+      '4':
+        'name': 'punctuation.definition.begin.gfm'
       '5':
         'name': 'markup.underline.link.gfm'
+      '6':
+        'name': 'punctuation.definition.end.gfm'
   }
   {
-    'match': '\\[!\\[([^\\]]*)\\]\\[([^\\]]+)\\]\\](\\(([^\\)]+)\\)|\\[([^\\]]+)\\])'
+    'match': '!?(\\[)([^\\]]*)(\\])(\\[)([^\\]]*)(\\])'
     'name': 'link'
     'captures':
       '1':
-        'name': 'entity.gfm'
+        'name': 'punctuation.definition.begin.gfm'
       '2':
-        'name': 'markup.underline.link.gfm'
+        'name': 'entity.gfm'
+      '3':
+        'name': 'punctuation.definition.end.gfm'
       '4':
-        'name': 'markup.underline.link.gfm'
+        'name': 'punctuation.definition.begin.gfm'
       '5':
         'name': 'markup.underline.link.gfm'
+      '6':
+        'name': 'punctuation.definition.end.gfm'
   }
   {
-    'match': '!?\\[([^\\]]*)\\]\\(([^\\)]+)\\)'
+    'match': '^\\s*(\\[)([^\\]]+)(\\])\\s*:\\s*<([^>]+)>'
     'name': 'link'
     'captures':
       '1':
-        'name': 'entity.gfm'
+        'name': 'punctuation.definition.begin.gfm'
       '2':
+        'name': 'entity.gfm'
+      '3':
+        'name': 'punctuation.definition.end.gfm'
+      '4':
         'name': 'markup.underline.link.gfm'
   }
   {
-    'match': '!?\\[([^\\]]*)\\]\\[([^\\]]*)\\]'
+    'match': '^\\s*(\\[)([^\\]]+)(\\])\\s*(:)\\s*(\\S+)'
     'name': 'link'
     'captures':
       '1':
-        'name': 'entity.gfm'
+        'name': 'punctuation.definition.begin.gfm'
       '2':
-        'name': 'markup.underline.link.gfm'
-  }
-  {
-    'match': '^\\s*\\[([^\\]]+)\\]\\s*:\\s*<([^>]+)>'
-    'name': 'link'
-    'captures':
-      '1':
         'name': 'entity.gfm'
-      '2':
-        'name': 'markup.underline.link.gfm'
-  }
-  {
-    'match': '^\\s*\\[([^\\]]+)\\]\\s*:\\s*(\\S+)'
-    'name': 'link'
-    'captures':
-      '1':
-        'name': 'entity.gfm'
-      '2':
+      '3':
+        'name': 'punctuation.definition.end.gfm'
+      '4':
+        'name': 'punctuation.separator.key-value.gfm'
+      '5':
         'name': 'markup.underline.link.gfm'
   }
   {
