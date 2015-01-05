@@ -334,6 +334,23 @@
     ]
   }
   {
+    'begin': '^\\s*([`~]{3,})\\s*go(lang)?\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.go.gfm'
+    'contentName': 'source.go'
+    'patterns': [
+      {
+        'include': 'source.go'
+      }
+    ]
+  }
+  {
     'begin': '^\\s*([`~]{3,})\\s*cs(harp)?\\s*$'
     'beginCaptures':
       '0':
