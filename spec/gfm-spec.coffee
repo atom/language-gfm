@@ -555,3 +555,8 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(firstLineTokens[0]).toEqual value: "---", scopes: ["source.gfm", "front-matter.yaml.gfm", "comment.hr.gfm"]
     expect(secondLineTokens[0]).toEqual value: "front: matter", scopes: ["source.gfm", "front-matter.yaml.gfm"]
     expect(thirdLineTokens[0]).toEqual value: "---", scopes: ["source.gfm", "front-matter.yaml.gfm", "comment.hr.gfm"]
+
+  it "tokenizes linebreaks", ->
+    {tokens} = grammar.tokenizeLine("line  \n")
+    expect(tokens[0]).toEqual value: "line", scopes: ["source.gfm"]
+    expect(tokens[1]).toEqual value: "  ", scopes: ["source.gfm", "linebreak.gfm"]
