@@ -145,7 +145,7 @@
   }
   {
     'begin': '\\A---$'
-    'end': '^---$'
+    'end': '^(---|...)$' #Added ... end block for compatibility with Pandoc front matter'
     'captures':
       '0':
         'name': 'comment.hr.gfm'
@@ -696,7 +696,7 @@
     ]
   }
   {
-    'match': '(?<=^|\\s|"|\'|\\(|\\[)(@)((\\w|:)[-(\\w|:)]*)(?=[\\s"\'.,;\\)\\]])'
+    'match': '(?<=^|\\s|"|\'|\\(|\\[)(@)((\\w|:)[-(\\w|:)]*)(?=[\\s"\'.,;\\)\\]])' # Added : as an accepted character in a mention for Papers compatibility
     'captures':
       '1':
         'name': 'variable.mention.gfm'
