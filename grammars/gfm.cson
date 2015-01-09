@@ -145,8 +145,6 @@
   }
   {
     'begin': '\\A---$'
-    # Added '...' as an acceptable end-block 
-    # For compatibility with Pandoc front-matters
     'end': '^---|\\.\\.\\.$' 
     'captures':
       '0':
@@ -698,8 +696,6 @@
     ]
   }
   {
-    # Added ':' as an accepted character in a mention 
-    # For compatibility with Papers citekeys
     'match': '(?<=^|\\s|"|\'|\\(|\\[)(@)(\\w[-\\w:]*)(?=[\\s"\'.,;\\)\\]])' 
     'captures':
       '1':
