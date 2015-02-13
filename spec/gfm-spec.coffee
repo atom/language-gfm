@@ -442,28 +442,28 @@ describe "GitHub Flavored Markdown grammar", ->
     {tokens} = grammar.tokenizeLine("sentence with no space before#12 ")
     expect(tokens[0]).toEqual value: "sentence with no space before#12 ", scopes: ["source.gfm"]
 
-    {tokens} = grammar.tokenizeLine("#101 '#101' #101's #101. #101, (#101) [#101]")
-    expect(tokens[0]).toEqual value: "#", scopes: ["source.gfm", "variable.issue.tag.gfm"]
-    expect(tokens[1]).toEqual value: "101", scopes: ["source.gfm", "string.issue.number.gfm"]
-    expect(tokens[2]).toEqual value: " '", scopes: ["source.gfm"]
-    expect(tokens[3]).toEqual value: "#", scopes: ["source.gfm", "variable.issue.tag.gfm"]
-    expect(tokens[4]).toEqual value: "101", scopes: ["source.gfm", "string.issue.number.gfm"]
-    expect(tokens[5]).toEqual value: "' ", scopes: ["source.gfm"]
-    expect(tokens[6]).toEqual value: "#", scopes: ["source.gfm", "variable.issue.tag.gfm"]
-    expect(tokens[7]).toEqual value: "101", scopes: ["source.gfm", "string.issue.number.gfm"]
-    expect(tokens[8]).toEqual value: "'s ", scopes: ["source.gfm"]
-    expect(tokens[9]).toEqual value: "#", scopes: ["source.gfm", "variable.issue.tag.gfm"]
-    expect(tokens[10]).toEqual value: "101", scopes: ["source.gfm", "string.issue.number.gfm"]
-    expect(tokens[11]).toEqual value: ". ", scopes: ["source.gfm"]
-    expect(tokens[12]).toEqual value: "#", scopes: ["source.gfm", "variable.issue.tag.gfm"]
-    expect(tokens[13]).toEqual value: "101", scopes: ["source.gfm", "string.issue.number.gfm"]
-    expect(tokens[14]).toEqual value: ", (", scopes: ["source.gfm"]
-    expect(tokens[15]).toEqual value: "#", scopes: ["source.gfm", "variable.issue.tag.gfm"]
-    expect(tokens[16]).toEqual value: "101", scopes: ["source.gfm", "string.issue.number.gfm"]
-    expect(tokens[17]).toEqual value: ") [", scopes: ["source.gfm"]
-    expect(tokens[18]).toEqual value: "#", scopes: ["source.gfm", "variable.issue.tag.gfm"]
-    expect(tokens[19]).toEqual value: "101", scopes: ["source.gfm", "string.issue.number.gfm"]
-    expect(tokens[20]).toEqual value: "]", scopes: ["source.gfm"]
+    {tokens} = grammar.tokenizeLine(" #101 '#101' #101's #101. #101, (#101) [#101]")
+    expect(tokens[1]).toEqual value: "#", scopes: ["source.gfm", "variable.issue.tag.gfm"]
+    expect(tokens[2]).toEqual value: "101", scopes: ["source.gfm", "string.issue.number.gfm"]
+    expect(tokens[3]).toEqual value: " '", scopes: ["source.gfm"]
+    expect(tokens[4]).toEqual value: "#", scopes: ["source.gfm", "variable.issue.tag.gfm"]
+    expect(tokens[5]).toEqual value: "101", scopes: ["source.gfm", "string.issue.number.gfm"]
+    expect(tokens[6]).toEqual value: "' ", scopes: ["source.gfm"]
+    expect(tokens[7]).toEqual value: "#", scopes: ["source.gfm", "variable.issue.tag.gfm"]
+    expect(tokens[8]).toEqual value: "101", scopes: ["source.gfm", "string.issue.number.gfm"]
+    expect(tokens[9]).toEqual value: "'s ", scopes: ["source.gfm"]
+    expect(tokens[10]).toEqual value: "#", scopes: ["source.gfm", "variable.issue.tag.gfm"]
+    expect(tokens[11]).toEqual value: "101", scopes: ["source.gfm", "string.issue.number.gfm"]
+    expect(tokens[12]).toEqual value: ". ", scopes: ["source.gfm"]
+    expect(tokens[13]).toEqual value: "#", scopes: ["source.gfm", "variable.issue.tag.gfm"]
+    expect(tokens[14]).toEqual value: "101", scopes: ["source.gfm", "string.issue.number.gfm"]
+    expect(tokens[15]).toEqual value: ", (", scopes: ["source.gfm"]
+    expect(tokens[16]).toEqual value: "#", scopes: ["source.gfm", "variable.issue.tag.gfm"]
+    expect(tokens[17]).toEqual value: "101", scopes: ["source.gfm", "string.issue.number.gfm"]
+    expect(tokens[18]).toEqual value: ") [", scopes: ["source.gfm"]
+    expect(tokens[19]).toEqual value: "#", scopes: ["source.gfm", "variable.issue.tag.gfm"]
+    expect(tokens[20]).toEqual value: "101", scopes: ["source.gfm", "string.issue.number.gfm"]
+    expect(tokens[21]).toEqual value: "]", scopes: ["source.gfm"]
 
     {tokens} = grammar.tokenizeLine('"#101"')
     expect(tokens[0]).toEqual value: '"', scopes: ["source.gfm"]
@@ -480,10 +480,10 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(tokens[2]).toEqual value: "123", scopes: ["source.gfm", "string.issue.number.gfm"]
     expect(tokens[3]).toEqual value: " that continues", scopes: ["source.gfm"]
 
-    {tokens} = grammar.tokenizeLine("#123's")
-    expect(tokens[0]).toEqual value: "#", scopes: ["source.gfm", "variable.issue.tag.gfm"]
-    expect(tokens[1]).toEqual value: "123", scopes: ["source.gfm", "string.issue.number.gfm"]
-    expect(tokens[2]).toEqual value: "'s", scopes: ["source.gfm"]
+    {tokens} = grammar.tokenizeLine(" #123's")
+    expect(tokens[1]).toEqual value: "#", scopes: ["source.gfm", "variable.issue.tag.gfm"]
+    expect(tokens[2]).toEqual value: "123", scopes: ["source.gfm", "string.issue.number.gfm"]
+    expect(tokens[3]).toEqual value: "'s", scopes: ["source.gfm"]
 
   it "tokenizes unordered lists", ->
     {tokens} = grammar.tokenizeLine("*Item 1")
