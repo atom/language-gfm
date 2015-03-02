@@ -527,6 +527,23 @@
     ]
   }
   {
+    'begin': '^\\s*([`~]{3,})\\s*(diff|patch|rej)\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.diff.gfm'
+    'contentName': 'source.diff'
+    'patterns': [
+      {
+        'include': 'source.diff'
+      }
+    ]
+  }
+  {
     'begin': '^\\s*([`~]{3,}).*$'
     'beginCaptures':
       '0':
