@@ -450,12 +450,6 @@
       {
         'include': 'source.cpp'
       }
-
-      # TODO: remove once new language-c package is released with 'source.cpp'
-      # scope name
-      {
-        'include': 'source.c++'
-      }
     ]
   }
   {
