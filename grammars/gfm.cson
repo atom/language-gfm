@@ -11,6 +11,10 @@
 ]
 'patterns': [
   {
+    'match': '\\\\.'
+    'name': 'constant.character.escape.gfm'
+  }
+  {
     'begin': '(?<=^|[^\\w\\d\\*])\\*\\*\\*(?!$|\\*|\\s)'
     'end': '(?<!^|\\s)\\*\\*\\**\\*(?=$|[^\\w|\\d])'
     'name': 'markup.bold.italic.gfm'
