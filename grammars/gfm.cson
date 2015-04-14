@@ -774,4 +774,30 @@
     'end': '--\\s*>'
     'name': 'comment.block.gfm'
   }
+  {
+    'begin': '(^\\|)'
+    'end': '(\\|$)'
+    'captures':
+      '1':
+        'name': 'border.pipe.outer'
+      '2':
+        'name': 'border.pipe.outer'
+    'name': 'table.gfm'
+    'patterns': [
+      {
+        'match': '(:?)(-+)(:?)'
+        'captures':
+          '1':
+            'name': 'border.modifier'
+          '2':
+            'name': 'border.header'
+          '3':
+            'name': 'border.modifier'
+      }
+      {
+        'match': '\\|'
+        'name': 'border.pipe.inner'
+      }
+    ]
+  }
 ]
