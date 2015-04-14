@@ -542,6 +542,40 @@
     ]
   }
   {
+    'begin': '^\\s*([`~]{3,})\\s*julia\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.julia.gfm'
+    'contentName': 'source.julia'
+    'patterns': [
+      {
+        'include': 'source.julia'
+      }
+    ]
+  }
+  {
+    'begin': '^\\s*([`~]{3,})\\s*r\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.r.gfm'
+    'contentName': 'source.r'
+    'patterns': [
+      {
+        'include': 'source.r'
+      }
+    ]
+  }
+  {
     'begin': '^\\s*([`~]{3,}).*$'
     'beginCaptures':
       '0':
