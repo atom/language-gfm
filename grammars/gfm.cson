@@ -50,12 +50,14 @@
     'name': 'markup.strike.gfm'
   }
   {
-    'begin': '^(#{6}\\s*)'
+    'begin': '^(#{6})(\\s*)'
     'end': '$'
     'name': 'markup.heading.heading-6.gfm'
     'captures':
       '1':
         'name': 'markup.heading.marker.gfm'
+      '2':
+        'name': 'markup.heading.space.gfm'
     'patterns': [
       {
         'include': '$self'
@@ -63,12 +65,14 @@
     ]
   }
   {
-    'begin': '^(#{5}\\s*)'
+    'begin': '^(#{5})(\\s*)'
     'end': '$'
     'name': 'markup.heading.heading-5.gfm'
     'captures':
       '1':
         'name': 'markup.heading.marker.gfm'
+      '2':
+        'name': 'markup.heading.space.gfm'
     'patterns': [
       {
         'include': '$self'
@@ -76,12 +80,14 @@
     ]
   }
   {
-    'begin': '^(#{4}\\s*)'
+    'begin': '^(#{4})(\\s*)'
     'end': '$'
     'name': 'markup.heading.heading-4.gfm'
     'captures':
       '1':
         'name': 'markup.heading.marker.gfm'
+      '2':
+        'name': 'markup.heading.space.gfm'
     'patterns': [
       {
         'include': '$self'
@@ -89,12 +95,14 @@
     ]
   }
   {
-    'begin': '^(#{3}\\s*)'
+    'begin': '^(#{3})(\\s*)'
     'end': '$'
     'name': 'markup.heading.heading-3.gfm'
     'captures':
       '1':
         'name': 'markup.heading.marker.gfm'
+      '2':
+        'name': 'markup.heading.space.gfm'
     'patterns': [
       {
         'include': '$self'
@@ -102,12 +110,14 @@
     ]
   }
   {
-    'begin': '^(#{2}\\s*)'
+    'begin': '^(#{2})(\\s*)'
     'end': '$'
     'name': 'markup.heading.heading-2.gfm'
     'captures':
       '1':
         'name': 'markup.heading.marker.gfm'
+      '2':
+        'name': 'markup.heading.space.gfm'
     'patterns': [
       {
         'include': '$self'
@@ -115,12 +125,14 @@
     ]
   }
   {
-    'begin': '^(#{1}\\s*)'
+    'begin': '^(#{1})(\\s*)'
     'end': '$'
     'name': 'markup.heading.heading-1.gfm'
     'captures':
       '1':
         'name': 'markup.heading.marker.gfm'
+      '2':
+        'name': 'markup.heading.space.gfm'
     'patterns': [
       {
         'include': '$self'
