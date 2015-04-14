@@ -178,7 +178,7 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(tokens[1]).toEqual value: "Heading 1", scopes: ["source.gfm", "markup.heading.heading-1.gfm"]
 
     {tokens} = grammar.tokenizeLine("## Heading 2")
-    expect(tokens[0]).toEqual value: "## ", scopes: ["source.gfm", "markup.heading.heading-2.gfm"]
+    expect(tokens[0]).toEqual value: "## ", scopes: ["source.gfm", "markup.heading.marker.gfm"]
     expect(tokens[1]).toEqual value: "Heading 2", scopes: ["source.gfm", "markup.heading.heading-2.gfm"]
 
     {tokens} = grammar.tokenizeLine("### Heading 3")
