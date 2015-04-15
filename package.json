@@ -1,6 +1,6 @@
 {
   "name": "language-gfm",
-  "version": "0.68.0",
+  "version": "0.69.0",
   "description": "Syntax highlighting and snippets for GitHub Flavored Markdown (GFM).",
   "repository": "https://github.com/atom/language-gfm",
   "engines": {
