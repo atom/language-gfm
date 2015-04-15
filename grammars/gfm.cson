@@ -805,10 +805,10 @@
     'name': 'comment.block.gfm'
   }
   {
-    'begin': '(^\\|)'
-    'end': '(\\|$)'
+    'begin': '^\\|'
+    'end': '\\|$'
     'captures':
-      '1':
+      '0':
         'name': 'border.pipe.outer'
     'name': 'table.gfm'
     'patterns': [
