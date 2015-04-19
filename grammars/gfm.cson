@@ -606,6 +606,23 @@
     ]
   }
   {
+    'begin': '^\\s*([`~]{3,})\\s*haskell\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.haskell.gfm'
+    'contentName': 'source.haskell'
+    'patterns': [
+      {
+        'include': 'source.haskell'
+      }
+    ]
+  }
+  {
     'begin': '^\\s*([`~]{3,}).*$'
     'beginCaptures':
       '0':
