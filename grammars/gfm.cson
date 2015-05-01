@@ -845,44 +845,44 @@
       }
     ]
   }
-    {
-    'begin': '({\\+\\+)'
-    'end': '(\\+\\+})'
+  {
+    'begin': '{\\+\\+'
+    'end': '\\+\\+}'
     'name': 'critic.gfm.addition'
     'captures':
-      '1':
+      '0':
         'name': 'critic.gfm.addition.marker'
   }
   {
-    'begin': '({--)'
-    'end': '(--})'
+    'begin': '{--'
+    'end': '--}'
     'name': 'critic.gfm.deletion'
     'captures':
-      '1':
+      '0':
         'name': 'critic.gfm.deletion.marker'
   }
   {
-    'begin': '({==)'
-    'end': '(==})'
+    'begin': '{=='
+    'end': '==}'
     'name': 'critic.gfm.highlight'
     'captures':
-      '1':
+      '0':
         'name': 'critic.gfm.highlight.marker'
   }
   {
-    'begin': '({>>)'
-    'end': '(<<})'
+    'begin': '{>>'
+    'end': '<<}'
     'name': 'critic.gfm.comment'
     'captures':
-      '1':
+      '0':
         'name': 'critic.gfm.comment.marker'
   }
   {
-    'begin': '({~~)'
-    'end': '(~~})'
+    'begin': '{~~'
+    'end': '~~}'
     'name': 'critic.gfm.substitution'
     'captures':
-      '1':
+      '0':
         'name': 'critic.gfm.substitution.marker'
     'patterns': [
       {
