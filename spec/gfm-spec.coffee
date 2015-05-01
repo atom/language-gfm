@@ -628,3 +628,36 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(contentTokens[2]).toEqual value: "|", scopes: ["source.gfm", "table.gfm", "border.pipe.inner"]
     expect(contentTokens[3]).toEqual value: " Content 2 ", scopes: ["source.gfm", "table.gfm"]
     expect(contentTokens[4]).toEqual value: "|", scopes: ["source.gfm", "table.gfm", "border.pipe.outer"]
+
+  it "tokenizes criticmarkup", ->
+    [addToken, delToken, hlToken, subToken] = grammar.tokenizeLines """
+    Add{++ some text++}
+    Delete{-- some text--}
+    Highlight {==some text==}{>>with comment<<}
+    Replace {~~this~>by that~~}
+    """
+    # Addition
+    expect(addToken[0]).toEqual value: "Add", scopes: ["source.gfm"]
+    expect(addToken[1]).toEqual value: "{++", scopes: ["source.gfm", "critic.gfm.addition", "critic.gfm.addition.marker"]
+    expect(addToken[2]).toEqual value: " some text", scopes: ["source.gfm", "critic.gfm.addition"]
+    expect(addToken[3]).toEqual value: "++}", scopes: ["source.gfm", "critic.gfm.addition", "critic.gfm.addition.marker"]
+    # Deletion
+    expect(delToken[0]).toEqual value: "Delete", scopes: ["source.gfm"]
+    expect(delToken[1]).toEqual value: "{--", scopes: ["source.gfm", "critic.gfm.deletion", "critic.gfm.deletion.marker"]
+    expect(delToken[2]).toEqual value: " some text", scopes: ["source.gfm", "critic.gfm.deletion"]
+    expect(delToken[3]).toEqual value: "--}", scopes: ["source.gfm", "critic.gfm.deletion", "critic.gfm.deletion.marker"]
+    # Comment and highlight
+    expect(hlToken[0]).toEqual value: "Highlight ", scopes: ["source.gfm"]
+    expect(hlToken[1]).toEqual value: "{==", scopes: ["source.gfm", "critic.gfm.highlight", "critic.gfm.highlight.marker"]
+    expect(hlToken[2]).toEqual value: "some text", scopes: ["source.gfm", "critic.gfm.highlight"]
+    expect(hlToken[3]).toEqual value: "==}", scopes: ["source.gfm", "critic.gfm.highlight", "critic.gfm.highlight.marker"]
+    expect(hlToken[4]).toEqual value: "{>>", scopes: ["source.gfm", "critic.gfm.comment", "critic.gfm.comment.marker"]
+    expect(hlToken[5]).toEqual value: "with comment", scopes: ["source.gfm", "critic.gfm.comment"]
+    expect(hlToken[6]).toEqual value: "<<}", scopes: ["source.gfm", "critic.gfm.comment", "critic.gfm.comment.marker"]
+    # Replace
+    expect(subToken[0]).toEqual value: "Replace ", scopes: ["source.gfm"]
+    expect(subToken[1]).toEqual value: "{~~", scopes: ["source.gfm", "critic.gfm.substitution", "critic.gfm.substitution.marker"]
+    expect(subToken[2]).toEqual value: "this", scopes: ["source.gfm", "critic.gfm.substitution"]
+    expect(subToken[3]).toEqual value: "~>", scopes: ["source.gfm", "critic.gfm.substitution", "critic.gfm.substitution.operator"]
+    expect(subToken[4]).toEqual value: "by that", scopes: ["source.gfm", "critic.gfm.substitution"]
+    expect(subToken[5]).toEqual value: "~~}", scopes: ["source.gfm", "critic.gfm.substitution", "critic.gfm.substitution.marker"]

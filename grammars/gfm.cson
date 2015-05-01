@@ -845,4 +845,50 @@
       }
     ]
   }
+    {
+    'begin': '({\\+\\+)'
+    'end': '(\\+\\+})'
+    'name': 'critic.gfm.addition'
+    'captures':
+      '1':
+        'name': 'critic.gfm.addition.marker'
+  }
+  {
+    'begin': '({--)'
+    'end': '(--})'
+    'name': 'critic.gfm.deletion'
+    'captures':
+      '1':
+        'name': 'critic.gfm.deletion.marker'
+  }
+  {
+    'begin': '({==)'
+    'end': '(==})'
+    'name': 'critic.gfm.highlight'
+    'captures':
+      '1':
+        'name': 'critic.gfm.highlight.marker'
+  }
+  {
+    'begin': '({>>)'
+    'end': '(<<})'
+    'name': 'critic.gfm.comment'
+    'captures':
+      '1':
+        'name': 'critic.gfm.comment.marker'
+  }
+  {
+    'begin': '({~~)'
+    'end': '(~~})'
+    'name': 'critic.gfm.substitution'
+    'captures':
+      '1':
+        'name': 'critic.gfm.substitution.marker'
+    'patterns': [
+      {
+        'match': '~>'
+        'name': 'critic.gfm.substitution.operator'
+      }
+    ]
+  }
 ]
