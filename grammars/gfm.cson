@@ -623,6 +623,38 @@
     ]
   }
   {
+    'begin': '^\\s*([`~]{3,})\\s*(apib|apiblueprint)\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.gfm'
+    'patterns': [
+      {
+        'include': 'text.html.markdown.source.gfm.apib'
+      }
+    ]
+  }
+  {
+    'begin': '^\\s*([`~]{3,})\\s*mson\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.gfm'
+    'patterns': [
+      {
+        'include': 'text.html.markdown.source.gfm.mson'
+      }
+    ]
+  }
+  {
     'begin': '^\\s*([`~]{3,}).*$'
     'beginCaptures':
       '0':
