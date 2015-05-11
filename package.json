@@ -3,6 +3,7 @@
   "version": "0.72.0",
   "description": "Syntax highlighting and snippets for GitHub Flavored Markdown (GFM).",
   "repository": "https://github.com/atom/language-gfm",
+  "license": "MIT",
   "engines": {
     "atom": "*"
   },
