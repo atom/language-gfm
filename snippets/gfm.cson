@@ -11,6 +11,21 @@
   'strikethrough text':
     'prefix': 's'
     'body': '~~$1~~$0'
+  'critic addition':
+    'prefix': 'a'
+    'body': '{++$1++}$0'
+  'critic deletion':
+    'prefix': 'd'
+    'body': '{--$1--}$0'
+  'critic substitution':
+    'prefix': 'sub'
+    'body': '{~~${1: }~>${2: }~~}$0'
+  'critic comment':
+    'prefix': 'comment'
+    'body': '{>>$1<<}$0'
+  'critic highlight':
+    'prefix': 'h'
+    'body': '{==$1==}{>>$2<<}$0'
   'link':
     'prefix': 'l'
     'body': '[$1]($2)$0'
