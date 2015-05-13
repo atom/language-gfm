@@ -855,9 +855,12 @@
   }
   {
     'begin': '^\\|'
-    'end': '\\|$'
-    'captures':
+    'end': '(\\|)?\\s*$'
+    'beginCaptures':
       '0':
+        'name': 'border.pipe.outer'
+    'endCaptures':
+      '1':
         'name': 'border.pipe.outer'
     'name': 'table.gfm'
     'patterns': [
