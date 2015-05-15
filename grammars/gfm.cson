@@ -653,7 +653,24 @@
         'include': 'text.html.markdown.source.gfm.mson'
       }
     ]
-  }
+  },
+  {
+    'begin': '^\\s*([`~]{3,})\\s*sql\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.sql.gfm'
+    'contentName': 'source.sql'
+    'patterns': [
+      {
+        'include': 'source.sql'
+      }
+    ]
+  },
   {
     'begin': '^\\s*([`~]{3,}).*$'
     'beginCaptures':
