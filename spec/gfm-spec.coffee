@@ -225,7 +225,7 @@ describe "GitHub Flavored Markdown grammar", ->
     {tokens} = grammar.tokenizeLine("http://localhost:8080")
     expect(tokens[0]).toEqual value: "http://localhost:8080", scopes: ["source.gfm"]
 
-  it "tokenizes a ``` code block```", ->
+  it "tokenizes a ``` code block", ->
     {tokens, ruleStack} = grammar.tokenizeLine("```mylanguage")
     expect(tokens[0]).toEqual value: "```mylanguage", scopes: ["source.gfm", "markup.raw.gfm", "support.gfm"]
     {tokens, ruleStack} = grammar.tokenizeLine("-> 'hello'", ruleStack)
@@ -241,7 +241,23 @@ describe "GitHub Flavored Markdown grammar", ->
     {tokens} = grammar.tokenizeLine("~~~", ruleStack)
     expect(tokens[0]).toEqual value: "~~~", scopes: ["source.gfm", "markup.raw.gfm", "support.gfm"]
 
-  it "tokenizes a ``` code block with a language ```", ->
+  it "tokenizes a ``` code block with trailing whitespace", ->
+    {tokens, ruleStack} = grammar.tokenizeLine("```mylanguage")
+    expect(tokens[0]).toEqual value: "```mylanguage", scopes: ["source.gfm", "markup.raw.gfm", "support.gfm"]
+    {tokens, ruleStack} = grammar.tokenizeLine("-> 'hello'", ruleStack)
+    expect(tokens[0]).toEqual value: "-> 'hello'", scopes: ["source.gfm", "markup.raw.gfm"]
+    {tokens} = grammar.tokenizeLine("```  ", ruleStack)
+    expect(tokens[0]).toEqual value: "```  ", scopes: ["source.gfm", "markup.raw.gfm", "support.gfm"]
+
+  it "tokenizes a ~~~ code block with trailing whitespace", ->
+    {tokens, ruleStack} = grammar.tokenizeLine("~~~mylanguage")
+    expect(tokens[0]).toEqual value: "~~~mylanguage", scopes: ["source.gfm", "markup.raw.gfm", "support.gfm"]
+    {tokens, ruleStack} = grammar.tokenizeLine("-> 'hello'", ruleStack)
+    expect(tokens[0]).toEqual value: "-> 'hello'", scopes: ["source.gfm", "markup.raw.gfm"]
+    {tokens} = grammar.tokenizeLine("~~~  ", ruleStack)
+    expect(tokens[0]).toEqual value: "~~~  ", scopes: ["source.gfm", "markup.raw.gfm", "support.gfm"]
+
+  it "tokenizes a ``` code block with a language", ->
     {tokens, ruleStack} = grammar.tokenizeLine("```  bash")
     expect(tokens[0]).toEqual value: "```  bash", scopes: ["source.gfm", "markup.code.shell.gfm",  "support.gfm"]
 
@@ -254,6 +270,24 @@ describe "GitHub Flavored Markdown grammar", ->
 
     {tokens, ruleStack} = grammar.tokenizeLine("~~~js  ")
     expect(tokens[0]).toEqual value: "~~~js  ", scopes: ["source.gfm", "markup.code.js.gfm",  "support.gfm"]
+
+  it "tokenizes a ``` code block with a language and trailing whitespace", ->
+    {tokens, ruleStack} = grammar.tokenizeLine("```  bash")
+    {tokens} = grammar.tokenizeLine("```  ", ruleStack)
+    expect(tokens[0]).toEqual value: "```  ", scopes: ["source.gfm", "markup.code.shell.gfm", "support.gfm"]
+
+    {tokens, ruleStack} = grammar.tokenizeLine("```js  ")
+    {tokens} = grammar.tokenizeLine("```  ", ruleStack)
+    expect(tokens[0]).toEqual value: "```  ", scopes: ["source.gfm", "markup.code.js.gfm", "support.gfm"]
+
+  it "tokenizes a ~~~ code block with a language and trailing whitespace", ->
+    {tokens, ruleStack} = grammar.tokenizeLine("~~~  bash")
+    {tokens} = grammar.tokenizeLine("~~~  ", ruleStack)
+    expect(tokens[0]).toEqual value: "~~~  ", scopes: ["source.gfm", "markup.code.shell.gfm", "support.gfm"]
+
+    {tokens, ruleStack} = grammar.tokenizeLine("~~~js  ")
+    {tokens} = grammar.tokenizeLine("~~~  ", ruleStack)
+    expect(tokens[0]).toEqual value: "~~~  ", scopes: ["source.gfm", "markup.code.js.gfm", "support.gfm"]
 
   it "tokenizes inline `code` blocks", ->
     {tokens} = grammar.tokenizeLine("`this` is `code`")
