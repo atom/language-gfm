@@ -220,7 +220,7 @@
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1$'
+    'end': '^\\s*\\1\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -237,7 +237,7 @@
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1$'
+    'end': '^\\s*\\1\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -253,7 +253,7 @@
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1$'
+    'end': '^\\s*\\1\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -270,7 +270,7 @@
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1$'
+    'end': '^\\s*\\1\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -287,7 +287,7 @@
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1$'
+    'end': '^\\s*\\1\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -304,7 +304,7 @@
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1$'
+    'end': '^\\s*\\1\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -321,7 +321,7 @@
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1$'
+    'end': '^\\s*\\1\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -338,7 +338,7 @@
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1$'
+    'end': '^\\s*\\1\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -355,7 +355,7 @@
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1$'
+    'end': '^\\s*\\1\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -372,7 +372,7 @@
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1$'
+    'end': '^\\s*\\1\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -389,7 +389,7 @@
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1$'
+    'end': '^\\s*\\1\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -406,7 +406,7 @@
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1$'
+    'end': '^\\s*\\1\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -423,7 +423,7 @@
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1$'
+    'end': '^\\s*\\1\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -440,7 +440,7 @@
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1$'
+    'end': '^\\s*\\1\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -457,7 +457,7 @@
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1$'
+    'end': '^\\s*\\1\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -474,7 +474,7 @@
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1$'
+    'end': '^\\s*\\1\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -491,7 +491,7 @@
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1$'
+    'end': '^\\s*\\1\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -508,7 +508,7 @@
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1$'
+    'end': '^\\s*\\1\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -525,7 +525,7 @@
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1$'
+    'end': '^\\s*\\1\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -542,7 +542,7 @@
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1$'
+    'end': '^\\s*\\1\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -559,7 +559,7 @@
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1$'
+    'end': '^\\s*\\1\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -576,7 +576,7 @@
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1$'
+    'end': '^\\s*\\1\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -593,7 +593,7 @@
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1$'
+    'end': '^\\s*\\1\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -610,7 +610,7 @@
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1$'
+    'end': '^\\s*\\1\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -627,7 +627,7 @@
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1$'
+    'end': '^\\s*\\1\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -643,7 +643,7 @@
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1$'
+    'end': '^\\s*\\1\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -659,7 +659,7 @@
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1$'
+    'end': '^\\s*\\1\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -676,7 +676,7 @@
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1$'
+    'end': '^\\s*\\1\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
