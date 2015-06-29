@@ -504,6 +504,23 @@
     ]
   }
   {
+    'begin': '^\\s*([`~]{3,})\\s*swift\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.swift.gfm'
+    'contentName': 'source.swift'
+    'patterns': [
+      {
+        'include': 'source.swift'
+      }
+    ]
+  }
+  {
     'begin': '^\\s*([`~]{3,})\\s*html\\s*$'
     'beginCaptures':
       '0':
