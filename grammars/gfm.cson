@@ -689,6 +689,23 @@
     ]
   },
   {
+    'begin': '^\\s*([`~]{3,})\\s*clojure\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.clojure.gfm'
+    'contentName': 'source.clojure'
+    'patterns': [
+      {
+        'include': 'source.clojure'
+      }
+    ]
+  },
+  {
     'begin': '^\\s*([`~]{3,}).*$'
     'beginCaptures':
       '0':
