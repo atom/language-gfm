@@ -334,6 +334,23 @@
     ]
   }
   {
+    'begin': '^\\s*([`~]{3,})\\s*(rust|rs)\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.rust.gfm'
+    'contentName': 'source.rust'
+    'patterns': [
+      {
+        'include': 'source.rust'
+      }
+    ]
+  }
+  {
     'begin': '^\\s*([`~]{3,})\\s*java\\s*$'
     'beginCaptures':
       '0':
