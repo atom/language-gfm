@@ -657,6 +657,23 @@
     ]
   }
   {
+    'begin': '^\\s*([`~]{3,})\\s*elm\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.elm.gfm'
+    'contentName': 'source.elm'
+    'patterns': [
+      {
+        'include': 'source.elm'
+      }
+    ]
+  }
+  {
     'begin': '^\\s*([`~]{3,})\\s*(apib|apiblueprint)\\s*$'
     'beginCaptures':
       '0':
