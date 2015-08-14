@@ -867,6 +867,30 @@
         'name': 'markup.underline.link.gfm'
   }
   {
+    'begin': '^\\s*(- \\[ \\])(\\s*)(.*)'
+    'end': '$'
+    'name': 'task.unordered.list.gfm'
+    'captures':
+      '1':
+        'name': 'punctuation.gfm'
+      '2':
+        'name': 'space.gfm'
+      '3':
+        'name': 'text.gfm'
+  }
+  {
+    'begin': '^\\s*(- \\[x\\])(\\s*)(.*)'
+    'end': '$'
+    'name': 'completed.task.unordered.list.gfm'
+    'captures':
+      '1':
+        'name': 'punctuation.gfm'
+      '2':
+        'name': 'space.gfm'
+      '3':
+        'name': 'text.gfm'
+  }
+  {
     'match': '^\\s*([*+-])[ \\t]+'
     'captures':
       '1':
