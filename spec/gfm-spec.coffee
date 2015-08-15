@@ -570,7 +570,11 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(tokens[0]).toEqual value: "  ", scopes: ["source.gfm", "completed.task.unordered.list.gfm"]
     expect(tokens[1]).toEqual value: "- [x]", scopes: ["source.gfm", "completed.task.unordered.list.gfm", "punctuation.gfm"]
     expect(tokens[2]).toEqual value: " ", scopes: ["source.gfm", "completed.task.unordered.list.gfm", "space.gfm"]
-    expect(tokens[3]).toEqual value: "I'm a **completed** task", scopes: ["source.gfm", "completed.task.unordered.list.gfm", "text.gfm"]
+    expect(tokens[3]).toEqual value: "I'm a ", scopes: ["source.gfm", "completed.task.unordered.list.gfm", "text.gfm"]
+    expect(tokens[4]).toEqual value: "**", scopes: ["source.gfm", "completed.task.unordered.list.gfm", "text.gfm", "markup.bold.gfm"]
+    expect(tokens[5]).toEqual value: "completed", scopes: ["source.gfm", "completed.task.unordered.list.gfm", "text.gfm", "markup.bold.gfm"]
+    expect(tokens[6]).toEqual value: "**", scopes: ["source.gfm", "completed.task.unordered.list.gfm", "text.gfm", "markup.bold.gfm"]
+    expect(tokens[7]).toEqual value: " task", scopes: ["source.gfm", "completed.task.unordered.list.gfm", "text.gfm"]
 
   it "tokenizes unordered lists", ->
     {tokens} = grammar.tokenizeLine("*Item 1")

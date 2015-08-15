@@ -867,8 +867,7 @@
         'name': 'markup.underline.link.gfm'
   }
   {
-    'begin': '^\\s*(- \\[ \\])(\\s*)(.*)'
-    'end': '$'
+    'match': '^\\s*(- \\[ \\])(\\s*)(.*)$'
     'name': 'task.unordered.list.gfm'
     'captures':
       '1':
@@ -877,10 +876,14 @@
         'name': 'space.gfm'
       '3':
         'name': 'text.gfm'
+        'patterns': [
+          {
+            'include': '$self'
+          }
+        ]
   }
   {
-    'begin': '^\\s*(- \\[x\\])(\\s*)(.*)'
-    'end': '$'
+    'match': '^\\s*(- \\[x\\])(\\s*)(.*)$'
     'name': 'completed.task.unordered.list.gfm'
     'captures':
       '1':
@@ -889,6 +892,11 @@
         'name': 'space.gfm'
       '3':
         'name': 'text.gfm'
+        'patterns': [
+          {
+            'include': '$self'
+          }
+        ]
   }
   {
     'match': '^\\s*([*+-])[ \\t]+'
