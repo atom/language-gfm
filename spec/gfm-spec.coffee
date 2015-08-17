@@ -537,6 +537,7 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(tokens[2]).toEqual value: "123", scopes: ["source.gfm", "string.issue.number.gfm"]
     expect(tokens[3]).toEqual value: "'s", scopes: ["source.gfm"]
 
+  # Task lists
   it "tokenizes task lists", ->
     {tokens} = grammar.tokenizeLine("-[] Task")
     expect(tokens[0]).toEqual value: "-[] Task", scopes: ["source.gfm"]
@@ -576,6 +577,12 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(tokens[6]).toEqual value: "**", scopes: ["source.gfm", "completed.task.unordered.list.gfm", "text.gfm", "markup.bold.gfm"]
     expect(tokens[7]).toEqual value: " task", scopes: ["source.gfm", "completed.task.unordered.list.gfm", "text.gfm"]
 
+    {tokens} = grammar.tokenizeLine("- [ ] ### I shouldn't be a header")
+    expect(tokens[0]).toEqual value: "- [ ]", scopes: ["source.gfm", "task.unordered.list.gfm", "punctuation.gfm"]
+    expect(tokens[1]).toEqual value: " ", scopes: ["source.gfm", "task.unordered.list.gfm", "space.gfm"]
+    expect(tokens[2]).toEqual value: "### I shouldn't be a header", scopes: ["source.gfm", "task.unordered.list.gfm", "text.gfm"]
+
+  # Normal lists
   it "tokenizes unordered lists", ->
     {tokens} = grammar.tokenizeLine("*Item 1")
     expect(tokens[0]).not.toEqual value: "*Item 1", scopes: ["source.gfm", "variable.unordered.list.gfm"]
