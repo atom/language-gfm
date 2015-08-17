@@ -895,6 +895,7 @@
         'name': 'text.gfm'
         'patterns': [
           {
+            # 'include': '#inline-markup'
             'include': '$self'
           }
         ]
@@ -911,6 +912,7 @@
         'name': 'text.gfm'
         'patterns': [
           {
+            # 'include': '#inline-markup'
             'include': '$self'
           }
         ]
@@ -1044,3 +1046,11 @@
     ]
   }
 ]
+# 'repository':
+#   'inline-markup':
+#     'patterns': [
+#       { 'include': 'markup.bold.italic.gfm' }
+#       { 'include': 'markup.bold.gfm' }
+#       { 'include': 'markup.italic.gfm' }
+#       { 'include': 'markup.strike.gfm' }
+#     ]
