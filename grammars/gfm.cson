@@ -884,39 +884,27 @@
         'name': 'markup.underline.link.gfm'
   }
   {
-    # 'match': '^\\s*(- \\[ \\])(\\s+)(.*)$'
-    # NOTE
-    # The space at the beginning of the second capture is intentional to prevent headers from being parsed. The second capture should only include inline markup, per the original Markdown specs. I believe there's an acceptable case to be made to 'allow' headers inside lists.
-    'match': '^\\s*(- \\[ \\])(\\s+.*)$'
+    'match': '^\\s*(- \\[ \\]\\s+)(.*)$'
     'name': 'task.unordered.list.gfm'
     'captures':
       '1':
         'name': 'punctuation.gfm'
       '2':
-      #   'name': 'space.gfm'
-      # '3':
-        'name': 'text.gfm'
         'patterns': [
           {
-            # 'include': '#inline-markup'
             'include': '$self'
           }
         ]
   }
   {
-    # 'match': '^\\s*(- \\[x\\])(\\s+)(.*)$'
-    'match': '^\\s*(- \\[x\\])(\\s+.*)$'
+    'match': '^\\s*(- \\[x\\]\\s+)(.*)$'
     'name': 'completed.task.unordered.list.gfm'
     'captures':
       '1':
         'name': 'punctuation.gfm'
       '2':
-      #   'name': 'space.gfm'
-      # '3':
-        'name': 'text.gfm'
         'patterns': [
           {
-            # 'include': '#inline-markup'
             'include': '$self'
           }
         ]
@@ -1050,11 +1038,3 @@
     ]
   }
 ]
-# 'repository':
-#   'inline-markup':
-#     'patterns': [
-#       { 'include': 'markup.bold.italic.gfm' }
-#       { 'include': 'markup.bold.gfm' }
-#       { 'include': 'markup.italic.gfm' }
-#       { 'include': 'markup.strike.gfm' }
-#     ]
