@@ -701,11 +701,11 @@
   # Lists
 
   {
-    'match': '^\\s*(- \\[ \\]\\s+)(.*)$'
-    'name': 'task.unordered.list.gfm'
+    'match': '^\\s*(- \\[x\\]\\s+)(.*)$'
+    'name': 'completed.task.unordered.list.gfm'
     'captures':
       '1':
-        'name': 'punctuation.gfm'
+        'name': 'variable.unordered.list.gfm'
       '2':
         'patterns': [
           {
@@ -714,18 +714,12 @@
         ]
   }
   {
-    'match': '^\\s*(- \\[x\\]\\s+)(.*)$'
-    'name': 'completed.task.unordered.list.gfm'
+    'match': '^\\s*(- \\[ \\])[ \\t]+'
     'captures':
       '1':
-        'name': 'punctuation.gfm'
-      '2':
-        'patterns': [
-          {
-            'include': '#inline-markup'
-          }
-        ]
+        'name': 'variable.task.unordered.list.gfm'
   }
+
   {
     'match': '^\\s*([*+-])[ \\t]+'
     'captures':
