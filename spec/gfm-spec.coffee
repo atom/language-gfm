@@ -574,17 +574,9 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(tokens[5]).toEqual value: "**", scopes: ["source.gfm", "completed.task.unordered.list.gfm", "markup.bold.gfm"]
     expect(tokens[6]).toEqual value: " task", scopes: ["source.gfm", "completed.task.unordered.list.gfm"]
 
-    # NOTE Argh by @burodepeper; see #120 for details on argh
-
-    # {tokens} = grammar.tokenizeLine("- [ ] ### I shouldn't be a header")
-    # expect(tokens[0]).toEqual value: "- [ ] ", scopes: ["source.gfm", "task.unordered.list.gfm", "punctuation.gfm"]
-    # expect(tokens[1]).toEqual value: "### I shouldn't be a header", scopes: ["source.gfm", "task.unordered.list.gfm"]
-
     {tokens} = grammar.tokenizeLine("- [ ] ### I shouldn't be a header")
     expect(tokens[0]).toEqual value: "- [ ] ", scopes: ["source.gfm", "task.unordered.list.gfm", "punctuation.gfm"]
-    expect(tokens[1]).toEqual value: "###", scopes: ["source.gfm", "task.unordered.list.gfm", "markup.heading.heading-3.gfm", "markup.heading.marker.gfm"]
-    expect(tokens[2]).toEqual value: " ", scopes: ["source.gfm", "task.unordered.list.gfm", "markup.heading.heading-3.gfm", "markup.heading.space.gfm"]
-    expect(tokens[3]).toEqual value: "I shouldn't be a header", scopes: ["source.gfm", "task.unordered.list.gfm", "markup.heading.heading-3.gfm"]
+    expect(tokens[1]).toEqual value: "### I shouldn't be a header", scopes: ["source.gfm", "task.unordered.list.gfm"]
 
     {tokens} = grammar.tokenizeLine("- [ ] I am normal text, and <!-- I am a comment -->")
     expect(tokens[0]).toEqual value: "- [ ] ", scopes: ["source.gfm", "task.unordered.list.gfm", "punctuation.gfm"]
