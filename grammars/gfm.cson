@@ -15,41 +15,6 @@
     'name': 'constant.character.escape.gfm'
   }
   {
-    'begin': '(?<=^|[^\\w\\d\\*])\\*\\*\\*(?!$|\\*|\\s)'
-    'end': '(?<!^|\\s)\\*\\*\\**\\*(?=$|[^\\w|\\d])'
-    'name': 'markup.bold.italic.gfm'
-  }
-  {
-    'begin': '(?<=^|[^\\w\\d_])___(?!$|_|\\s)'
-    'end': '(?<!^|\\s)___*_(?=$|[^\\w|\\d])'
-    'name': 'markup.bold.italic.gfm'
-  }
-  {
-    'begin': '(?<=^|[^\\w\\d\\*])\\*\\*(?!$|\\*|\\s)'
-    'end': '(?<!^|\\s)\\*\\**\\*(?=$|[^\\w|\\d])'
-    'name': 'markup.bold.gfm'
-  }
-  {
-    'begin': '(?<=^|[^\\w\\d_])__(?!$|_|\\s)'
-    'end': '(?<!^|\\s)__*_(?=$|[^\\w|\\d])'
-    'name': 'markup.bold.gfm'
-  }
-  {
-    'begin': '(?<=^|[^\\w\\d\\*])\\*(?!$|\\*|\\s)'
-    'end': '(?<!^|\\s)\\**\\*(?=$|[^\\w|\\d])'
-    'name': 'markup.italic.gfm'
-  }
-  {
-    'begin': '(?<=^|[^\\w\\d_\\{\\}])_(?!$|_|\\s)'
-    'end': '(?<!^|\\s)_*_(?=$|[^\\w|\\d])'
-    'name': 'markup.italic.gfm'
-  }
-  {
-    'begin': '(?<=^|[^\\w\\d~])~~(?!$|~|\\s)'
-    'end': '(?<!^|\\s)~~*~(?=$|[^\\w|\\d])'
-    'name': 'markup.strike.gfm'
-  }
-  {
     'begin': '^(#{6})(\\s*)'
     'end': '$'
     'name': 'markup.heading.heading-6.gfm'
@@ -197,6 +162,35 @@
   {
     'match': '^\\s*[-]{3,}\\s*$'
     'name': 'comment.hr.gfm'
+  }
+  {
+    'match': '^___([\\s\\S]+?)___(?!_)|^\\*\\*\\*([\\s\\S]+?)\\*\\*\\*(?!\\*)'
+    'captures':
+      '1':
+        'name': 'markup.bold.italic.gfm'
+      '2':
+        'name': 'markup.bold.italic.gfm'
+  }
+  {
+    'match': '^__([\\s\\S]+?)__(?!_)|^\\*\\*([\\s\\S]+?)\\*\\*(?!\\*)'
+    'captures':
+      '1':
+        'name': 'markup.bold.gfm'
+      '2':
+        'name': 'markup.bold.gfm'
+  }
+  {
+    'match': '^\\b_((?:__|[\\s\\S])+?)_\\b|^\\*((?:\\*\\*|[\\s\\S])+?)\\*(?!\\*)'
+    'captures':
+      '1':
+        'name': 'markup.italic.gfm'
+      '2':
+        'name': 'markup.italic.gfm'
+  }
+  {
+    'begin': '(?<=^|[^\\w\\d~])~~(?!$|~|\\s)'
+    'end': '(?<!^|\\s)~~*~(?=$|[^\\w|\\d])'
+    'name': 'markup.strike.gfm'
   }
   {
     'begin': '^\\s*[`~]{3,}\\s*coffee-?(script)?\\s*$'
