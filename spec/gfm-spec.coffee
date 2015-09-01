@@ -264,6 +264,9 @@ describe "GitHub Flavored Markdown grammar", ->
     {tokens, ruleStack} = grammar.tokenizeLine("```js  ")
     expect(tokens[0]).toEqual value: "```js  ", scopes: ["source.gfm", "markup.code.js.gfm",  "support.gfm"]
 
+    {tokens, ruleStack} = grammar.tokenizeLine("```JS  ")
+    expect(tokens[0]).toEqual value: "```JS  ", scopes: ["source.gfm", "markup.code.js.gfm",  "support.gfm"]
+
   it "tokenizes a ~~~ code block with a language", ->
     {tokens, ruleStack} = grammar.tokenizeLine("~~~  bash")
     expect(tokens[0]).toEqual value: "~~~  bash", scopes: ["source.gfm", "markup.code.shell.gfm",  "support.gfm"]
