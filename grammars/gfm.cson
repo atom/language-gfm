@@ -368,6 +368,23 @@
     ]
   }
   {
+    'begin': '^\\s*([`~]{3,})\\s*(?i:(scala|sbt))\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.scala.gfm'
+    'contentName': 'source.scala'
+    'patterns': [
+      {
+        'include': 'source.scala'
+      }
+    ]
+  }
+  {
     'begin': '^\\s*([`~]{3,})\\s*(?i:(erlang))\\s*$'
     'beginCaptures':
       '0':
