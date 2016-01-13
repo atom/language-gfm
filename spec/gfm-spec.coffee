@@ -267,6 +267,29 @@ describe "GitHub Flavored Markdown grammar", ->
     {tokens, ruleStack} = grammar.tokenizeLine("```JS  ")
     expect(tokens[0]).toEqual value: "```JS  ", scopes: ["source.gfm", "markup.code.js.gfm",  "support.gfm"]
 
+    {tokens, ruleStack} = grammar.tokenizeLine("```r  ")
+    expect(tokens[0]).toEqual value: "```r  ", scopes: ["source.gfm", "markup.code.r.gfm",  "support.gfm"]
+
+  it "tokenizes a Rmarkdown ``` code block", ->
+    {tokens, ruleStack} = grammar.tokenizeLine("```{r}")
+    expect(tokens[0]).toEqual value: "```{r}", scopes: ["source.gfm", "markup.code.r.gfm", "support.gfm"]
+
+    {tokens, ruleStack} = grammar.tokenizeLine("```{r,eval=TRUE,cache=FALSE}")
+    expect(tokens[0]).toEqual value: "```{r,eval=TRUE,cache=FALSE}", scopes: ["source.gfm", "markup.code.r.gfm", "support.gfm"]
+
+    {tokens, ruleStack} = grammar.tokenizeLine("```{r eval=TRUE,cache=FALSE}")
+    expect(tokens[0]).toEqual value: "```{r eval=TRUE,cache=FALSE}", scopes: ["source.gfm", "markup.code.r.gfm", "support.gfm"]
+
+  it "tokenizes a Rmarkdown ``` code block with whitespace", ->
+    {tokens, ruleStack} = grammar.tokenizeLine("```{r   }")
+    expect(tokens[0]).toEqual value: "```{r   }", scopes: ["source.gfm", "markup.code.r.gfm", "support.gfm"]
+
+    {tokens, ruleStack} = grammar.tokenizeLine("```{R }    ")
+    expect(tokens[0]).toEqual value: "```{R }    ", scopes: ["source.gfm", "markup.code.r.gfm", "support.gfm"]
+
+    {tokens, ruleStack} = grammar.tokenizeLine("```{r eval = TRUE, cache = FALSE}")
+    expect(tokens[0]).toEqual value: "```{r eval = TRUE, cache = FALSE}", scopes: ["source.gfm", "markup.code.r.gfm", "support.gfm"]
+
   it "tokenizes a ~~~ code block with a language", ->
     {tokens, ruleStack} = grammar.tokenizeLine("~~~  bash")
     expect(tokens[0]).toEqual value: "~~~  bash", scopes: ["source.gfm", "markup.code.shell.gfm",  "support.gfm"]
