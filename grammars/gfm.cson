@@ -208,7 +208,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.coffee.gfm'
-    'contentName': 'source.coffee'
+    'contentName': 'embedded.source.coffee'
     'patterns': [
       {
         'include': 'source.coffee'
@@ -225,7 +225,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.js.gfm'
-    'contentName': 'source.js'
+    'contentName': 'embedded.source.js'
     'patterns': [
       {
         'include': 'source.js'
@@ -242,7 +242,8 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.gfm'
-    'patterns': [
+    'contentName': 'embedded.text.md'
+   'patterns': [
       {
         'include': '$self'
       }
@@ -258,7 +259,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.json.gfm'
-    'contentName': 'source.json'
+    'contentName': 'embedded.source.json'
     'patterns': [
       {
         'include': 'source.json'
@@ -275,7 +276,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.css.gfm'
-    'contentName': 'source.css'
+    'contentName': 'embedded.source.css'
     'patterns': [
       {
         'include': 'source.css'
@@ -292,7 +293,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.less.gfm'
-    'contentName': 'source.css.less'
+    'contentName': 'embedded.source.css.less'
     'patterns': [
       {
         'include': 'source.css.less'
@@ -309,7 +310,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.xml.gfm'
-    'contentName': 'text.xml'
+    'contentName': 'embedded.text.xml'
     'patterns': [
       {
         'include': 'text.xml'
@@ -326,7 +327,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.ruby.gfm'
-    'contentName': 'source.ruby'
+    'contentName': 'embedded.source.ruby'
     'patterns': [
       {
         'include': 'source.ruby'
@@ -343,7 +344,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.rust.gfm'
-    'contentName': 'source.rust'
+    'contentName': 'embedded.source.rust'
     'patterns': [
       {
         'include': 'source.rust'
@@ -360,7 +361,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.java.gfm'
-    'contentName': 'source.java'
+    'contentName': 'embedded.source.java'
     'patterns': [
       {
         'include': 'source.java'
@@ -377,7 +378,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.scala.gfm'
-    'contentName': 'source.scala'
+    'contentName': 'embedded.source.scala'
     'patterns': [
       {
         'include': 'source.scala'
@@ -394,7 +395,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.erlang.gfm'
-    'contentName': 'source.erlang'
+    'contentName': 'embedded.source.erlang'
     'patterns': [
       {
         'include': 'source.erlang'
@@ -411,7 +412,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.go.gfm'
-    'contentName': 'source.go'
+    'contentName': 'embedded.source.go'
     'patterns': [
       {
         'include': 'source.go'
@@ -428,7 +429,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.cs.gfm'
-    'contentName': 'source.cs'
+    'contentName': 'embedded.source.cs'
     'patterns': [
       {
         'include': 'source.cs'
@@ -445,7 +446,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.php.gfm'
-    'contentName': 'source.php'
+    'contentName': 'embedded.source.php'
     'patterns': [
       {
         'include': 'source.php'
@@ -462,7 +463,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.shell.gfm'
-    'contentName': 'source.shell'
+    'contentName': 'embedded.source.shell'
     'patterns': [
       {
         'include': 'source.shell'
@@ -479,7 +480,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.python.gfm'
-    'contentName': 'source.python'
+    'contentName': 'embedded.source.python'
     'patterns': [
       {
         'include': 'source.python'
@@ -496,7 +497,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.c.gfm'
-    'contentName': 'source.c'
+    'contentName': 'embedded.source.c'
     'patterns': [
       {
         'include': 'source.c'
@@ -513,7 +514,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.cpp.gfm'
-    'contentName': 'source.cpp'
+    'contentName': 'embedded.source.cpp'
     'patterns': [
       {
         'include': 'source.cpp'
@@ -530,7 +531,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.objc.gfm'
-    'contentName': 'source.objc'
+    'contentName': 'embedded.source.objc'
     'patterns': [
       {
         'include': 'source.objc'
@@ -547,7 +548,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.swift.gfm'
-    'contentName': 'source.swift'
+    'contentName': 'embedded.source.swift'
     'patterns': [
       {
         'include': 'source.swift'
@@ -564,7 +565,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.html.gfm'
-    'contentName': 'source.html.basic'
+    'contentName': 'embedded.text.html.basic'
     'patterns': [
       {
         'include': 'text.html.basic'
@@ -581,7 +582,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.yaml.gfm'
-    'contentName': 'source.yaml'
+    'contentName': 'embedded.source.yaml'
     'patterns': [
       {
         'include': 'source.yaml'
@@ -598,7 +599,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.elixir.gfm'
-    'contentName': 'source.elixir'
+    'contentName': 'embedded.source.elixir'
     'patterns': [
       {
         'include': 'source.elixir'
@@ -615,7 +616,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.diff.gfm'
-    'contentName': 'source.diff'
+    'contentName': 'embedded.source.diff'
     'patterns': [
       {
         'include': 'source.diff'
@@ -632,7 +633,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.julia.gfm'
-    'contentName': 'source.julia'
+    'contentName': 'embedded.source.julia'
     'patterns': [
       {
         'include': 'source.julia'
@@ -649,7 +650,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.r.gfm'
-    'contentName': 'source.r'
+    'contentName': 'embedded.source.r'
     'patterns': [
       {
         'include': 'source.r'
@@ -666,7 +667,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.haskell.gfm'
-    'contentName': 'source.haskell'
+    'contentName': 'embedded.source.haskell'
     'patterns': [
       {
         'include': 'source.haskell'
@@ -683,7 +684,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.elm.gfm'
-    'contentName': 'source.elm'
+    'contentName': 'embedded.source.elm'
     'patterns': [
       {
         'include': 'source.elm'
@@ -700,6 +701,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.gfm'
+    'contentName': 'embedded.text.html.markdown.source.gfm.apib'
     'patterns': [
       {
         'include': 'text.html.markdown.source.gfm.apib'
@@ -716,6 +718,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.gfm'
+    'contentName': 'embedded.text.html.markdown.source.gfm.mson'
     'patterns': [
       {
         'include': 'text.html.markdown.source.gfm.mson'
@@ -732,7 +735,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.sql.gfm'
-    'contentName': 'source.sql'
+    'contentName': 'embedded.source.sql'
     'patterns': [
       {
         'include': 'source.sql'
@@ -749,7 +752,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.clojure.gfm'
-    'contentName': 'source.clojure'
+    'contentName': 'embedded.source.clojure'
     'patterns': [
       {
         'include': 'source.clojure'
