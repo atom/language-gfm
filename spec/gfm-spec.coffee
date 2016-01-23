@@ -260,76 +260,76 @@ describe "GitHub Flavored Markdown grammar", ->
   it "tokenizes a ``` code block with a language", ->
     {tokens, ruleStack} = grammar.tokenizeLine("```  bash")
     expect(tokens[0]).toEqual value: "```  bash", scopes: ["source.gfm", "markup.code.shell.gfm",  "support.gfm"]
-    expect(ruleStack[1].contentScopeName).toBe "embedded.source.shell"
+    expect(ruleStack[1].contentScopeName).toBe "source.embedded.shell"
 
     {tokens, ruleStack} = grammar.tokenizeLine("```js  ")
     expect(tokens[0]).toEqual value: "```js  ", scopes: ["source.gfm", "markup.code.js.gfm",  "support.gfm"]
-    expect(ruleStack[1].contentScopeName).toBe "embedded.source.js"
+    expect(ruleStack[1].contentScopeName).toBe "source.embedded.js"
 
     {tokens, ruleStack} = grammar.tokenizeLine("```JS  ")
     expect(tokens[0]).toEqual value: "```JS  ", scopes: ["source.gfm", "markup.code.js.gfm",  "support.gfm"]
-    expect(ruleStack[1].contentScopeName).toBe "embedded.source.js"
+    expect(ruleStack[1].contentScopeName).toBe "source.embedded.js"
 
     {tokens, ruleStack} = grammar.tokenizeLine("```r  ")
     expect(tokens[0]).toEqual value: "```r  ", scopes: ["source.gfm", "markup.code.r.gfm",  "support.gfm"]
-    expect(ruleStack[1].contentScopeName).toBe "embedded.source.r"
+    expect(ruleStack[1].contentScopeName).toBe "source.embedded.r"
 
   it "tokenizes a Rmarkdown ``` code block", ->
     {tokens, ruleStack} = grammar.tokenizeLine("```{r}")
     expect(tokens[0]).toEqual value: "```{r}", scopes: ["source.gfm", "markup.code.r.gfm", "support.gfm"]
-    expect(ruleStack[1].contentScopeName).toBe "embedded.source.r"
+    expect(ruleStack[1].contentScopeName).toBe "source.embedded.r"
 
     {tokens, ruleStack} = grammar.tokenizeLine("```{r,eval=TRUE,cache=FALSE}")
     expect(tokens[0]).toEqual value: "```{r,eval=TRUE,cache=FALSE}", scopes: ["source.gfm", "markup.code.r.gfm", "support.gfm"]
-    expect(ruleStack[1].contentScopeName).toBe "embedded.source.r"
+    expect(ruleStack[1].contentScopeName).toBe "source.embedded.r"
 
     {tokens, ruleStack} = grammar.tokenizeLine("```{r eval=TRUE,cache=FALSE}")
     expect(tokens[0]).toEqual value: "```{r eval=TRUE,cache=FALSE}", scopes: ["source.gfm", "markup.code.r.gfm", "support.gfm"]
-    expect(ruleStack[1].contentScopeName).toBe "embedded.source.r"
+    expect(ruleStack[1].contentScopeName).toBe "source.embedded.r"
 
   it "tokenizes a Rmarkdown ``` code block with whitespace", ->
     {tokens, ruleStack} = grammar.tokenizeLine("```{r   }")
     expect(tokens[0]).toEqual value: "```{r   }", scopes: ["source.gfm", "markup.code.r.gfm", "support.gfm"]
-    expect(ruleStack[1].contentScopeName).toBe "embedded.source.r"
+    expect(ruleStack[1].contentScopeName).toBe "source.embedded.r"
 
     {tokens, ruleStack} = grammar.tokenizeLine("```{R }    ")
     expect(tokens[0]).toEqual value: "```{R }    ", scopes: ["source.gfm", "markup.code.r.gfm", "support.gfm"]
-    expect(ruleStack[1].contentScopeName).toBe "embedded.source.r"
+    expect(ruleStack[1].contentScopeName).toBe "source.embedded.r"
 
     {tokens, ruleStack} = grammar.tokenizeLine("```{r eval = TRUE, cache = FALSE}")
     expect(tokens[0]).toEqual value: "```{r eval = TRUE, cache = FALSE}", scopes: ["source.gfm", "markup.code.r.gfm", "support.gfm"]
-    expect(ruleStack[1].contentScopeName).toBe "embedded.source.r"
+    expect(ruleStack[1].contentScopeName).toBe "source.embedded.r"
 
   it "tokenizes a ~~~ code block with a language", ->
     {tokens, ruleStack} = grammar.tokenizeLine("~~~  bash")
     expect(tokens[0]).toEqual value: "~~~  bash", scopes: ["source.gfm", "markup.code.shell.gfm",  "support.gfm"]
-    expect(ruleStack[1].contentScopeName).toBe "embedded.source.shell"
+    expect(ruleStack[1].contentScopeName).toBe "source.embedded.shell"
 
     {tokens, ruleStack} = grammar.tokenizeLine("~~~js  ")
     expect(tokens[0]).toEqual value: "~~~js  ", scopes: ["source.gfm", "markup.code.js.gfm",  "support.gfm"]
-    expect(ruleStack[1].contentScopeName).toBe "embedded.source.js"
+    expect(ruleStack[1].contentScopeName).toBe "source.embedded.js"
 
   it "tokenizes a ``` code block with a language and trailing whitespace", ->
     {tokens, ruleStack} = grammar.tokenizeLine("```  bash")
     {tokens} = grammar.tokenizeLine("```  ", ruleStack)
     expect(tokens[0]).toEqual value: "```  ", scopes: ["source.gfm", "markup.code.shell.gfm", "support.gfm"]
-    expect(ruleStack[1].contentScopeName).toBe "embedded.source.shell"
+    expect(ruleStack[1].contentScopeName).toBe "source.embedded.shell"
 
     {tokens, ruleStack} = grammar.tokenizeLine("```js  ")
     {tokens} = grammar.tokenizeLine("```  ", ruleStack)
     expect(tokens[0]).toEqual value: "```  ", scopes: ["source.gfm", "markup.code.js.gfm", "support.gfm"]
-    expect(ruleStack[1].contentScopeName).toBe "embedded.source.js"
+    expect(ruleStack[1].contentScopeName).toBe "source.embedded.js"
 
   it "tokenizes a ~~~ code block with a language and trailing whitespace", ->
     {tokens, ruleStack} = grammar.tokenizeLine("~~~  bash")
     {tokens} = grammar.tokenizeLine("~~~  ", ruleStack)
     expect(tokens[0]).toEqual value: "~~~  ", scopes: ["source.gfm", "markup.code.shell.gfm", "support.gfm"]
-    expect(ruleStack[1].contentScopeName).toBe "embedded.source.shell"
+    expect(ruleStack[1].contentScopeName).toBe "source.embedded.shell"
 
     {tokens, ruleStack} = grammar.tokenizeLine("~~~js  ")
     {tokens} = grammar.tokenizeLine("~~~  ", ruleStack)
     expect(tokens[0]).toEqual value: "~~~  ", scopes: ["source.gfm", "markup.code.js.gfm", "support.gfm"]
-    expect(ruleStack[1].contentScopeName).toBe "embedded.source.js"
+    expect(ruleStack[1].contentScopeName).toBe "source.embedded.js"
 
   it "tokenizes inline `code` blocks", ->
     {tokens} = grammar.tokenizeLine("`this` is `code`")

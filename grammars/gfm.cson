@@ -208,7 +208,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.coffee.gfm'
-    'contentName': 'embedded.source.coffee'
+    'contentName': 'source.embedded.coffee'
     'patterns': [
       {
         'include': 'source.coffee'
@@ -225,7 +225,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.js.gfm'
-    'contentName': 'embedded.source.js'
+    'contentName': 'source.embedded.js'
     'patterns': [
       {
         'include': 'source.js'
@@ -259,7 +259,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.json.gfm'
-    'contentName': 'embedded.source.json'
+    'contentName': 'source.embedded.json'
     'patterns': [
       {
         'include': 'source.json'
@@ -276,7 +276,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.css.gfm'
-    'contentName': 'embedded.source.css'
+    'contentName': 'source.embedded.css'
     'patterns': [
       {
         'include': 'source.css'
@@ -293,7 +293,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.less.gfm'
-    'contentName': 'embedded.source.css.less'
+    'contentName': 'source.embedded.css.less'
     'patterns': [
       {
         'include': 'source.css.less'
@@ -327,7 +327,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.ruby.gfm'
-    'contentName': 'embedded.source.ruby'
+    'contentName': 'source.embedded.ruby'
     'patterns': [
       {
         'include': 'source.ruby'
@@ -344,7 +344,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.rust.gfm'
-    'contentName': 'embedded.source.rust'
+    'contentName': 'source.embedded.rust'
     'patterns': [
       {
         'include': 'source.rust'
@@ -361,7 +361,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.java.gfm'
-    'contentName': 'embedded.source.java'
+    'contentName': 'source.embedded.java'
     'patterns': [
       {
         'include': 'source.java'
@@ -378,7 +378,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.scala.gfm'
-    'contentName': 'embedded.source.scala'
+    'contentName': 'source.embedded.scala'
     'patterns': [
       {
         'include': 'source.scala'
@@ -395,7 +395,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.erlang.gfm'
-    'contentName': 'embedded.source.erlang'
+    'contentName': 'source.embedded.erlang'
     'patterns': [
       {
         'include': 'source.erlang'
@@ -412,7 +412,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.go.gfm'
-    'contentName': 'embedded.source.go'
+    'contentName': 'source.embedded.go'
     'patterns': [
       {
         'include': 'source.go'
@@ -429,7 +429,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.cs.gfm'
-    'contentName': 'embedded.source.cs'
+    'contentName': 'source.embedded.cs'
     'patterns': [
       {
         'include': 'source.cs'
@@ -446,7 +446,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.php.gfm'
-    'contentName': 'embedded.source.php'
+    'contentName': 'source.embedded.php'
     'patterns': [
       {
         'include': 'source.php'
@@ -463,7 +463,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.shell.gfm'
-    'contentName': 'embedded.source.shell'
+    'contentName': 'source.embedded.shell'
     'patterns': [
       {
         'include': 'source.shell'
@@ -480,7 +480,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.python.gfm'
-    'contentName': 'embedded.source.python'
+    'contentName': 'source.embedded.python'
     'patterns': [
       {
         'include': 'source.python'
@@ -497,7 +497,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.c.gfm'
-    'contentName': 'embedded.source.c'
+    'contentName': 'source.embedded.c'
     'patterns': [
       {
         'include': 'source.c'
@@ -514,7 +514,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.cpp.gfm'
-    'contentName': 'embedded.source.cpp'
+    'contentName': 'source.embedded.cpp'
     'patterns': [
       {
         'include': 'source.cpp'
@@ -531,7 +531,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.objc.gfm'
-    'contentName': 'embedded.source.objc'
+    'contentName': 'source.embedded.objc'
     'patterns': [
       {
         'include': 'source.objc'
@@ -548,7 +548,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.swift.gfm'
-    'contentName': 'embedded.source.swift'
+    'contentName': 'source.embedded.swift'
     'patterns': [
       {
         'include': 'source.swift'
@@ -582,7 +582,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.yaml.gfm'
-    'contentName': 'embedded.source.yaml'
+    'contentName': 'source.embedded.yaml'
     'patterns': [
       {
         'include': 'source.yaml'
@@ -599,7 +599,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.elixir.gfm'
-    'contentName': 'embedded.source.elixir'
+    'contentName': 'source.embedded.elixir'
     'patterns': [
       {
         'include': 'source.elixir'
@@ -616,7 +616,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.diff.gfm'
-    'contentName': 'embedded.source.diff'
+    'contentName': 'source.embedded.diff'
     'patterns': [
       {
         'include': 'source.diff'
@@ -633,7 +633,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.julia.gfm'
-    'contentName': 'embedded.source.julia'
+    'contentName': 'source.embedded.julia'
     'patterns': [
       {
         'include': 'source.julia'
@@ -650,7 +650,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.r.gfm'
-    'contentName': 'embedded.source.r'
+    'contentName': 'source.embedded.r'
     'patterns': [
       {
         'include': 'source.r'
@@ -667,7 +667,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.haskell.gfm'
-    'contentName': 'embedded.source.haskell'
+    'contentName': 'source.embedded.haskell'
     'patterns': [
       {
         'include': 'source.haskell'
@@ -684,7 +684,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.elm.gfm'
-    'contentName': 'embedded.source.elm'
+    'contentName': 'source.embedded.elm'
     'patterns': [
       {
         'include': 'source.elm'
@@ -735,7 +735,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.sql.gfm'
-    'contentName': 'embedded.source.sql'
+    'contentName': 'source.embedded.sql'
     'patterns': [
       {
         'include': 'source.sql'
@@ -752,7 +752,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.clojure.gfm'
-    'contentName': 'embedded.source.clojure'
+    'contentName': 'source.embedded.clojure'
     'patterns': [
       {
         'include': 'source.clojure'
