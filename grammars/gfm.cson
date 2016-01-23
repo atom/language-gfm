@@ -242,8 +242,8 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.gfm'
-    'contentName': 'embedded.text.md'
-   'patterns': [
+    'contentName': 'text.embedded.md'
+    'patterns': [
       {
         'include': '$self'
       }
@@ -310,7 +310,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.xml.gfm'
-    'contentName': 'embedded.text.xml'
+    'contentName': 'text.embedded.xml'
     'patterns': [
       {
         'include': 'text.xml'
@@ -565,7 +565,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.html.gfm'
-    'contentName': 'embedded.text.html.basic'
+    'contentName': 'text.embedded.html.basic'
     'patterns': [
       {
         'include': 'text.html.basic'
@@ -701,7 +701,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.gfm'
-    'contentName': 'embedded.text.html.markdown.source.gfm.apib'
+    'contentName': 'text.embedded.html.markdown.source.gfm.apib'
     'patterns': [
       {
         'include': 'text.html.markdown.source.gfm.apib'
@@ -718,7 +718,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.gfm'
-    'contentName': 'embedded.text.html.markdown.source.gfm.mson'
+    'contentName': 'text.embedded.html.markdown.source.gfm.mson'
     'patterns': [
       {
         'include': 'text.html.markdown.source.gfm.mson'
