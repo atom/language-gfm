@@ -18,36 +18,113 @@
     'begin': '(?<=^|[^\\w\\d\\*])\\*\\*\\*(?!$|\\*|\\s)'
     'end': '(?<!^|\\s)\\*\\*\\**\\*(?=$|[^\\w|\\d])'
     'name': 'markup.bold.italic.gfm'
+    'patterns': [
+      {
+        'match': '(&)([a-zA-Z0-9]+|#[0-9]+|#x[0-9a-fA-F]+)(;)'
+        'name': 'constant.character.entity.gfm'
+        'captures':
+          '1':
+            'name': 'punctuation.definition.entity.gfm'
+          '3':
+            'name': 'punctuation.definition.entity.gfm'
+      }
+    ]
   }
   {
     'begin': '(?<=^|[^\\w\\d_])___(?!$|_|\\s)'
     'end': '(?<!^|\\s)___*_(?=$|[^\\w|\\d])'
     'name': 'markup.bold.italic.gfm'
+    'patterns': [
+      {
+        'match': '(&)([a-zA-Z0-9]+|#[0-9]+|#x[0-9a-fA-F]+)(;)'
+        'name': 'constant.character.entity.gfm'
+        'captures':
+          '1':
+            'name': 'punctuation.definition.entity.gfm'
+          '3':
+            'name': 'punctuation.definition.entity.gfm'
+      }
+    ]
   }
   {
     'begin': '(?<=^|[^\\w\\d\\*])\\*\\*(?!$|\\*|\\s)'
     'end': '(?<!^|\\s)\\*\\**\\*(?=$|[^\\w|\\d])'
     'name': 'markup.bold.gfm'
+    'patterns': [
+      {
+        'match': '(&)([a-zA-Z0-9]+|#[0-9]+|#x[0-9a-fA-F]+)(;)'
+        'name': 'constant.character.entity.gfm'
+        'captures':
+          '1':
+            'name': 'punctuation.definition.entity.gfm'
+          '3':
+            'name': 'punctuation.definition.entity.gfm'
+      }
+    ]
   }
   {
     'begin': '(?<=^|[^\\w\\d_])__(?!$|_|\\s)'
     'end': '(?<!^|\\s)__*_(?=$|[^\\w|\\d])'
     'name': 'markup.bold.gfm'
+    'patterns': [
+      {
+        'match': '(&)([a-zA-Z0-9]+|#[0-9]+|#x[0-9a-fA-F]+)(;)'
+        'name': 'constant.character.entity.gfm'
+        'captures':
+          '1':
+            'name': 'punctuation.definition.entity.gfm'
+          '3':
+            'name': 'punctuation.definition.entity.gfm'
+      }
+    ]
   }
   {
     'begin': '(?<=^|[^\\w\\d\\*])\\*(?!$|\\*|\\s)'
     'end': '(?<!^|\\s)\\**\\*(?=$|[^\\w|\\d])'
     'name': 'markup.italic.gfm'
+    'patterns': [
+      {
+        'match': '(&)([a-zA-Z0-9]+|#[0-9]+|#x[0-9a-fA-F]+)(;)'
+        'name': 'constant.character.entity.gfm'
+        'captures':
+          '1':
+            'name': 'punctuation.definition.entity.gfm'
+          '3':
+            'name': 'punctuation.definition.entity.gfm'
+      }
+    ]
   }
   {
     'begin': '(?<=^|[^\\w\\d_\\{\\}])_(?!$|_|\\s)'
     'end': '(?<!^|\\s)_*_(?=$|[^\\w|\\d])'
     'name': 'markup.italic.gfm'
+    'patterns': [
+      {
+        'match': '(&)([a-zA-Z0-9]+|#[0-9]+|#x[0-9a-fA-F]+)(;)'
+        'name': 'constant.character.entity.gfm'
+        'captures':
+          '1':
+            'name': 'punctuation.definition.entity.gfm'
+          '3':
+            'name': 'punctuation.definition.entity.gfm'
+      }
+    ]
   }
   {
     'begin': '(?<=^|[^\\w\\d~])~~(?!$|~|\\s)'
     'end': '(?<!^|\\s)~~*~(?=$|[^\\w|\\d])'
     'name': 'markup.strike.gfm'
+    'patterns': [
+      {
+        'match': '(&)([a-zA-Z0-9]+|#[0-9]+|#x[0-9a-fA-F]+)(;)'
+        'name': 'constant.character.entity.gfm'
+        'captures':
+          '1':
+            'name': 'punctuation.definition.entity.gfm'
+          '3':
+            'name': 'punctuation.definition.entity.gfm'
+      }
+    ]
   }
   {
     'begin': '^(#{6})(\\s*)'
