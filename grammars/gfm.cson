@@ -310,6 +310,23 @@
     ]
   }
   {
+    'begin': '^\\s*([`~]{3,})\\s*(?i:(typescript|ts))\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.ts.gfm'
+    'contentName': 'source.embedded.ts'
+    'patterns': [
+      {
+        'include': 'source.ts'
+      }
+    ]
+  }
+  {
     'begin': '^\\s*([`~]{3,})\\s*(?i:(markdown|mdown|md))\\s*$'
     'beginCaptures':
       '0':
