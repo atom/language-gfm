@@ -548,6 +548,23 @@
     ]
   }
   {
+    'begin': '^\\s*([`~]{3,})\\s*(?i:(properties))\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.java-properties.gfm'
+    'contentName': 'source.embedded.java-properties'
+    'patterns': [
+      {
+        'include': 'source.java-properties'
+      }
+    ]
+  }
+  {
     'begin': '^\\s*([`~]{3,})\\s*(?i:(py(thon)?))\\s*$'
     'beginCaptures':
       '0':
