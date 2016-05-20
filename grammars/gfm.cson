@@ -8,7 +8,6 @@
   'mkdown'
   'rmd'
   'ron'
-  'liquid'
 ]
 'patterns': [
   {
@@ -1110,3 +1109,18 @@
     ]
   }
 ]
+"repository": {
+    "inlines": {
+      "patterns": [
+        {
+          "include": "#liquid"
+        }
+      ]
+    }
+    "inlines-in-blocks": {
+      "patterns": [
+        {
+          "include": "#liquid"
+        }
+      ]
+    }
