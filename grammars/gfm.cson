@@ -565,6 +565,23 @@
     ]
   }
   {
+    'begin': '^\\s*([`~]{3,})\\s*(?i:(pycon))\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.python.console.gfm'
+    'contentName': 'source.embedded.python.console'
+    'patterns': [
+      {
+        'include': 'text.python.console'
+      }
+    ]
+  }
+  {
     'begin': '^\\s*([`~]{3,})\\s*(?i:(c))\\s*$'
     'beginCaptures':
       '0':
