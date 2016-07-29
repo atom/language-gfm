@@ -853,6 +853,23 @@
       }
     ]
   },
+	{
+    'begin': '^\\s*([`~]{3,})\\s*(?i:(cr(ystal)?))\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.crystal.gfm'
+    'contentName': 'source.embedded.crystal'
+    'patterns': [
+      {
+        'include': 'source.crystal'
+      }
+    ]
+  },
   {
     'begin': '^\\s*([`~]{3,}).*$'
     'beginCaptures':
