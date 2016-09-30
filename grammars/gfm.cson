@@ -683,6 +683,97 @@
       }
     ]
   }
+
+  {
+    'begin': '^\\s*([`~]{3,})\\s*(?i:(dockerfile|docker))\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.dockerfile.gfm'
+    'contentName': 'source.embedded.dockerfile'
+    'patterns': [
+      {
+        'include': 'source.dockerfile'
+      }
+    ]
+  }
+
+  {
+    'begin': '^\\s*([`~]{3,})\\s*(?i:(makefile|make))\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.makefile.gfm'
+    'contentName': 'source.embedded.makefile'
+    'patterns': [
+      {
+        'include': 'source.makefile'
+      }
+    ]
+  }
+
+  {
+    'begin': '^\\s*([`~]{3,})\\s*(?i:(perl))\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.perl.gfm'
+    'contentName': 'source.embedded.perl'
+    'patterns': [
+      {
+        'include': 'source.perl'
+      }
+    ]
+  }
+
+  {
+    'begin': '^\\s*([`~]{3,})\\s*(?i:(perl6))\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.perl6.gfm'
+    'contentName': 'source.embedded.perl6'
+    'patterns': [
+      {
+        'include': 'source.perl6'
+      }
+    ]
+  }
+
+  {
+    'begin': '^\\s*([`~]{3,})\\s*(?i:(toml))\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.toml.gfm'
+    'contentName': 'source.embedded.toml'
+    'patterns': [
+      {
+        'include': 'source.toml'
+      }
+    ]
+  }
+
   {
     'begin': '^\\s*([`~]{3,})\\s*(?i:(html))\\s*$'
     'beginCaptures':
