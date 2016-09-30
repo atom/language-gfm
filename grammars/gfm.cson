@@ -650,6 +650,23 @@
     ]
   }
   {
+    'begin': '^\\s*([`~]{3,})\\s*(?i:(adoc|asciidoc|asciidoctor|asc|))\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.asciidoc.gfm'
+    'contentName': 'source.embedded.asciidoc'
+    'patterns': [
+      {
+        'include': 'source.asciidoc'
+      }
+    ]
+  }
+  {
     'begin': '^\\s*([`~]{3,})\\s*(?i:(swift))\\s*$'
     'beginCaptures':
       '0':
