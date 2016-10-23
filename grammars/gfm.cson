@@ -979,6 +979,16 @@
     ]
   },
   {
+    'begin': '(?<=^|[^\\w\\d\\$])\\$\\$'
+    'end': '\\$\\$(?=$|[^\\w|\\d])'
+    'name': 'markup.heading.block.latex.gfm'
+  },
+  {
+    'begin': '(?<=^|[^\\w\\d\\$])\\$(?!$|\\$|\\s)'
+    'end': '(?<!^|\\s)\\$(?=$|[^\\w|\\d])'
+    'name': 'markup.heading.inline.latex.gfm'
+  },
+  {
     'begin': '^\\s*([`~]{3,}).*$'
     'beginCaptures':
       '0':
