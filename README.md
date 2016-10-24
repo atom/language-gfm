@@ -1,5 +1,7 @@
-# GitHub flavored Markdown package
-[![OS X Build Status](https://travis-ci.org/atom/language-gfm.svg?branch=master)](https://travis-ci.org/atom/language-gfm) [![Windows Build Status](https://ci.appveyor.com/api/projects/status/rpub8qjyd8lt7wai/branch/master?svg=true)](https://ci.appveyor.com/project/Atom/language-gfm/branch/master) [![Dependency Status](https://david-dm.org/atom/language-gfm.svg)](https://david-dm.org/atom/language-gfm)
+# GitHub flavored Markdown with LaTeX package
+This grammar supports a modified version of GitHub flavored Markdown, with added support of embedded LaTeX code.
+
+[Pandoc](http://pandoc.org/) can compile documents with embedded LaTeX into pure LaTeX documents.
 
 Adds syntax highlighting and snippets to [GitHub flavored Markdown](https://help.github.com/articles/github-flavored-markdown) files in Atom.
 

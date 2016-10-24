@@ -1,4 +1,4 @@
-'name': 'GitHub Markdown'
+'name': 'GitHub Markdown with LaTeX'
 'scopeName': 'source.gfm'
 'fileTypes': [
   'markdown'
