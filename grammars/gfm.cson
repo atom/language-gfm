@@ -979,6 +979,27 @@
     ]
   },
   {
+    'begin': '^\\s*([`~]{3,})(?=\\s*[-\\w]+\\s*$)'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.other.gfm'
+    'patterns': [
+      {
+        'begin': '\\G\\s*([-\\w]+).*$'
+        'beginCaptures':
+          '0':
+            'name': 'support.gfm'
+        'end': '^(?=\\s*[`~]{3,}\\s*$)'
+        'name': 'source.embedded.${1:/downcase}'
+      }
+    ]
+  }
+  {
     'begin': '^\\s*([`~]{3,}).*$'
     'beginCaptures':
       '0':
