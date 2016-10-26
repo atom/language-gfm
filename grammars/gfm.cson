@@ -650,7 +650,7 @@
     ]
   }
   {
-    'begin': '^\\s*([`~]{3,})\\s*(?i:(adoc|asciidoc|asciidoctor|asc|))\\s*$'
+    'begin': '^\\s*([`~]{3,})\\s*(?i:(adoc|asciidoc|asciidoctor|asc))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
