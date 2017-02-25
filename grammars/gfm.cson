@@ -1140,7 +1140,7 @@
     'beginCaptures':
       '1':
         'name': 'support.quote.gfm'
-    'name': 'comment.quote.gfm'
+    'name': 'markup.quote.gfm'
     'patterns': [
       {
         'include': '$self'
