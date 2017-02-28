@@ -1,5 +1,6 @@
 'name': 'GitHub Markdown'
 'scopeName': 'source.gfm'
+'limitLineLength': false
 'fileTypes': [
   'markdown'
   'md'
