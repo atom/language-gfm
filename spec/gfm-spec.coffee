@@ -23,6 +23,9 @@ describe "GitHub Flavored Markdown grammar", ->
     {tokens} = grammar.tokenizeLine("---")
     expect(tokens[0]).toEqual value: "---", scopes: ["source.gfm", "comment.hr.gfm"]
 
+    {tokens} = grammar.tokenizeLine("___")
+    expect(tokens[0]).toEqual value: "___", scopes: ["source.gfm", "comment.hr.gfm"]
+
   it "tokenizes escaped characters", ->
     {tokens} = grammar.tokenizeLine("\\*")
     expect(tokens[0]).toEqual value: "\\*", scopes: ["source.gfm", "constant.character.escape.gfm"]
@@ -85,7 +88,7 @@ describe "GitHub Flavored Markdown grammar", ->
 
   it "tokenizes __bold__ text", ->
     {tokens} = grammar.tokenizeLine("____")
-    expect(tokens[0]).toEqual value: "____", scopes: ["source.gfm"]
+    expect(tokens[0]).toEqual value: "____", scopes: ["source.gfm", "comment.hr.gfm"]
 
     {tokens} = grammar.tokenizeLine("__bold__")
     expect(tokens[0]).toEqual value: "__", scopes: ["source.gfm", "markup.bold.gfm"]

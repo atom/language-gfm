@@ -277,6 +277,10 @@
     'name': 'comment.hr.gfm'
   }
   {
+    'match': '^\\s*[_]{3,}\\s*$'
+    'name': 'comment.hr.gfm'
+  }
+  {
     'begin': '^\\s*[`~]{3,}\\s*(?i:(coffee-?(script)?))\\s*$'
     'beginCaptures':
       '0':
