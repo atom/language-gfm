@@ -9,6 +9,7 @@
   'mkdown'
   'rmd'
   'ron'
+  'txt'
 ]
 'patterns': [
   {
