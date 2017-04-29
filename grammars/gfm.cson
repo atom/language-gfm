@@ -1,5 +1,6 @@
 'name': 'GitHub Markdown'
 'scopeName': 'source.gfm'
+'limitLineLength': false
 'fileTypes': [
   'markdown'
   'md'
@@ -273,6 +274,10 @@
   }
   {
     'match': '^\\s*[-]{3,}\\s*$'
+    'name': 'comment.hr.gfm'
+  }
+  {
+    'match': '^\\s*[_]{3,}\\s*$'
     'name': 'comment.hr.gfm'
   }
   {
@@ -962,7 +967,24 @@
     ]
   },
   {
-    'begin': '^\\s*([`~]{3,})\\s*(?i:(clojure))\\s*$'
+    'begin': '^\\s*([`~]{3,})\\s*(?i:(graphql))\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.graphql.gfm'
+    'contentName': 'source.embedded.graphql'
+    'patterns': [
+      {
+        'include': 'source.graphql'
+      }
+    ]
+  },
+  {
+    'begin': '^\\s*([`~]{3,})\\s*(?i:(clj|clojure))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
