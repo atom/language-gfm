@@ -281,7 +281,7 @@
     'name': 'comment.hr.gfm'
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(coffee-?(script)?))\\s*$'
+    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(coffee-?(script)?|cson))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
