@@ -5,10 +5,13 @@
   'markdown'
   'md'
   'mdown'
+  'mdwn'
   'mkd'
+  'mkdn'
   'mkdown'
   'rmd'
   'ron'
+  'workbook'
 ]
 'patterns': [
   {
@@ -332,7 +335,7 @@
     ]
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(markdown|mdown|md))\\s*$'
+    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(markdown|md|mdo?wn|mkdn?|mkdown))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
