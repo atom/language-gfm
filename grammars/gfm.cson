@@ -284,11 +284,11 @@
     'name': 'comment.hr.gfm'
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(coffee-?(script)?|cson))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(coffee-?(script)?|cson))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -301,11 +301,11 @@
     ]
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(javascript|js))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(javascript|js))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -318,11 +318,11 @@
     ]
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(typescript|ts))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(typescript|ts))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -335,11 +335,11 @@
     ]
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(markdown|md|mdo?wn|mkdn?|mkdown))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(markdown|md|mdo?wn|mkdn?|mkdown))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -352,11 +352,11 @@
     ]
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(json))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(json))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -369,11 +369,11 @@
     ]
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(css))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(css))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -386,11 +386,11 @@
     ]
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(less))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(less))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -403,11 +403,11 @@
     ]
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(xml))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(xml))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -420,11 +420,11 @@
     ]
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(ruby|rb))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(ruby|rb))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -437,11 +437,11 @@
     ]
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(rust|rs))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(rust|rs))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -454,11 +454,11 @@
     ]
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(java))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(java))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -471,11 +471,11 @@
     ]
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(scala|sbt))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(scala|sbt))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -488,11 +488,11 @@
     ]
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(erlang))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(erlang))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -505,11 +505,11 @@
     ]
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(go(lang)?))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(go(lang)?))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -522,11 +522,11 @@
     ]
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(cs(harp)?))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(cs(harp)?))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -539,11 +539,11 @@
     ]
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(php))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(php))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -556,11 +556,11 @@
     ]
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(sh|bash|shell))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(sh|bash|shell))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -573,11 +573,11 @@
     ]
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(py(thon)?))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(py(thon)?))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -590,11 +590,11 @@
     ]
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(pycon))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(pycon))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -607,11 +607,11 @@
     ]
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(c))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(c))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -624,11 +624,11 @@
     ]
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(c(pp|\\+\\+)))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(c(pp|\\+\\+)))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -641,11 +641,11 @@
     ]
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(objc|objective-c))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(objc|objective-c))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -658,11 +658,11 @@
     ]
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(adoc|asciidoc|asciidoctor|asc))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(adoc|asciidoc|asciidoctor|asc))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -675,11 +675,11 @@
     ]
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(swift))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(swift))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -693,11 +693,11 @@
   }
 
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(dockerfile|docker))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(dockerfile|docker))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -711,11 +711,11 @@
   }
 
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(makefile|make))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(makefile|make))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -729,11 +729,11 @@
   }
 
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(perl))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(perl))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -747,11 +747,11 @@
   }
 
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(perl6))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(perl6))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -765,11 +765,11 @@
   }
 
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(toml))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(toml))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -783,11 +783,11 @@
   }
 
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(html))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(html))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -800,11 +800,11 @@
     ]
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(ya?ml))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(ya?ml))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -817,11 +817,11 @@
     ]
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(elixir))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(elixir))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -834,11 +834,11 @@
     ]
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(diff|patch|rej))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(diff|patch|rej))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -851,11 +851,11 @@
     ]
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(julia))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(julia))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -868,11 +868,11 @@
     ]
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*([\\{]{0,1})(?i:(r))([^\\}]*)([\\}]{0,1})\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*([\\{]{0,1})(?i:(r))([^\\}]*)([\\}]{0,1})\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -885,11 +885,11 @@
     ]
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(haskell))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(haskell))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -902,11 +902,11 @@
     ]
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(elm))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(elm))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -919,11 +919,11 @@
     ]
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(apib|apiblueprint))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(apib|apiblueprint))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -936,11 +936,11 @@
     ]
   }
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(mson))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(mson))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -953,11 +953,11 @@
     ]
   },
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(sql))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(sql))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -970,11 +970,11 @@
     ]
   },
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(graphql))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(graphql))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -987,11 +987,11 @@
     ]
   },
   {
-    'begin': '^\\s*(([`~])\\2{2,})\\s*(?i:(clj|clojure))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(clj|clojure))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -1004,11 +1004,11 @@
     ]
   },
   {
-    'begin': '^\\s*(([`~])\\2{2,}).*$'
+    'begin': '^\\s*(`{3,}|~{3,}).*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*(([`~])\\2{2,})\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
