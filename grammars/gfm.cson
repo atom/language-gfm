@@ -573,6 +573,23 @@
     ]
   }
   {
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(shellsession|console))\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.shell-session.gfm'
+    'contentName': 'text.embedded.shell-session'
+    'patterns': [
+      {
+        'include': 'text.shell-session'
+      }
+    ]
+  }
+  {
     'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(py(thon)?))\\s*$'
     'beginCaptures':
       '0':
