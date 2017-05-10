@@ -229,32 +229,49 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(tokens[0]).toEqual value: "http://localhost:8080", scopes: ["source.gfm"]
 
   it "tokenizes a ``` code block", ->
-    {tokens, ruleStack} = grammar.tokenizeLine("```mylanguage")
-    expect(tokens[0]).toEqual value: "```mylanguage", scopes: ["source.gfm", "markup.raw.gfm", "support.gfm"]
+    {tokens, ruleStack} = grammar.tokenizeLine("```")
+    expect(tokens[0]).toEqual value: "```", scopes: ["source.gfm", "markup.raw.gfm", "support.gfm"]
     {tokens, ruleStack} = grammar.tokenizeLine("-> 'hello'", ruleStack)
     expect(tokens[0]).toEqual value: "-> 'hello'", scopes: ["source.gfm", "markup.raw.gfm"]
     {tokens} = grammar.tokenizeLine("```", ruleStack)
     expect(tokens[0]).toEqual value: "```", scopes: ["source.gfm", "markup.raw.gfm", "support.gfm"]
 
   it "tokenizes a ~~~ code block", ->
-    {tokens, ruleStack} = grammar.tokenizeLine("~~~mylanguage")
-    expect(tokens[0]).toEqual value: "~~~mylanguage", scopes: ["source.gfm", "markup.raw.gfm", "support.gfm"]
+    {tokens, ruleStack} = grammar.tokenizeLine("~~~")
+    expect(tokens[0]).toEqual value: "~~~", scopes: ["source.gfm", "markup.raw.gfm", "support.gfm"]
     {tokens, ruleStack} = grammar.tokenizeLine("-> 'hello'", ruleStack)
     expect(tokens[0]).toEqual value: "-> 'hello'", scopes: ["source.gfm", "markup.raw.gfm"]
     {tokens} = grammar.tokenizeLine("~~~", ruleStack)
     expect(tokens[0]).toEqual value: "~~~", scopes: ["source.gfm", "markup.raw.gfm", "support.gfm"]
 
+  it "doesn't tokenise ~`~ as a code block", ->
+    {tokens} = grammar.tokenizeLine("~`~")
+    expect(tokens[0]).toEqual value: '~', scopes: ['source.gfm']
+    expect(tokens[1]).toEqual value: '`', scopes: ['source.gfm', 'markup.raw.gfm']
+    expect(tokens[2]).toEqual value: '~', scopes: ['source.gfm', 'markup.raw.gfm']
+
+  it "tokenises code-blocks with borders of differing lengths", ->
+    [firstLineTokens, secondLineTokens, thirdLineTokens] = grammar.tokenizeLines("~~~\nfoo bar\n~~~~~~~")
+    expect(firstLineTokens[0]).toEqual value: '~~~', scopes: ['source.gfm', 'markup.raw.gfm', 'support.gfm']
+    expect(secondLineTokens[0]).toEqual value: 'foo bar', scopes: ['source.gfm', 'markup.raw.gfm']
+    expect(thirdLineTokens[0]).toEqual value: '~~~~~~~', scopes: ['source.gfm', 'markup.raw.gfm', 'support.gfm']
+
+    [firstLineTokens, secondLineTokens, thirdLineTokens] = grammar.tokenizeLines("~~~~~~~\nfoo bar\n~~~")
+    expect(firstLineTokens[0]).toEqual value: '~~~~~~~', scopes: ['source.gfm', 'markup.raw.gfm', 'support.gfm']
+    expect(secondLineTokens[0]).toEqual value: 'foo bar', scopes: ['source.gfm', 'markup.raw.gfm']
+    expect(thirdLineTokens[0]).toEqual value: '~~~', scopes: ['source.gfm', 'markup.raw.gfm']
+
   it "tokenizes a ``` code block with trailing whitespace", ->
-    {tokens, ruleStack} = grammar.tokenizeLine("```mylanguage")
-    expect(tokens[0]).toEqual value: "```mylanguage", scopes: ["source.gfm", "markup.raw.gfm", "support.gfm"]
+    {tokens, ruleStack} = grammar.tokenizeLine("```")
+    expect(tokens[0]).toEqual value: "```", scopes: ["source.gfm", "markup.raw.gfm", "support.gfm"]
     {tokens, ruleStack} = grammar.tokenizeLine("-> 'hello'", ruleStack)
     expect(tokens[0]).toEqual value: "-> 'hello'", scopes: ["source.gfm", "markup.raw.gfm"]
     {tokens} = grammar.tokenizeLine("```  ", ruleStack)
     expect(tokens[0]).toEqual value: "```  ", scopes: ["source.gfm", "markup.raw.gfm", "support.gfm"]
 
   it "tokenizes a ~~~ code block with trailing whitespace", ->
-    {tokens, ruleStack} = grammar.tokenizeLine("~~~mylanguage")
-    expect(tokens[0]).toEqual value: "~~~mylanguage", scopes: ["source.gfm", "markup.raw.gfm", "support.gfm"]
+    {tokens, ruleStack} = grammar.tokenizeLine("~~~")
+    expect(tokens[0]).toEqual value: "~~~", scopes: ["source.gfm", "markup.raw.gfm", "support.gfm"]
     {tokens, ruleStack} = grammar.tokenizeLine("-> 'hello'", ruleStack)
     expect(tokens[0]).toEqual value: "-> 'hello'", scopes: ["source.gfm", "markup.raw.gfm"]
     {tokens} = grammar.tokenizeLine("~~~  ", ruleStack)
