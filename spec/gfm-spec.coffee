@@ -257,9 +257,9 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(thirdLineTokens[0]).toEqual value: '~~~~~~~', scopes: ['source.gfm', 'markup.raw.gfm', 'support.gfm']
 
     [firstLineTokens, secondLineTokens, thirdLineTokens] = grammar.tokenizeLines("~~~~~~~\nfoo bar\n~~~")
-    expect(lines[0][0]).toEqual value: '~~~~~~~', scopes: ['source.gfm', 'markup.raw.gfm', 'support.gfm']
-    expect(lines[1][0]).toEqual value: 'foo bar', scopes: ['source.gfm', 'markup.raw.gfm']
-    expect(lines[2][0]).toEqual value: '~~~', scopes: ['source.gfm', 'markup.raw.gfm']
+    expect(firstLineTokens[0]).toEqual value: '~~~~~~~', scopes: ['source.gfm', 'markup.raw.gfm', 'support.gfm']
+    expect(secondLineTokens[0]).toEqual value: 'foo bar', scopes: ['source.gfm', 'markup.raw.gfm']
+    expect(thirdLineTokens[0]).toEqual value: '~~~', scopes: ['source.gfm', 'markup.raw.gfm']
 
   it "tokenizes a ``` code block with trailing whitespace", ->
     {tokens, ruleStack} = grammar.tokenizeLine("```")
