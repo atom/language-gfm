@@ -1022,7 +1022,7 @@
   }
   {
     # Attempt to provide syntax highlighting for unknown languages
-    'begin': '^\\s*(`{3,}|~{3,})\\s*(?=\\s*[-\\w]+\\s*$)'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*([-\\w]+)\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
@@ -1031,16 +1031,7 @@
       '0':
         'name': 'support.gfm'
     'name': 'markup.code.other.gfm'
-    'patterns': [
-      {
-        'begin': '\\G\\s*([-\\w]+)\\s*$'
-        'beginCaptures':
-          '0':
-            'name': 'support.gfm'
-        'end': '^(?=\\s*[`~]{3,}\\s*$)'
-        'name': 'source.embedded.${1:/downcase}'
-      }
-    ]
+    'contentName': 'source.embedded.${2:/downcase}'
   }
   {
     'begin': '^\\s*(`{3,}|~{3,}).*$'
