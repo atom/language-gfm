@@ -1293,3 +1293,19 @@
     ]
   }
 ]
+"repository": {
+    "inlines": {
+      "patterns": [
+        {
+          "include": "#liquid"
+        }
+      ]
+    }
+    "inlines-in-blocks": {
+      "patterns": [
+        {
+          "include": "#liquid"
+        }
+      ]
+    }
+}
