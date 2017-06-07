@@ -318,6 +318,23 @@
     ]
   }
   {
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(jsx))\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.jsx.gfm'
+    'contentName': 'source.embedded.jsx'
+    'patterns': [
+      {
+        'include': 'source.js.jsx'
+      }
+    ]
+  }
+  {
     'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(typescript|ts))\\s*$'
     'beginCaptures':
       '0':
