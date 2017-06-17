@@ -277,7 +277,17 @@ describe "GitHub Flavored Markdown grammar", ->
     {tokens} = grammar.tokenizeLine("~~~  ", ruleStack)
     expect(tokens[0]).toEqual value: "~~~  ", scopes: ["source.gfm", "markup.raw.gfm", "support.gfm"]
 
-  it "tokenizes a ``` code block with a language", ->
+  it "tokenises a ``` code block with an unknown language", ->
+    {tokens, ruleStack} = grammar.tokenizeLine("``` myLanguage")
+    expect(tokens[0]).toEqual value: '``` myLanguage', scopes: ['source.gfm', 'markup.code.other.gfm', 'support.gfm']
+
+    {tokens, ruleStack} = grammar.tokenizeLine("-> 'hello'", ruleStack)
+    expect(tokens[0]).toEqual value: "-> 'hello'", scopes: ['source.gfm', 'markup.code.other.gfm', 'source.embedded.mylanguage']
+
+    {tokens} = grammar.tokenizeLine("```", ruleStack)
+    expect(tokens[0]).toEqual value: '```', scopes: ['source.gfm', 'markup.code.other.gfm', 'support.gfm']
+
+  it "tokenizes a ``` code block with a known language", ->
     {tokens, ruleStack} = grammar.tokenizeLine("```  bash")
     expect(tokens[0]).toEqual value: "```  bash", scopes: ["source.gfm", "markup.code.shell.gfm",  "support.gfm"]
     expect(ruleStack[1].contentScopeName).toBe "source.embedded.shell"

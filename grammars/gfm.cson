@@ -968,7 +968,7 @@
         'include': 'text.html.markdown.source.gfm.mson'
       }
     ]
-  },
+  }
   {
     'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(sql))\\s*$'
     'beginCaptures':
@@ -985,7 +985,7 @@
         'include': 'source.sql'
       }
     ]
-  },
+  }
   {
     'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(graphql))\\s*$'
     'beginCaptures':
@@ -1002,7 +1002,7 @@
         'include': 'source.graphql'
       }
     ]
-  },
+  }
   {
     'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(clj|clojure))\\s*$'
     'beginCaptures':
@@ -1019,7 +1019,20 @@
         'include': 'source.clojure'
       }
     ]
-  },
+  }
+  {
+    # Attempt to provide syntax highlighting for unknown languages
+    'begin': '^\\s*(`{3,}|~{3,})\\s*([-\\w]+)\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.other.gfm'
+    'contentName': 'source.embedded.${2:/downcase}'
+  }
   {
     'begin': '^\\s*(`{3,}|~{3,}).*$'
     'beginCaptures':
