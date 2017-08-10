@@ -18,6 +18,9 @@
   'link':
     'prefix': 'l'
     'body': '[$1]($2)$0'
+  'bullet point':
+    'prefix': 'p'
+    'body': '- $1'
   'reference':
     'prefix': 'ref'
     'body': '[${1:id}]: ${2:url}${3: "${4:title}"}$0'
