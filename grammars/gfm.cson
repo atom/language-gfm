@@ -551,7 +551,7 @@
     'contentName': 'source.embedded.php'
     'patterns': [
       {
-        'include': 'source.php'
+        'include': 'text.html.php'
       }
     ]
   }
@@ -1306,3 +1306,65 @@
     ]
   }
 ]
+'injections':
+  'source.embedded.php - (meta.embedded | meta.tag), L:source.embedded.php meta.tag, L:embedded.source.js.embedded.html':
+    'patterns': [
+      {
+        'begin': '<\\?(?i:php|=)?(?![^?]*\\?>)'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.section.embedded.begin.php'
+        'contentName': 'source.php'
+        'end': '(\\?)>'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.section.embedded.end.php'
+          '1':
+            'name': 'source.php'
+        'name': 'meta.embedded.block.php'
+        'patterns': [
+          {
+            'include': 'text.html.php#language'
+          }
+        ]
+      }
+      {
+        'begin': '<\\?(?i:php|=)?'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.section.embedded.begin.php'
+        'end': '>'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.section.embedded.end.php'
+        'name': 'meta.embedded.line.php'
+        'patterns': [
+          {
+            'captures':
+              '1':
+                'name': 'source.php'
+              '2':
+                'name': 'punctuation.section.embedded.end.php'
+              '3':
+                'name': 'source.php'
+            'match': '\\G(\\s*)((\\?))(?=>)'
+            'name': 'meta.special.empty-tag.php'
+          }
+          {
+            'begin': '\\G'
+            'contentName': 'source.php'
+            'end': '(\\?)(?=>)'
+            'endCaptures':
+              '0':
+                'name': 'punctuation.section.embedded.end.php'
+              '1':
+                'name': 'source.php'
+            'patterns': [
+              {
+                'include': 'text.html.php#language'
+              }
+            ]
+          }
+        ]
+      }
+    ]

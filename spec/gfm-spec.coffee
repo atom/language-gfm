@@ -895,3 +895,14 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(subToken[3]).toEqual value: "~>", scopes: ["source.gfm", "critic.gfm.substitution", "critic.gfm.substitution.operator"]
     expect(subToken[4]).toEqual value: "by that", scopes: ["source.gfm", "critic.gfm.substitution"]
     expect(subToken[5]).toEqual value: "~~}", scopes: ["source.gfm", "critic.gfm.substitution", "critic.gfm.substitution.marker"]
+
+  it "tokenizes an embedded php block", ->
+    {tokens, ruleStack} = grammar.tokenizeLine("```php")
+    expect(tokens[0]).toEqual value: "```php", scopes: ["source.gfm", "markup.code.php.gfm", "support.gfm"]
+
+    {tokens, ruleStack} = grammar.tokenizeLine("<?php", ruleStack)
+    expect(tokens[0]).toEqual value: "<?php", scopes: ["source.gfm",
+                                                       "markup.code.php.gfm",
+                                                       "source.embedded.php",
+                                                       "meta.embedded.block.php",
+                                                       "punctuation.section.embedded.begin.php"]
