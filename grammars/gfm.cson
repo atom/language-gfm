@@ -1083,7 +1083,7 @@
         'name': 'punctuation.definition.end.gfm'
   }
   {
-    'match': '(\\[!)(\\[)([^\\]]*)(\\])((\\[)[^\\)]+(\\]))(\\])(((\\()[^\\)]+(\\)))|((\\[)[^\\]]+(\\])))'
+    'match': '(\\[!)(\\[)([^\\]]*)(\\])(\\[)([^\\)]+)(\\])(\\])((\\()([^\\)]+)(\\))|(\\[)([^\\]]+)(\\]))'
     'name': 'link'
     'captures':
       '1':
@@ -1095,23 +1095,23 @@
       '4':
         'name': 'punctuation.definition.end.gfm'
       '5':
-        'name': 'markup.underline.link.gfm'
-      '6':
         'name': 'punctuation.definition.begin.gfm'
+      '6':
+        'name': 'markup.underline.link.gfm'
       '7':
         'name': 'punctuation.definition.end.gfm'
       '8':
         'name': 'punctuation.definition.end.gfm'
       '10':
-        'name': 'markup.underline.link.gfm'
-      '11':
         'name': 'punctuation.definition.begin.gfm'
+      '11':
+        'name': 'markup.underline.link.gfm'
       '12':
         'name': 'punctuation.definition.end.gfm'
       '13':
-        'name': 'markup.underline.link.gfm'
-      '14':
         'name': 'punctuation.definition.begin.gfm'
+      '14':
+        'name': 'markup.underline.link.gfm'
       '15':
         'name': 'punctuation.definition.end.gfm'
   }
