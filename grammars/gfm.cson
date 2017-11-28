@@ -1116,7 +1116,7 @@
         'name': 'punctuation.definition.end.gfm'
   }
   {
-    'match': '!?(\\[)([^\\]]*)(\\])((\\()[^\\)]+(\\)))'
+    'match': '!?(\\[)([^\\]]*)(\\])(\\()([^\\)]+)(\\))'
     'name': 'link'
     'captures':
       '1':
@@ -1126,14 +1126,14 @@
       '3':
         'name': 'punctuation.definition.end.gfm'
       '4':
-        'name': 'markup.underline.link.gfm'
-      '5':
         'name': 'punctuation.definition.begin.gfm'
+      '5':
+        'name': 'markup.underline.link.gfm'
       '6':
         'name': 'punctuation.definition.end.gfm'
   }
   {
-    'match': '!?(\\[)([^\\]]*)(\\])((\\[)[^\\]]*(\\]))'
+    'match': '!?(\\[)([^\\]]*)(\\])(\\[)([^\\]]*)(\\])'
     'name': 'link'
     'captures':
       '1':
@@ -1143,9 +1143,9 @@
       '3':
         'name': 'punctuation.definition.end.gfm'
       '4':
-        'name': 'markup.underline.link.gfm'
-      '5':
         'name': 'punctuation.definition.begin.gfm'
+      '5':
+        'name': 'markup.underline.link.gfm'
       '6':
         'name': 'punctuation.definition.end.gfm'
   }
