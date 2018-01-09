@@ -1055,6 +1055,23 @@
     ]
   }
   {
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(matlab))\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.matlab.gfm'
+    'contentName': 'source.embedded.matlab'
+    'patterns': [
+      {
+        'include': 'source.matlab'
+      }
+    ]
+  }
+  {
     # Attempt to provide syntax highlighting for unknown languages
     'begin': '^\\s*(`{3,}|~{3,})\\s*([-\\w]+)\\s*$'
     'beginCaptures':
