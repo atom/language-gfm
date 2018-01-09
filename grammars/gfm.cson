@@ -1021,6 +1021,40 @@
     ]
   }
   {
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(latex))\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.latex.gfm'
+    'contentName': 'source.embedded.latex'
+    'patterns': [
+      {
+        'include': 'text.tex.latex'
+      }
+    ]
+  }
+  {
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(mathematica))\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.mathematica.gfm'
+    'contentName': 'source.embedded.mathematica'
+    'patterns': [
+      {
+        'include': 'source.mathematica'
+      }
+    ]
+  }
+  {
     # Attempt to provide syntax highlighting for unknown languages
     'begin': '^\\s*(`{3,}|~{3,})\\s*([-\\w]+)\\s*$'
     'beginCaptures':
