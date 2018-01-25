@@ -304,6 +304,31 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(tokens[0]).toEqual value: "```r  ", scopes: ["source.gfm", "markup.code.r.gfm",  "support.gfm"]
     expect(ruleStack[1].contentScopeName).toBe "source.embedded.r"
 
+  it "tokenizes a ``` code block with *s", ->
+    zip = (a, b) -> [a[i], b[i]] for i in [0..Math.min(a.length, b.length)]
+
+    waitsForPromise ->
+      atom.packages.activatePackage("language-c")
+
+    runs ->
+      cGrammar = atom.grammars.grammarForScopeName("source.c")
+
+      code = "int deref(int *ptr) { return *i; }"
+
+      {tokens: cTokens} = cGrammar.tokenizeLine(code)
+      {tokens: mdTokens} = grammar.tokenizeLine("```c\n#{ code }\n```")
+
+      # make the C token scopes look markdown embedded
+      cTokens.forEach (token) ->
+        token.scopes = ["source.gfm", "markup.code.c.gfm", "source.embedded.c"].concat token.scopes[1..]
+
+      # skip ```\n
+      tokenPairs = zip mdTokens[2..], cTokens
+
+      for [mdToken, cToken], i in tokenPairs
+        console.log i, mdToken.value, cToken.value
+        expect(mdToken).toEqual cToken
+
   it "tokenizes a Rmarkdown ``` code block", ->
     {tokens, ruleStack} = grammar.tokenizeLine("```{r}")
     expect(tokens[0]).toEqual value: "```{r}", scopes: ["source.gfm", "markup.code.r.gfm", "support.gfm"]
