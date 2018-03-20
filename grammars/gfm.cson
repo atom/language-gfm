@@ -868,7 +868,7 @@
     ]
   }
   {
-    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(julia))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(julia|jl))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
