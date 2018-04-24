@@ -1,13 +1,17 @@
 'name': 'GitHub Markdown'
 'scopeName': 'source.gfm'
+'limitLineLength': false
 'fileTypes': [
   'markdown'
   'md'
   'mdown'
+  'mdwn'
   'mkd'
+  'mkdn'
   'mkdown'
   'rmd'
   'ron'
+  'workbook'
 ]
 'patterns': [
   {
@@ -276,11 +280,15 @@
     'name': 'comment.hr.gfm'
   }
   {
-    'begin': '^\\s*[`~]{3,}\\s*(?i:(coffee-?(script)?))\\s*$'
+    'match': '^\\s*[_]{3,}\\s*$'
+    'name': 'comment.hr.gfm'
+  }
+  {
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(coffee-?(script)?|cson))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*[`~]{3,}$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -293,11 +301,11 @@
     ]
   }
   {
-    'begin': '^\\s*([`~]{3,})\\s*(?i:(javascript|js))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(javascript|js))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -310,11 +318,28 @@
     ]
   }
   {
-    'begin': '^\\s*([`~]{3,})\\s*(?i:(markdown|mdown|md))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(typescript|ts))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.ts.gfm'
+    'contentName': 'source.embedded.ts'
+    'patterns': [
+      {
+        'include': 'source.ts'
+      }
+    ]
+  }
+  {
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(markdown|md|mdo?wn|mkdn?|mkdown))\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -327,11 +352,11 @@
     ]
   }
   {
-    'begin': '^\\s*([`~]{3,})\\s*(?i:(json))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(json))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -344,11 +369,11 @@
     ]
   }
   {
-    'begin': '^\\s*([`~]{3,})\\s*(?i:(css))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(css))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -361,11 +386,11 @@
     ]
   }
   {
-    'begin': '^\\s*([`~]{3,})\\s*(?i:(less))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(less))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -378,11 +403,11 @@
     ]
   }
   {
-    'begin': '^\\s*([`~]{3,})\\s*(?i:(xml))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(xml))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -395,11 +420,11 @@
     ]
   }
   {
-    'begin': '^\\s*([`~]{3,})\\s*(?i:(ruby|rb))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(ruby|rb))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -412,11 +437,11 @@
     ]
   }
   {
-    'begin': '^\\s*([`~]{3,})\\s*(?i:(rust|rs))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(rust|rs))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -429,11 +454,11 @@
     ]
   }
   {
-    'begin': '^\\s*([`~]{3,})\\s*(?i:(java))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(java))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -446,11 +471,11 @@
     ]
   }
   {
-    'begin': '^\\s*([`~]{3,})\\s*(?i:(scala|sbt))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(scala|sbt))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -463,11 +488,11 @@
     ]
   }
   {
-    'begin': '^\\s*([`~]{3,})\\s*(?i:(erlang))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(erlang))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -480,11 +505,11 @@
     ]
   }
   {
-    'begin': '^\\s*([`~]{3,})\\s*(?i:(go(lang)?))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(go(lang)?))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -497,11 +522,11 @@
     ]
   }
   {
-    'begin': '^\\s*([`~]{3,})\\s*(?i:(cs(harp)?))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(cs(harp)?))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -514,11 +539,11 @@
     ]
   }
   {
-    'begin': '^\\s*([`~]{3,})\\s*(?i:(php))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(php))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -531,11 +556,11 @@
     ]
   }
   {
-    'begin': '^\\s*([`~]{3,})\\s*(?i:(sh|bash))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(sh|bash|shell))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -561,15 +586,30 @@
     'patterns': [
       {
         'include': 'source.java-properties'
+  }
+  {
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(shellsession|console))\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.shell-session.gfm'
+    'contentName': 'text.embedded.shell-session'
+    'patterns': [
+      {
+        'include': 'text.shell-session'
       }
     ]
   }
   {
-    'begin': '^\\s*([`~]{3,})\\s*(?i:(py(thon)?))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(py(thon)?))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -582,11 +622,28 @@
     ]
   }
   {
-    'begin': '^\\s*([`~]{3,})\\s*(?i:(c))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(pycon))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.python.console.gfm'
+    'contentName': 'source.embedded.python.console'
+    'patterns': [
+      {
+        'include': 'text.python.console'
+      }
+    ]
+  }
+  {
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(c))\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -599,11 +656,11 @@
     ]
   }
   {
-    'begin': '^\\s*([`~]{3,})\\s*(?i:(c(pp|\\+\\+)))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(c(pp|\\+\\+)))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -616,11 +673,11 @@
     ]
   }
   {
-    'begin': '^\\s*([`~]{3,})\\s*(?i:(objc|objective-c))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(objc|objective-c))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -633,11 +690,28 @@
     ]
   }
   {
-    'begin': '^\\s*([`~]{3,})\\s*(?i:(swift))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(adoc|asciidoc|asciidoctor|asc))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.asciidoc.gfm'
+    'contentName': 'source.embedded.asciidoc'
+    'patterns': [
+      {
+        'include': 'source.asciidoc'
+      }
+    ]
+  }
+  {
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(swift))\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -649,12 +723,103 @@
       }
     ]
   }
+
   {
-    'begin': '^\\s*([`~]{3,})\\s*(?i:(html))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(dockerfile|docker))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.dockerfile.gfm'
+    'contentName': 'source.embedded.dockerfile'
+    'patterns': [
+      {
+        'include': 'source.dockerfile'
+      }
+    ]
+  }
+
+  {
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(makefile|make))\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.makefile.gfm'
+    'contentName': 'source.embedded.makefile'
+    'patterns': [
+      {
+        'include': 'source.makefile'
+      }
+    ]
+  }
+
+  {
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(perl))\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.perl.gfm'
+    'contentName': 'source.embedded.perl'
+    'patterns': [
+      {
+        'include': 'source.perl'
+      }
+    ]
+  }
+
+  {
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(perl6))\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.perl6.gfm'
+    'contentName': 'source.embedded.perl6'
+    'patterns': [
+      {
+        'include': 'source.perl6'
+      }
+    ]
+  }
+
+  {
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(toml))\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.toml.gfm'
+    'contentName': 'source.embedded.toml'
+    'patterns': [
+      {
+        'include': 'source.toml'
+      }
+    ]
+  }
+
+  {
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(html))\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -667,11 +832,11 @@
     ]
   }
   {
-    'begin': '^\\s*([`~]{3,})\\s*(?i:(ya?ml))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(ya?ml))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -684,11 +849,11 @@
     ]
   }
   {
-    'begin': '^\\s*([`~]{3,})\\s*(?i:(elixir))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(elixir))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -701,11 +866,11 @@
     ]
   }
   {
-    'begin': '^\\s*([`~]{3,})\\s*(?i:(diff|patch|rej))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(diff|patch|rej))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -718,11 +883,11 @@
     ]
   }
   {
-    'begin': '^\\s*([`~]{3,})\\s*(?i:(julia))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(julia))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -735,11 +900,11 @@
     ]
   }
   {
-    'begin': '^\\s*([`~]{3,})\\s*([\\{]{0,1})(?i:(r))([^\\}]*)([\\}]{0,1})\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*([\\{]{0,1})(?i:(r))([^\\}]*)([\\}]{0,1})\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -752,11 +917,11 @@
     ]
   }
   {
-    'begin': '^\\s*([`~]{3,})\\s*(?i:(haskell))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(haskell))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -769,11 +934,11 @@
     ]
   }
   {
-    'begin': '^\\s*([`~]{3,})\\s*(?i:(elm))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(elm))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -786,11 +951,11 @@
     ]
   }
   {
-    'begin': '^\\s*([`~]{3,})\\s*(?i:(apib|apiblueprint))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(apib|apiblueprint))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -803,11 +968,11 @@
     ]
   }
   {
-    'begin': '^\\s*([`~]{3,})\\s*(?i:(mson))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(mson))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -818,13 +983,13 @@
         'include': 'text.html.markdown.source.gfm.mson'
       }
     ]
-  },
+  }
   {
-    'begin': '^\\s*([`~]{3,})\\s*(?i:(sql))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(sql))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -835,13 +1000,30 @@
         'include': 'source.sql'
       }
     ]
-  },
+  }
   {
-    'begin': '^\\s*([`~]{3,})\\s*(?i:(clojure))\\s*$'
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(graphql))\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.graphql.gfm'
+    'contentName': 'source.embedded.graphql'
+    'patterns': [
+      {
+        'include': 'source.graphql'
+      }
+    ]
+  }
+  {
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(clj|clojure))\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -852,13 +1034,26 @@
         'include': 'source.clojure'
       }
     ]
-  },
+  }
   {
-    'begin': '^\\s*([`~]{3,}).*$'
+    # Attempt to provide syntax highlighting for unknown languages
+    'begin': '^\\s*(`{3,}|~{3,})\\s*([-\\w]+)\\s*$'
     'beginCaptures':
       '0':
         'name': 'support.gfm'
-    'end': '^\\s*\\1\\s*$'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.other.gfm'
+    'contentName': 'source.embedded.${2:/downcase}'
+  }
+  {
+    'begin': '^\\s*(`{3,}|~{3,}).*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
     'endCaptures':
       '0':
         'name': 'support.gfm'
@@ -870,7 +1065,7 @@
     'name': 'markup.raw.gfm'
   }
   {
-    'match': '(\\[!)(\\[)([^\\]]*)(\\])((\\()[^\\)]+(\\)))(\\])(((\\()[^\\)]+(\\)))|((\\[)[^\\]]+(\\])))'
+    'match': '(\\[!)(\\[)([^\\]]*)(\\])(\\()([^\\)]+)(\\))(\\])((\\()([^\\)]+)(\\))|(\\[)([^\\]]+)(\\]))'
     'name': 'link'
     'captures':
       '1':
@@ -882,28 +1077,28 @@
       '4':
         'name': 'punctuation.definition.end.gfm'
       '5':
-        'name': 'markup.underline.link.gfm'
-      '6':
         'name': 'punctuation.definition.begin.gfm'
+      '6':
+        'name': 'markup.underline.link.gfm'
       '7':
         'name': 'punctuation.definition.end.gfm'
       '8':
         'name': 'punctuation.definition.end.gfm'
       '10':
-        'name': 'markup.underline.link.gfm'
-      '11':
         'name': 'punctuation.definition.begin.gfm'
+      '11':
+        'name': 'markup.underline.link.gfm'
       '12':
         'name': 'punctuation.definition.end.gfm'
       '13':
-        'name': 'markup.underline.link.gfm'
-      '14':
         'name': 'punctuation.definition.begin.gfm'
+      '14':
+        'name': 'markup.underline.link.gfm'
       '15':
         'name': 'punctuation.definition.end.gfm'
   }
   {
-    'match': '(\\[!)(\\[)([^\\]]*)(\\])((\\[)[^\\)]+(\\]))(\\])(((\\()[^\\)]+(\\)))|((\\[)[^\\]]+(\\])))'
+    'match': '(\\[!)(\\[)([^\\]]*)(\\])(\\[)([^\\)]+)(\\])(\\])((\\()([^\\)]+)(\\))|(\\[)([^\\]]+)(\\]))'
     'name': 'link'
     'captures':
       '1':
@@ -915,28 +1110,28 @@
       '4':
         'name': 'punctuation.definition.end.gfm'
       '5':
-        'name': 'markup.underline.link.gfm'
-      '6':
         'name': 'punctuation.definition.begin.gfm'
+      '6':
+        'name': 'markup.underline.link.gfm'
       '7':
         'name': 'punctuation.definition.end.gfm'
       '8':
         'name': 'punctuation.definition.end.gfm'
       '10':
-        'name': 'markup.underline.link.gfm'
-      '11':
         'name': 'punctuation.definition.begin.gfm'
+      '11':
+        'name': 'markup.underline.link.gfm'
       '12':
         'name': 'punctuation.definition.end.gfm'
       '13':
-        'name': 'markup.underline.link.gfm'
-      '14':
         'name': 'punctuation.definition.begin.gfm'
+      '14':
+        'name': 'markup.underline.link.gfm'
       '15':
         'name': 'punctuation.definition.end.gfm'
   }
   {
-    'match': '!?(\\[)([^\\]]*)(\\])((\\()[^\\)]+(\\)))'
+    'match': '!?(\\[)([^\\]]*)(\\])(\\()([^\\)]+)(\\))'
     'name': 'link'
     'captures':
       '1':
@@ -946,14 +1141,14 @@
       '3':
         'name': 'punctuation.definition.end.gfm'
       '4':
-        'name': 'markup.underline.link.gfm'
-      '5':
         'name': 'punctuation.definition.begin.gfm'
+      '5':
+        'name': 'markup.underline.link.gfm'
       '6':
         'name': 'punctuation.definition.end.gfm'
   }
   {
-    'match': '!?(\\[)([^\\]]*)(\\])((\\[)[^\\]]*(\\]))'
+    'match': '!?(\\[)([^\\]]*)(\\])(\\[)([^\\]]*)(\\])'
     'name': 'link'
     'captures':
       '1':
@@ -963,9 +1158,9 @@
       '3':
         'name': 'punctuation.definition.end.gfm'
       '4':
-        'name': 'markup.underline.link.gfm'
-      '5':
         'name': 'punctuation.definition.begin.gfm'
+      '5':
+        'name': 'markup.underline.link.gfm'
       '6':
         'name': 'punctuation.definition.end.gfm'
   }

@@ -23,6 +23,9 @@ describe "GitHub Flavored Markdown grammar", ->
     {tokens} = grammar.tokenizeLine("---")
     expect(tokens[0]).toEqual value: "---", scopes: ["source.gfm", "comment.hr.gfm"]
 
+    {tokens} = grammar.tokenizeLine("___")
+    expect(tokens[0]).toEqual value: "___", scopes: ["source.gfm", "comment.hr.gfm"]
+
   it "tokenizes escaped characters", ->
     {tokens} = grammar.tokenizeLine("\\*")
     expect(tokens[0]).toEqual value: "\\*", scopes: ["source.gfm", "constant.character.escape.gfm"]
@@ -85,7 +88,7 @@ describe "GitHub Flavored Markdown grammar", ->
 
   it "tokenizes __bold__ text", ->
     {tokens} = grammar.tokenizeLine("____")
-    expect(tokens[0]).toEqual value: "____", scopes: ["source.gfm"]
+    expect(tokens[0]).toEqual value: "____", scopes: ["source.gfm", "comment.hr.gfm"]
 
     {tokens} = grammar.tokenizeLine("__bold__")
     expect(tokens[0]).toEqual value: "__", scopes: ["source.gfm", "markup.bold.gfm"]
@@ -226,38 +229,65 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(tokens[0]).toEqual value: "http://localhost:8080", scopes: ["source.gfm"]
 
   it "tokenizes a ``` code block", ->
-    {tokens, ruleStack} = grammar.tokenizeLine("```mylanguage")
-    expect(tokens[0]).toEqual value: "```mylanguage", scopes: ["source.gfm", "markup.raw.gfm", "support.gfm"]
+    {tokens, ruleStack} = grammar.tokenizeLine("```")
+    expect(tokens[0]).toEqual value: "```", scopes: ["source.gfm", "markup.raw.gfm", "support.gfm"]
     {tokens, ruleStack} = grammar.tokenizeLine("-> 'hello'", ruleStack)
     expect(tokens[0]).toEqual value: "-> 'hello'", scopes: ["source.gfm", "markup.raw.gfm"]
     {tokens} = grammar.tokenizeLine("```", ruleStack)
     expect(tokens[0]).toEqual value: "```", scopes: ["source.gfm", "markup.raw.gfm", "support.gfm"]
 
   it "tokenizes a ~~~ code block", ->
-    {tokens, ruleStack} = grammar.tokenizeLine("~~~mylanguage")
-    expect(tokens[0]).toEqual value: "~~~mylanguage", scopes: ["source.gfm", "markup.raw.gfm", "support.gfm"]
+    {tokens, ruleStack} = grammar.tokenizeLine("~~~")
+    expect(tokens[0]).toEqual value: "~~~", scopes: ["source.gfm", "markup.raw.gfm", "support.gfm"]
     {tokens, ruleStack} = grammar.tokenizeLine("-> 'hello'", ruleStack)
     expect(tokens[0]).toEqual value: "-> 'hello'", scopes: ["source.gfm", "markup.raw.gfm"]
     {tokens} = grammar.tokenizeLine("~~~", ruleStack)
     expect(tokens[0]).toEqual value: "~~~", scopes: ["source.gfm", "markup.raw.gfm", "support.gfm"]
 
+  it "doesn't tokenise ~`~ as a code block", ->
+    {tokens} = grammar.tokenizeLine("~`~")
+    expect(tokens[0]).toEqual value: '~', scopes: ['source.gfm']
+    expect(tokens[1]).toEqual value: '`', scopes: ['source.gfm', 'markup.raw.gfm']
+    expect(tokens[2]).toEqual value: '~', scopes: ['source.gfm', 'markup.raw.gfm']
+
+  it "tokenises code-blocks with borders of differing lengths", ->
+    [firstLineTokens, secondLineTokens, thirdLineTokens] = grammar.tokenizeLines("~~~\nfoo bar\n~~~~~~~")
+    expect(firstLineTokens[0]).toEqual value: '~~~', scopes: ['source.gfm', 'markup.raw.gfm', 'support.gfm']
+    expect(secondLineTokens[0]).toEqual value: 'foo bar', scopes: ['source.gfm', 'markup.raw.gfm']
+    expect(thirdLineTokens[0]).toEqual value: '~~~~~~~', scopes: ['source.gfm', 'markup.raw.gfm', 'support.gfm']
+
+    [firstLineTokens, secondLineTokens, thirdLineTokens] = grammar.tokenizeLines("~~~~~~~\nfoo bar\n~~~")
+    expect(firstLineTokens[0]).toEqual value: '~~~~~~~', scopes: ['source.gfm', 'markup.raw.gfm', 'support.gfm']
+    expect(secondLineTokens[0]).toEqual value: 'foo bar', scopes: ['source.gfm', 'markup.raw.gfm']
+    expect(thirdLineTokens[0]).toEqual value: '~~~', scopes: ['source.gfm', 'markup.raw.gfm']
+
   it "tokenizes a ``` code block with trailing whitespace", ->
-    {tokens, ruleStack} = grammar.tokenizeLine("```mylanguage")
-    expect(tokens[0]).toEqual value: "```mylanguage", scopes: ["source.gfm", "markup.raw.gfm", "support.gfm"]
+    {tokens, ruleStack} = grammar.tokenizeLine("```")
+    expect(tokens[0]).toEqual value: "```", scopes: ["source.gfm", "markup.raw.gfm", "support.gfm"]
     {tokens, ruleStack} = grammar.tokenizeLine("-> 'hello'", ruleStack)
     expect(tokens[0]).toEqual value: "-> 'hello'", scopes: ["source.gfm", "markup.raw.gfm"]
     {tokens} = grammar.tokenizeLine("```  ", ruleStack)
     expect(tokens[0]).toEqual value: "```  ", scopes: ["source.gfm", "markup.raw.gfm", "support.gfm"]
 
   it "tokenizes a ~~~ code block with trailing whitespace", ->
-    {tokens, ruleStack} = grammar.tokenizeLine("~~~mylanguage")
-    expect(tokens[0]).toEqual value: "~~~mylanguage", scopes: ["source.gfm", "markup.raw.gfm", "support.gfm"]
+    {tokens, ruleStack} = grammar.tokenizeLine("~~~")
+    expect(tokens[0]).toEqual value: "~~~", scopes: ["source.gfm", "markup.raw.gfm", "support.gfm"]
     {tokens, ruleStack} = grammar.tokenizeLine("-> 'hello'", ruleStack)
     expect(tokens[0]).toEqual value: "-> 'hello'", scopes: ["source.gfm", "markup.raw.gfm"]
     {tokens} = grammar.tokenizeLine("~~~  ", ruleStack)
     expect(tokens[0]).toEqual value: "~~~  ", scopes: ["source.gfm", "markup.raw.gfm", "support.gfm"]
 
-  it "tokenizes a ``` code block with a language", ->
+  it "tokenises a ``` code block with an unknown language", ->
+    {tokens, ruleStack} = grammar.tokenizeLine("``` myLanguage")
+    expect(tokens[0]).toEqual value: '``` myLanguage', scopes: ['source.gfm', 'markup.code.other.gfm', 'support.gfm']
+
+    {tokens, ruleStack} = grammar.tokenizeLine("-> 'hello'", ruleStack)
+    expect(tokens[0]).toEqual value: "-> 'hello'", scopes: ['source.gfm', 'markup.code.other.gfm', 'source.embedded.mylanguage']
+
+    {tokens} = grammar.tokenizeLine("```", ruleStack)
+    expect(tokens[0]).toEqual value: '```', scopes: ['source.gfm', 'markup.code.other.gfm', 'support.gfm']
+
+  it "tokenizes a ``` code block with a known language", ->
     {tokens, ruleStack} = grammar.tokenizeLine("```  bash")
     expect(tokens[0]).toEqual value: "```  bash", scopes: ["source.gfm", "markup.code.shell.gfm",  "support.gfm"]
     expect(ruleStack[1].contentScopeName).toBe "source.embedded.shell"
@@ -356,9 +386,9 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(tokens[1]).toEqual value: "[", scopes: ["source.gfm", "link", "punctuation.definition.begin.gfm"]
     expect(tokens[2]).toEqual value: "this link", scopes: ["source.gfm", "link", "entity.gfm"]
     expect(tokens[3]).toEqual value: "]", scopes: ["source.gfm", "link", "punctuation.definition.end.gfm"]
-    expect(tokens[4]).toEqual value: "(", scopes: ["source.gfm", "link", "markup.underline.link.gfm", "punctuation.definition.begin.gfm"]
+    expect(tokens[4]).toEqual value: "(", scopes: ["source.gfm", "link", "punctuation.definition.begin.gfm"]
     expect(tokens[5]).toEqual value: "website", scopes: ["source.gfm", "link", "markup.underline.link.gfm"]
-    expect(tokens[6]).toEqual value: ")", scopes: ["source.gfm", "link", "markup.underline.link.gfm", "punctuation.definition.end.gfm"]
+    expect(tokens[6]).toEqual value: ")", scopes: ["source.gfm", "link", "punctuation.definition.end.gfm"]
 
   it "tokenizes reference [links][links]", ->
     {tokens} = grammar.tokenizeLine("please click [this link][website]")
@@ -366,9 +396,9 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(tokens[1]).toEqual value: "[", scopes: ["source.gfm", "link", "punctuation.definition.begin.gfm"]
     expect(tokens[2]).toEqual value: "this link", scopes: ["source.gfm", "link", "entity.gfm"]
     expect(tokens[3]).toEqual value: "]", scopes: ["source.gfm", "link", "punctuation.definition.end.gfm"]
-    expect(tokens[4]).toEqual value: "[", scopes: ["source.gfm", "link", "markup.underline.link.gfm", "punctuation.definition.begin.gfm"]
+    expect(tokens[4]).toEqual value: "[", scopes: ["source.gfm", "link", "punctuation.definition.begin.gfm"]
     expect(tokens[5]).toEqual value: "website", scopes: ["source.gfm", "link", "markup.underline.link.gfm"]
-    expect(tokens[6]).toEqual value: "]", scopes: ["source.gfm", "link", "markup.underline.link.gfm", "punctuation.definition.end.gfm"]
+    expect(tokens[6]).toEqual value: "]", scopes: ["source.gfm", "link", "punctuation.definition.end.gfm"]
 
   it "tokenizes id-less reference [links][]", ->
     {tokens} = grammar.tokenizeLine("please click [this link][]")
@@ -376,8 +406,8 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(tokens[1]).toEqual value: "[", scopes: ["source.gfm", "link", "punctuation.definition.begin.gfm"]
     expect(tokens[2]).toEqual value: "this link", scopes: ["source.gfm", "link", "entity.gfm"]
     expect(tokens[3]).toEqual value: "]", scopes: ["source.gfm", "link", "punctuation.definition.end.gfm"]
-    expect(tokens[4]).toEqual value: "[", scopes: ["source.gfm", "link", "markup.underline.link.gfm", "punctuation.definition.begin.gfm"]
-    expect(tokens[5]).toEqual value: "]", scopes: ["source.gfm", "link", "markup.underline.link.gfm", "punctuation.definition.end.gfm"]
+    expect(tokens[4]).toEqual value: "[", scopes: ["source.gfm", "link", "punctuation.definition.begin.gfm"]
+    expect(tokens[5]).toEqual value: "]", scopes: ["source.gfm", "link", "punctuation.definition.end.gfm"]
 
   it "tokenizes [link]: footers", ->
     {tokens} = grammar.tokenizeLine("[aLink]: http://website")
@@ -403,13 +433,13 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(tokens[1]).toEqual value: "[", scopes: ["source.gfm", "link", "punctuation.definition.begin.gfm"]
     expect(tokens[2]).toEqual value: "title", scopes: ["source.gfm", "link", "entity.gfm"]
     expect(tokens[3]).toEqual value: "]", scopes: ["source.gfm", "link", "punctuation.definition.end.gfm"]
-    expect(tokens[4]).toEqual value: "(", scopes: ["source.gfm", "link", "markup.underline.link.gfm", "punctuation.definition.begin.gfm"]
+    expect(tokens[4]).toEqual value: "(", scopes: ["source.gfm", "link", "punctuation.definition.begin.gfm"]
     expect(tokens[5]).toEqual value: "image", scopes: ["source.gfm", "link", "markup.underline.link.gfm"]
-    expect(tokens[6]).toEqual value: ")", scopes: ["source.gfm", "link", "markup.underline.link.gfm", "punctuation.definition.end.gfm"]
+    expect(tokens[6]).toEqual value: ")", scopes: ["source.gfm", "link", "punctuation.definition.end.gfm"]
     expect(tokens[7]).toEqual value: "]", scopes: ["source.gfm", "link", "punctuation.definition.end.gfm"]
-    expect(tokens[8]).toEqual value: "(", scopes: ["source.gfm", "link", "markup.underline.link.gfm", "punctuation.definition.begin.gfm"]
+    expect(tokens[8]).toEqual value: "(", scopes: ["source.gfm", "link", "punctuation.definition.begin.gfm"]
     expect(tokens[9]).toEqual value: "link", scopes: ["source.gfm", "link", "markup.underline.link.gfm"]
-    expect(tokens[10]).toEqual value: ")", scopes: ["source.gfm", "link", "markup.underline.link.gfm", "punctuation.definition.end.gfm"]
+    expect(tokens[10]).toEqual value: ")", scopes: ["source.gfm", "link", "punctuation.definition.end.gfm"]
 
   it "tokenizes [![links](links)][links]", ->
     {tokens} = grammar.tokenizeLine("[![title](image)][link]")
@@ -417,13 +447,13 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(tokens[1]).toEqual value: "[", scopes: ["source.gfm", "link", "punctuation.definition.begin.gfm"]
     expect(tokens[2]).toEqual value: "title", scopes: ["source.gfm", "link", "entity.gfm"]
     expect(tokens[3]).toEqual value: "]", scopes: ["source.gfm", "link", "punctuation.definition.end.gfm"]
-    expect(tokens[4]).toEqual value: "(", scopes: ["source.gfm", "link", "markup.underline.link.gfm", "punctuation.definition.begin.gfm"]
+    expect(tokens[4]).toEqual value: "(", scopes: ["source.gfm", "link", "punctuation.definition.begin.gfm"]
     expect(tokens[5]).toEqual value: "image", scopes: ["source.gfm", "link", "markup.underline.link.gfm"]
-    expect(tokens[6]).toEqual value: ")", scopes: ["source.gfm", "link", "markup.underline.link.gfm", "punctuation.definition.end.gfm"]
+    expect(tokens[6]).toEqual value: ")", scopes: ["source.gfm", "link", "punctuation.definition.end.gfm"]
     expect(tokens[7]).toEqual value: "]", scopes: ["source.gfm", "link", "punctuation.definition.end.gfm"]
-    expect(tokens[8]).toEqual value: "[", scopes: ["source.gfm", "link", "markup.underline.link.gfm", "punctuation.definition.begin.gfm"]
+    expect(tokens[8]).toEqual value: "[", scopes: ["source.gfm", "link", "punctuation.definition.begin.gfm"]
     expect(tokens[9]).toEqual value: "link", scopes: ["source.gfm", "link", "markup.underline.link.gfm"]
-    expect(tokens[10]).toEqual value: "]", scopes: ["source.gfm", "link", "markup.underline.link.gfm", "punctuation.definition.end.gfm"]
+    expect(tokens[10]).toEqual value: "]", scopes: ["source.gfm", "link", "punctuation.definition.end.gfm"]
 
   it "tokenizes [![links][links]](links)", ->
     {tokens} = grammar.tokenizeLine("[![title][image]](link)")
@@ -431,13 +461,13 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(tokens[1]).toEqual value: "[", scopes: ["source.gfm", "link", "punctuation.definition.begin.gfm"]
     expect(tokens[2]).toEqual value: "title", scopes: ["source.gfm", "link", "entity.gfm"]
     expect(tokens[3]).toEqual value: "]", scopes: ["source.gfm", "link", "punctuation.definition.end.gfm"]
-    expect(tokens[4]).toEqual value: "[", scopes: ["source.gfm", "link", "markup.underline.link.gfm", "punctuation.definition.begin.gfm"]
+    expect(tokens[4]).toEqual value: "[", scopes: ["source.gfm", "link", "punctuation.definition.begin.gfm"]
     expect(tokens[5]).toEqual value: "image", scopes: ["source.gfm", "link", "markup.underline.link.gfm"]
-    expect(tokens[6]).toEqual value: "]", scopes: ["source.gfm", "link", "markup.underline.link.gfm", "punctuation.definition.end.gfm"]
+    expect(tokens[6]).toEqual value: "]", scopes: ["source.gfm", "link", "punctuation.definition.end.gfm"]
     expect(tokens[7]).toEqual value: "]", scopes: ["source.gfm", "link", "punctuation.definition.end.gfm"]
-    expect(tokens[8]).toEqual value: "(", scopes: ["source.gfm", "link", "markup.underline.link.gfm", "punctuation.definition.begin.gfm"]
+    expect(tokens[8]).toEqual value: "(", scopes: ["source.gfm", "link", "punctuation.definition.begin.gfm"]
     expect(tokens[9]).toEqual value: "link", scopes: ["source.gfm", "link", "markup.underline.link.gfm"]
-    expect(tokens[10]).toEqual value: ")", scopes: ["source.gfm", "link", "markup.underline.link.gfm", "punctuation.definition.end.gfm"]
+    expect(tokens[10]).toEqual value: ")", scopes: ["source.gfm", "link", "punctuation.definition.end.gfm"]
 
   it "tokenizes [![links][links]][links]", ->
     {tokens} = grammar.tokenizeLine("[![title][image]][link]")
@@ -445,13 +475,13 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(tokens[1]).toEqual value: "[", scopes: ["source.gfm", "link", "punctuation.definition.begin.gfm"]
     expect(tokens[2]).toEqual value: "title", scopes: ["source.gfm", "link", "entity.gfm"]
     expect(tokens[3]).toEqual value: "]", scopes: ["source.gfm", "link", "punctuation.definition.end.gfm"]
-    expect(tokens[4]).toEqual value: "[", scopes: ["source.gfm", "link", "markup.underline.link.gfm", "punctuation.definition.begin.gfm"]
+    expect(tokens[4]).toEqual value: "[", scopes: ["source.gfm", "link", "punctuation.definition.begin.gfm"]
     expect(tokens[5]).toEqual value: "image", scopes: ["source.gfm", "link", "markup.underline.link.gfm"]
-    expect(tokens[6]).toEqual value: "]", scopes: ["source.gfm", "link", "markup.underline.link.gfm", "punctuation.definition.end.gfm"]
+    expect(tokens[6]).toEqual value: "]", scopes: ["source.gfm", "link", "punctuation.definition.end.gfm"]
     expect(tokens[7]).toEqual value: "]", scopes: ["source.gfm", "link", "punctuation.definition.end.gfm"]
-    expect(tokens[8]).toEqual value: "[", scopes: ["source.gfm", "link", "markup.underline.link.gfm", "punctuation.definition.begin.gfm"]
+    expect(tokens[8]).toEqual value: "[", scopes: ["source.gfm", "link", "punctuation.definition.begin.gfm"]
     expect(tokens[9]).toEqual value: "link", scopes: ["source.gfm", "link", "markup.underline.link.gfm"]
-    expect(tokens[10]).toEqual value: "]", scopes: ["source.gfm", "link", "markup.underline.link.gfm", "punctuation.definition.end.gfm"]
+    expect(tokens[10]).toEqual value: "]", scopes: ["source.gfm", "link", "punctuation.definition.end.gfm"]
 
   it "tokenizes mentions", ->
     {tokens} = grammar.tokenizeLine("sentence with no space before@name ")
