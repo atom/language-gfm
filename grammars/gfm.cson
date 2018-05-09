@@ -1262,18 +1262,18 @@
   {
     'begin': '{\\+\\+'
     'end': '\\+\\+}'
-    'name': 'critic.gfm.addition'
+    'name': 'markup.inserted.critic.gfm.addition'
     'captures':
       '0':
-        'name': 'critic.gfm.addition.marker'
+        'name': 'punctuation.definition.inserted.critic.gfm.addition.marker'
   }
   {
     'begin': '{--'
     'end': '--}'
-    'name': 'critic.gfm.deletion'
+    'name': 'markup.deleted.critic.gfm.deletion'
     'captures':
       '0':
-        'name': 'critic.gfm.deletion.marker'
+        'name': 'punctuation.definition.deleted.critic.gfm.deletion.marker'
   }
   {
     'begin': '{=='
@@ -1294,14 +1294,14 @@
   {
     'begin': '{~~'
     'end': '~~}'
-    'name': 'critic.gfm.substitution'
+    'name': 'markup.changed.critic.gfm.substitution'
     'captures':
       '0':
-        'name': 'critic.gfm.substitution.marker'
+        'name': 'punctuation.definition.changed.critic.gfm.substitution.marker'
     'patterns': [
       {
         'match': '~>'
-        'name': 'critic.gfm.substitution.operator'
+        'name': 'punctuation.definition.changed.critic.gfm.substitution.operator'
       }
     ]
   }

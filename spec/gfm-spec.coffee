@@ -872,14 +872,14 @@ describe "GitHub Flavored Markdown grammar", ->
     """
     # Addition
     expect(addToken[0]).toEqual value: "Add", scopes: ["source.gfm"]
-    expect(addToken[1]).toEqual value: "{++", scopes: ["source.gfm", "critic.gfm.addition", "critic.gfm.addition.marker"]
-    expect(addToken[2]).toEqual value: " some text", scopes: ["source.gfm", "critic.gfm.addition"]
-    expect(addToken[3]).toEqual value: "++}", scopes: ["source.gfm", "critic.gfm.addition", "critic.gfm.addition.marker"]
+    expect(addToken[1]).toEqual value: "{++", scopes: ["source.gfm", "markup.inserted.critic.gfm.addition", "punctuation.definition.inserted.critic.gfm.addition.marker"]
+    expect(addToken[2]).toEqual value: " some text", scopes: ["source.gfm", "markup.inserted.critic.gfm.addition"]
+    expect(addToken[3]).toEqual value: "++}", scopes: ["source.gfm", "markup.inserted.critic.gfm.addition", "punctuation.definition.inserted.critic.gfm.addition.marker"]
     # Deletion
     expect(delToken[0]).toEqual value: "Delete", scopes: ["source.gfm"]
-    expect(delToken[1]).toEqual value: "{--", scopes: ["source.gfm", "critic.gfm.deletion", "critic.gfm.deletion.marker"]
-    expect(delToken[2]).toEqual value: " some text", scopes: ["source.gfm", "critic.gfm.deletion"]
-    expect(delToken[3]).toEqual value: "--}", scopes: ["source.gfm", "critic.gfm.deletion", "critic.gfm.deletion.marker"]
+    expect(delToken[1]).toEqual value: "{--", scopes: ["source.gfm", "markup.deleted.critic.gfm.deletion", "punctuation.definition.deleted.critic.gfm.deletion.marker"]
+    expect(delToken[2]).toEqual value: " some text", scopes: ["source.gfm", "markup.deleted.critic.gfm.deletion"]
+    expect(delToken[3]).toEqual value: "--}", scopes: ["source.gfm", "markup.deleted.critic.gfm.deletion", "punctuation.definition.deleted.critic.gfm.deletion.marker"]
     # Comment and highlight
     expect(hlToken[0]).toEqual value: "Highlight ", scopes: ["source.gfm"]
     expect(hlToken[1]).toEqual value: "{==", scopes: ["source.gfm", "critic.gfm.highlight", "critic.gfm.highlight.marker"]
@@ -890,8 +890,8 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(hlToken[6]).toEqual value: "<<}", scopes: ["source.gfm", "critic.gfm.comment", "critic.gfm.comment.marker"]
     # Replace
     expect(subToken[0]).toEqual value: "Replace ", scopes: ["source.gfm"]
-    expect(subToken[1]).toEqual value: "{~~", scopes: ["source.gfm", "critic.gfm.substitution", "critic.gfm.substitution.marker"]
-    expect(subToken[2]).toEqual value: "this", scopes: ["source.gfm", "critic.gfm.substitution"]
-    expect(subToken[3]).toEqual value: "~>", scopes: ["source.gfm", "critic.gfm.substitution", "critic.gfm.substitution.operator"]
-    expect(subToken[4]).toEqual value: "by that", scopes: ["source.gfm", "critic.gfm.substitution"]
-    expect(subToken[5]).toEqual value: "~~}", scopes: ["source.gfm", "critic.gfm.substitution", "critic.gfm.substitution.marker"]
+    expect(subToken[1]).toEqual value: "{~~", scopes: ["source.gfm", "markup.changed.critic.gfm.substitution", "punctuation.definition.changed.critic.gfm.substitution.marker"]
+    expect(subToken[2]).toEqual value: "this", scopes: ["source.gfm", "markup.changed.critic.gfm.substitution"]
+    expect(subToken[3]).toEqual value: "~>", scopes: ["source.gfm", "markup.changed.critic.gfm.substitution", "punctuation.definition.changed.critic.gfm.substitution.operator"]
+    expect(subToken[4]).toEqual value: "by that", scopes: ["source.gfm", "markup.changed.critic.gfm.substitution"]
+    expect(subToken[5]).toEqual value: "~~}", scopes: ["source.gfm", "markup.changed.critic.gfm.substitution", "punctuation.definition.changed.critic.gfm.substitution.marker"]
