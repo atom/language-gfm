@@ -573,6 +573,23 @@
     ]
   }
   {
+    'begin': '^\\s*([`~]{3,})\\s*(?i:(properties))\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.git-config.gfm'
+    'contentName': 'source.embedded.git-config'
+    'patterns': [
+      {
+        'include': 'source.git-config'
+      }
+    ]
+  }
+  {
     'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(shellsession|console))\\s*$'
     'beginCaptures':
       '0':
