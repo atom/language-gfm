@@ -586,6 +586,8 @@
     'patterns': [
       {
         'include': 'source.java-properties'
+      }
+    ]
   }
   {
     'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(shellsession|console))\\s*$'
