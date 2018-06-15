@@ -304,6 +304,10 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(tokens[0]).toEqual value: "```r  ", scopes: ["source.gfm", "markup.code.r.gfm",  "support.gfm"]
     expect(ruleStack[1].contentScopeName).toBe "source.embedded.r"
 
+    {tokens, ruleStack} = grammar.tokenizeLine("```properties  ")
+    expect(tokens[0]).toEqual value: "```properties  ", scopes: ["source.gfm", "markup.code.git-config.gfm",  "support.gfm"]
+    expect(ruleStack[1].contentScopeName).toBe "source.embedded.git-config"
+
   it "tokenizes a Rmarkdown ``` code block", ->
     {tokens, ruleStack} = grammar.tokenizeLine("```{r}")
     expect(tokens[0]).toEqual value: "```{r}", scopes: ["source.gfm", "markup.code.r.gfm", "support.gfm"]
@@ -339,6 +343,10 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(tokens[0]).toEqual value: "~~~js  ", scopes: ["source.gfm", "markup.code.js.gfm",  "support.gfm"]
     expect(ruleStack[1].contentScopeName).toBe "source.embedded.js"
 
+    {tokens, ruleStack} = grammar.tokenizeLine("~~~properties  ")
+    expect(tokens[0]).toEqual value: "~~~properties  ", scopes: ["source.gfm", "markup.code.git-config.gfm", "support.gfm"]
+    expect(ruleStack[1].contentScopeName).toBe "source.embedded.git-config"
+
   it "tokenizes a ``` code block with a language and trailing whitespace", ->
     {tokens, ruleStack} = grammar.tokenizeLine("```  bash")
     {tokens} = grammar.tokenizeLine("```  ", ruleStack)
@@ -360,6 +368,11 @@ describe "GitHub Flavored Markdown grammar", ->
     {tokens} = grammar.tokenizeLine("~~~  ", ruleStack)
     expect(tokens[0]).toEqual value: "~~~  ", scopes: ["source.gfm", "markup.code.js.gfm", "support.gfm"]
     expect(ruleStack[1].contentScopeName).toBe "source.embedded.js"
+
+    {tokens, ruleStack} = grammar.tokenizeLine("~~~ properties  ")
+    {tokens} = grammar.tokenizeLine("~~~  ", ruleStack)
+    expect(tokens[0]).toEqual value: "~~~  ", scopes: ["source.gfm", "markup.code.git-config.gfm", "support.gfm"]
+    expect(ruleStack[1].contentScopeName).toBe "source.embedded.git-config"
 
   it "tokenizes inline `code` blocks", ->
     {tokens} = grammar.tokenizeLine("`this` is `code`")
