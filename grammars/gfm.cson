@@ -581,11 +581,11 @@
     'endCaptures':
       '0':
         'name': 'support.gfm'
-    'name': 'markup.code.java-properties.gfm'
-    'contentName': 'source.embedded.java-properties'
+    'name': 'markup.code.git-config.gfm'
+    'contentName': 'source.embedded.git-config'
     'patterns': [
       {
-        'include': 'source.java-properties'
+        'include': 'source.git-config'
       }
     ]
   }
