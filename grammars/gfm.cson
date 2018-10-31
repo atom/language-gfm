@@ -471,6 +471,23 @@
     ]
   }
   {
+    'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(kotlin))\\s*$'
+    'beginCaptures':
+      '0':
+        'name': 'support.gfm'
+    'end': '^\\s*\\1((?<=`)`+|(?<=~)~+)?\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'support.gfm'
+    'name': 'markup.code.kotlin.gfm'
+    'contentName': 'source.embedded.kotlin'
+    'patterns': [
+      {
+        'include': 'source.kotlin'
+      }
+    ]
+  }
+  {
     'begin': '^\\s*(`{3,}|~{3,})\\s*(?i:(scala|sbt))\\s*$'
     'beginCaptures':
       '0':
