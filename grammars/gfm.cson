@@ -1339,4 +1339,10 @@
       }
     ]
   }
+  {
+    'include': 'text.html.basic'
+  }
+  {
+    'include': 'text.html.liquid'
+  }
 ]
