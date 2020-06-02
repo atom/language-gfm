@@ -133,9 +133,9 @@ describe "GitHub Flavored Markdown grammar", ->
 
     {tokens} = grammar.tokenizeLine("this is _italic_ text")
     expect(tokens[0]).toEqual value: "this is ", scopes: ["source.gfm"]
-    expect(tokens[1]).toEqual value: "_", scopes: ["source.gfm", "markup.italic.gfm"]
+    expect(tokens[1]).toEqual value: "_", scopes: [ 'source.gfm', 'markup.italic.gfm', 'punctuation.definition.entity.gfm' ]
     expect(tokens[2]).toEqual value: "italic", scopes: ["source.gfm", "markup.italic.gfm"]
-    expect(tokens[3]).toEqual value: "_", scopes: ["source.gfm", "markup.italic.gfm"]
+    expect(tokens[3]).toEqual value: "_", scopes: [ 'source.gfm', 'markup.italic.gfm', 'punctuation.definition.entity.gfm' ]
     expect(tokens[4]).toEqual value: " text", scopes: ["source.gfm"]
 
     {tokens} = grammar.tokenizeLine("not_italic_")
@@ -144,13 +144,9 @@ describe "GitHub Flavored Markdown grammar", ->
     {tokens} = grammar.tokenizeLine("not x^{a}_m y^{b}_n italic")
     expect(tokens[0]).toEqual value: "not x^{a}_m y^{b}_n italic", scopes: ["source.gfm"]
 
-    [firstLineTokens, secondLineTokens] = grammar.tokenizeLines("this is _ita\nlic_!")
-    expect(firstLineTokens[0]).toEqual value: "this is ", scopes: ["source.gfm"]
-    expect(firstLineTokens[1]).toEqual value: "_", scopes: ["source.gfm", "markup.italic.gfm"]
-    expect(firstLineTokens[2]).toEqual value: "ita", scopes: ["source.gfm", "markup.italic.gfm"]
-    expect(secondLineTokens[0]).toEqual value: "lic", scopes: ["source.gfm", "markup.italic.gfm"]
-    expect(secondLineTokens[1]).toEqual value: "_", scopes: ["source.gfm", "markup.italic.gfm"]
-    expect(secondLineTokens[2]).toEqual value: "!", scopes: ["source.gfm"]
+    [firstLineTokens, secondLineTokens] = grammar.tokenizeLines("this is _not\nitalic_!")
+    expect(firstLineTokens[0]).toEqual value: "this is _not", scopes: ["source.gfm"]
+    expect(secondLineTokens[0]).toEqual value: "italic_!", scopes: ["source.gfm"]
 
   it "tokenizes ~~strike~~ text", ->
     {tokens} = grammar.tokenizeLine("~~strike~~")
