@@ -718,7 +718,7 @@ describe "GitHub Flavored Markdown grammar", ->
 
   it "tokenizes HTML entities in **bold** text", ->
     {tokens} = grammar.tokenizeLine("**&trade; &#8482; &#xb3;**")
-    expect(tokens[0]).toEqual value: "**", scopes: ["source.gfm", "markup.bold.gfm"]
+    expect(tokens[0]).toEqual value: "**", scopes: ["source.gfm", "markup.bold.gfm", "punctuation.definition.entity.gfm"]
     expect(tokens[1]).toEqual value: "&", scopes: ["source.gfm", "markup.bold.gfm", "constant.character.entity.gfm", "punctuation.definition.entity.gfm"]
     expect(tokens[2]).toEqual value: "trade", scopes: ["source.gfm", "markup.bold.gfm", "constant.character.entity.gfm"]
     expect(tokens[3]).toEqual value: ";", scopes: ["source.gfm", "markup.bold.gfm", "constant.character.entity.gfm", "punctuation.definition.entity.gfm"]
@@ -730,10 +730,10 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(tokens[9]).toEqual value: "&", scopes: ["source.gfm", "markup.bold.gfm", "constant.character.entity.gfm", "punctuation.definition.entity.gfm"]
     expect(tokens[10]).toEqual value: "#xb3", scopes: ["source.gfm", "markup.bold.gfm", "constant.character.entity.gfm"]
     expect(tokens[11]).toEqual value: ";", scopes: ["source.gfm", "markup.bold.gfm", "constant.character.entity.gfm", "punctuation.definition.entity.gfm"]
-    expect(tokens[12]).toEqual value: "**", scopes: ["source.gfm", "markup.bold.gfm"]
+    expect(tokens[12]).toEqual value: "**", scopes: ["source.gfm", "markup.bold.gfm", "punctuation.definition.entity.gfm"]
 
     {tokens} = grammar.tokenizeLine("__&trade; &#8482; &#xb3;__")
-    expect(tokens[0]).toEqual value: "__", scopes: ["source.gfm", "markup.bold.gfm"]
+    expect(tokens[0]).toEqual value: "__", scopes: ["source.gfm", "markup.bold.gfm", "punctuation.definition.entity.gfm"]
     expect(tokens[1]).toEqual value: "&", scopes: ["source.gfm", "markup.bold.gfm", "constant.character.entity.gfm", "punctuation.definition.entity.gfm"]
     expect(tokens[2]).toEqual value: "trade", scopes: ["source.gfm", "markup.bold.gfm", "constant.character.entity.gfm"]
     expect(tokens[3]).toEqual value: ";", scopes: ["source.gfm", "markup.bold.gfm", "constant.character.entity.gfm", "punctuation.definition.entity.gfm"]
@@ -745,7 +745,7 @@ describe "GitHub Flavored Markdown grammar", ->
     expect(tokens[9]).toEqual value: "&", scopes: ["source.gfm", "markup.bold.gfm", "constant.character.entity.gfm", "punctuation.definition.entity.gfm"]
     expect(tokens[10]).toEqual value: "#xb3", scopes: ["source.gfm", "markup.bold.gfm", "constant.character.entity.gfm"]
     expect(tokens[11]).toEqual value: ";", scopes: ["source.gfm", "markup.bold.gfm", "constant.character.entity.gfm", "punctuation.definition.entity.gfm"]
-    expect(tokens[12]).toEqual value: "__", scopes: ["source.gfm", "markup.bold.gfm"]
+    expect(tokens[12]).toEqual value: "__", scopes: ["source.gfm", "markup.bold.gfm", "punctuation.definition.entity.gfm"]
 
   it "tokenizes HTML entities in ***bold italic*** text", ->
     {tokens} = grammar.tokenizeLine("***&trade; &#8482; &#xb3;***")
