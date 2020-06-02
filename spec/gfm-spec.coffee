@@ -71,20 +71,19 @@ describe "GitHub Flavored Markdown grammar", ->
 
   it "tokenizes **bold** text", ->
     {tokens} = grammar.tokenizeLine("**bold**")
-    expect(tokens[0]).toEqual value: "**", scopes: ["source.gfm", "markup.bold.gfm"]
+    expect(tokens[0]).toEqual value: "**", scopes: ["source.gfm", "markup.bold.gfm", "punctuation.definition.entity.gfm"]
     expect(tokens[1]).toEqual value: "bold", scopes: ["source.gfm", "markup.bold.gfm"]
-    expect(tokens[2]).toEqual value: "**", scopes: ["source.gfm", "markup.bold.gfm"]
+    expect(tokens[2]).toEqual value: "**", scopes: ["source.gfm", "markup.bold.gfm", "punctuation.definition.entity.gfm"]
 
-    [firstLineTokens, secondLineTokens] = grammar.tokenizeLines("this is **bo\nld**!")
-    expect(firstLineTokens[0]).toEqual value: "this is ", scopes: ["source.gfm"]
-    expect(firstLineTokens[1]).toEqual value: "**", scopes: ["source.gfm", "markup.bold.gfm"]
-    expect(firstLineTokens[2]).toEqual value: "bo", scopes: ["source.gfm", "markup.bold.gfm"]
-    expect(secondLineTokens[0]).toEqual value: "ld", scopes: ["source.gfm", "markup.bold.gfm"]
-    expect(secondLineTokens[1]).toEqual value: "**", scopes: ["source.gfm", "markup.bold.gfm"]
-    expect(secondLineTokens[2]).toEqual value: "!", scopes: ["source.gfm"]
+    [firstLineTokens, secondLineTokens] = grammar.tokenizeLines("this is **not\nbold**!")
+    expect(firstLineTokens[0]).toEqual value: "this is **not", scopes: ["source.gfm"]
+    expect(secondLineTokens[0]).toEqual value: "bold**!", scopes: ["source.gfm"]
 
     {tokens} = grammar.tokenizeLine("not**bold**")
-    expect(tokens[0]).toEqual value: "not**bold**", scopes: ["source.gfm"]
+    expect(tokens[0]).toEqual value: "not", scopes: ["source.gfm"]
+    expect(tokens[1]).toEqual value: "**", scopes: ["source.gfm", "markup.bold.gfm", "punctuation.definition.entity.gfm"]
+    expect(tokens[2]).toEqual value: "bold", scopes: ["source.gfm", "markup.bold.gfm"]
+    expect(tokens[3]).toEqual value: "**", scopes: ["source.gfm", "markup.bold.gfm", "punctuation.definition.entity.gfm"]
 
   it "tokenizes __bold__ text", ->
     {tokens} = grammar.tokenizeLine("____")
