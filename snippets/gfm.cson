@@ -40,3 +40,50 @@
       | :------------- | :------------- |
       | ${3:Item One      } | ${4:Item Two      } |$0
     """
+
+  # raw HTML snippets
+  'Description':
+    'prefix': 'dd'
+    'body': '<dd>$1</dd>$0'
+  'Div':
+    'prefix': 'div'
+    'body': '<div class="$1">\n\t$2\n</div>'
+  'Description List':
+    'prefix': 'dl'
+    'body': '<dl${1: class="$2"}>\n\t$3\n</dl>'
+  'Definition Term':
+    'prefix': 'dt'
+    'body': '<dt>$1</dt>$0'
+  'Inserted Text':
+    'prefix': 'ins'
+    'body': '<ins>$1</ins>$0'
+  'Keyboard Input':
+    'prefix': 'kbd'
+    'body': '<kbd>$1</kbd>$0'
+  'Quote':
+    'prefix': 'q'
+    'body': '<q${1: cite="$2"}>$3</q>$0'
+  'Ruby Parenthesis':
+    'prefix': 'rp'
+    'body': '<rp>$1</rp>$0'
+  'Ruby Pronunciation':
+    'prefix': 'rt'
+    'body': '<rt>$1</rt>$0'
+  'Ruby Annotation':
+    'prefix': 'ruby'
+    'body': '<ruby>$1</ruby>$0'
+  'Strikethrough':
+    'prefix': 's'
+    'body': '<s>$1</s>$0'
+  'Sample Output':
+    'prefix': 'samp'
+    'body': '<samp>$1</samp>$0'
+  'Subscript':
+    'prefix': 'sub'
+    'body': '<sub>$1</sub>$0'
+  'Superscript':
+    'prefix': 'sup'
+    'body': '<sup>$1</sup>$0'
+  'Variable':
+    'prefix': 'var'
+    'body': '<var>$1</var>$0'
